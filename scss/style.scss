@@ -1,0 +1,66 @@
+$bodyFont: 'Lato', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif sans-serif;
+$headerFont: 'Open Sans', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif sans-serif;
+
+$color-white: #fff;
+
+
+$color-main: #005696;
+$color-alt: #d53525;
+
+$body-bg: $color-white;
+
+$body-font-color: $color-main;
+$body-font-family: $bodyFont;
+$body-font-weight: 400;
+$article-spacing: 40px;
+
+$footerHeight: 100px;
+$footerPush: -100px;
+
+@import "simplegrid/settings";
+
+
+//sticky footer
+//body
+//  .site
+//      .push
+/*//  .main-footer
+div.site{
+	margin: 0 auto;
+}
+
+div.bottom-push{
+	display: none;
+}
+
+.main-footer {
+	height: $footerHeight;
+}*/
+
+div.site{
+	min-height: 100%;
+	position:   relative;
+	height:     auto !important;
+	height:     100%;
+	margin:     0 auto $footerPush;
+}
+
+body > .site > .bottom-push{
+	height: $footerHeight;
+}
+
+.main-footer{
+	min-height: $footerHeight;
+	position:   relative;
+	z-index:    1000;
+}
+
+a{
+	color: $color-main;
+	@include transition(color);
+	&:hover{
+		color: darken($color-main, 20%);
+	}
+}
+
+@import '_sidr.light','header','footer','page';
