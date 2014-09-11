@@ -1,0 +1,136 @@
+$heightHeader: 80px;
+$heightHeaderOffset: -80px;
+
+.main-header{
+	position:    relative;
+	height:      $heightHeader;
+	line-height: $heightHeader;
+	background:  rgba($color-white, .7);
+	z-index:     200;
+	//@include box-shadow(0, 0, 10px, rgba($color-black, .8));
+	.logo-header{
+		margin:     0;
+		padding:    0;
+		max-height: $heightHeader;
+		display:    block;
+		img{
+			max-height: $heightHeader;
+			display:    block;
+		}
+	}
+}
+
+ul.header-nav{
+	height:      $heightHeader;
+	line-height: $heightHeader;
+	list-style:  none;
+	z-index:     10;
+	width:       100%;
+	text-align:  right;
+	margin:      0;
+	padding:     0;
+	> li{
+		text-align:  right;
+		margin-left: 30px !important;
+	}
+	> li > a{
+		margin:      0;
+		border:      0px none;
+		outline:     none;
+		background:  transparent;
+		line-height: $heightHeader;
+		color:       $color-main;
+		&:hover{
+			color: darkenColor($color-main);
+		}
+	}
+	a{
+		color:       $color-main;
+		font-weight:    700;
+		display:        block;
+		text-transform: uppercase;
+		@include transition(all, 0.2s, ease);
+		&:hover{
+			color: darkenColor($color-main);
+		}
+	}
+	.current-menu-item > a{
+		color: darkenColor($color-main, 10%);
+	}
+	li{
+		@include transition(all, 0.2s, ease);
+		position:   relative;
+		display:    inline-block;
+		margin:     0;
+		border:     0px none;
+		list-style: none;
+		&:hover > ul{
+			display:    block;
+			opacity:    1;
+			visibility: visible;
+		}
+
+		ul{
+			$subLinkPadding: 10px;
+			text-align:         left;
+			padding:            0;
+			margin:             0;
+			position:           absolute;
+			top:                $heightHeader;
+			left:               - ($subLinkPadding);
+			width:              175px;
+			-webkit-box-shadow: none;
+			-moz-box-shadow:    none;
+			box-shadow:         none;
+			display:            none;
+			opacity:            0;
+			visibility:         hidden;
+			@include transition(opacity, 0.2s, ease);
+			> li:hover > a{
+				background: $color-white;
+				color:      $color-main;
+			}
+			li{
+				display: block;
+				color:   $color-main;
+				a{
+					line-height:    16px;
+					padding-top:    10px;
+					padding-bottom: 10px;
+					padding-left:   $subLinkPadding;
+					padding-right:  $subLinkPadding;
+					background:     $color-white;
+					color:          $color-main;
+				}
+				ul{
+					left: 175px;
+					top:  0;
+					> li:hover a,
+					a:hover{
+						background: $color-white;
+						color:      $color-main;
+					}
+				}
+			}
+		}
+	}
+}
+
+@include mediaQuery($large-up){
+	.wrapper.main-header{
+		background: rgba($color-white, 1);
+	}
+	#site-wrapper{
+		padding-top: 0px;
+	}
+}
+
+#btn-mobile-nav{
+	@include image-replace(80px, 50px);
+	display: block;
+	&.active{
+		.top{
+			opacity: 0;
+		}
+	}
+}

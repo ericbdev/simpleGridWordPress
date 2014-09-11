@@ -26,22 +26,22 @@ $base-font-size: 16px !default;
 	transition:         $transition-property $transition-time $method;
 }
 
-@mixin box-shadow($top: 0, $left: 0, $blur: 0, $color: $colorBlack, $inset: false, $no-shadow: false) {
+@mixin box-shadow($h-shadow: 0, $v-shadow: 0, $blur: 0, $color: $colorBlack, $spread: 0, $inset: false, $no-shadow: false) {
 	@if $no-shadow{
 		-webkit-box-shadow: none;
 		-moz-box-shadow:    none;
 		-ms-box-shadow:     none;
 		box-shadow:         none;
 	} @else if $inset{
-		-webkit-box-shadow: inset $top $left $blur $color;
-		-moz-box-shadow:    inset $top $left $blur $color;
-		-ms-box-shadow:     inset $top $left $blur $color;
-		box-shadow:         inset $top $left $blur $color;
+		-webkit-box-shadow:  $h-shadow $v-shadow $blur $spread $color inset;
+		-moz-box-shadow:     $h-shadow $v-shadow $blur $spread $color inset;
+		-ms-box-shadow:      $h-shadow $v-shadow $blur $spread $color inset;
+		box-shadow:          $h-shadow $v-shadow $blur $spread $color inset;
 	} @else{
-		-webkit-box-shadow: $top $left $blur $color;
-		-moz-box-shadow:    $top $left $blur $color;
-		-ms-box-shadow:     $top $left $blur $color;
-		box-shadow:         $top $left $blur $color;
+		-webkit-box-shadow: $h-shadow $v-shadow $blur $spread $color;
+		-moz-box-shadow:    $h-shadow $v-shadow $blur $spread $color;
+		-ms-box-shadow:     $h-shadow $v-shadow $blur $spread $color;
+		box-shadow:         $h-shadow $v-shadow $blur $spread $color;
 	}
 }
 
