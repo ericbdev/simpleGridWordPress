@@ -4,8 +4,8 @@
 //
 // #########
 //
-// ericbdev has added in normalize.css, written by Nicolas Gallagher and Jonothan Neal
-// #    https://github.com/necolas/normalize.css
+// ericbdev has made modifications to all files
+//
 
 
 
@@ -288,38 +288,38 @@ $position: false) {
 		@if $is-static{
 			@include grid-html-classes($size: column, $static: $is-static-pixels);
 		}@else{
-		@for $i from 0 through $total-columns - 1 {
-			@if $include-grid-push {
-				.push-#{$i} {
-					@include grid-column($push: $i, $collapse: null, $float: false);
+			@for $i from 0 through $total-columns - 1 {
+				@if $include-grid-push {
+					.push-#{$i} {
+						@include grid-column($push: $i, $collapse: null, $float: false);
+					}
+				}
+				@if $include-grid-pull {
+					.pull-#{$i} {
+						@include grid-column($pull: $i, $collapse: null, $float: false);
+					}
 				}
 			}
-			@if $include-grid-pull {
-				.pull-#{$i} {
-					@include grid-column($pull: $i, $collapse: null, $float: false);
-				}
+
+			@media #{$small-up} {
+				@include grid-html-classes($size: small);
+			}
+
+			@media #{$medium-up} {
+				@include grid-html-classes($size: medium);
+			}
+			@media #{$large-up} {
+				@include grid-html-classes($size: large);
+
 			}
 		}
-
-		@media #{$small-up} {
-			@include grid-html-classes($size: small);
+		@if $include-xl-html-grid-classes {
+			@media #{$xlarge-up} {
+				@include grid-html-classes($size: xlarge);
+			}
+			@media #{$xxlarge-up} {
+				@include grid-html-classes($size: xxlarge);
+			}
 		}
-
-		@media #{$medium-up} {
-			@include grid-html-classes($size: medium);
-		}
-		@media #{$large-up} {
-			@include grid-html-classes($size: large);
-
-		}
-	}
-	@if $include-xl-html-grid-classes {
-		@media #{$xlarge-up} {
-			@include grid-html-classes($size: xlarge);
-		}
-		@media #{$xxlarge-up} {
-			@include grid-html-classes($size: xxlarge);
-		}
-	}
 	}
 }
