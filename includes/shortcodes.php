@@ -44,7 +44,7 @@ extract(shortcode_atts(array('domain' => '', 'email' => '', 'text' => '', 'class
 	$addClass .= ($class !== '' ? ' '.$class : '' );
 
 
-return "<a class='js-replacer-text$addClass' href='#' $returnValue>"._x('Please enable JavaScript', 'Titles', 'Stack8' )."</a>";
+return "<a class='js-replacer-text$addClass' href='#' $returnValue>"._x('Please enable JavaScript', 'Titles', themeDomain() )."</a>";
 }
 add_shortcode('email', 'emailCode');
 

@@ -4,14 +4,14 @@
 
 
 $microcopy = array(
-    'upload'      => _x('Choose a file', 'Contact Forms', 'Stack8'),
+    'upload'      => _x('Choose a file', 'Contact Forms', themeDomain()),
     'requiredmsg' => 'This field is required',
 
 
 );
 $sendInfo = array(
-	'send_button' => _x('Submit', 'Contact Form', 'Stack8'),
-	"message"     => _x('Contact request from Stack8', 'Contact Form', 'Stack8'),
+	'send_button' => _x('Submit', 'Contact Form', themeDomain()),
+	"message"     => _x('Contact request from Stack8', 'Contact Form', themeDomain()),
 	//"emailto"     => 'consulting@Stack8.ca',
 	"emailto"     => 'info@Stack8.ca',
 	"emailfrom"     => 'info@Stack8.ca'
@@ -35,29 +35,29 @@ $sendInfo = array(
 //"req_message" => "Please enter a valid e-mail"
 $footerArgs = array(
     //(ICL_LANGUAGE_CODE == 'fr' ? '' : '')
-    _x('Name', 'Contact Form', 'Stack8') => array(
+    _x('Name', 'Contact Form', themeDomain()) => array(
 	    "type"         => "text",
 	    "haslabel"     => TRUE,
 	    "hidelabelbox" => FALSE,
 	    "required"     => TRUE,
 	    'name'         => 'footer_full_name',
-	    "req_message"  => _x('Please enter your full name', 'Contact Form', 'Stack8'),
+	    "req_message"  => _x('Please enter your full name', 'Contact Form', themeDomain()),
     ),
-    _x('Email', 'Contact Form', 'Stack8') => array(
+    _x('Email', 'Contact Form', themeDomain()) => array(
 	    "type"         => "text",
 	    'extratype'    => 'email',
 	    "required"     => true, /* defaults to false */
-	    "req_message"  => _x('Please enter a valid e-mail address', 'Contact Form', 'Stack8'),
+	    "req_message"  => _x('Please enter a valid e-mail address', 'Contact Form', themeDomain()),
 	    "haslabel"     => TRUE,
 	    "hidelabelbox" => FALSE,
 	    'name'         => 'footer_email'
     ),
-    _x('Message', 'Contact Form', 'Stack8') => array(
+    _x('Message', 'Contact Form', themeDomain()) => array(
 	    "type"         => "textarea",
 	    "haslabel"     => TRUE,
 	    "hidelabelbox" => FALSE,
 	    "required"     => true,
-	    "req_message"  => _x('Please enter a message', 'Contact Form', 'Stack8'),
+	    "req_message"  => _x('Please enter a message', 'Contact Form', themeDomain()),
 	    'name'         => 'footer_message',
     ),
 
@@ -69,7 +69,7 @@ if (isset($_REQUEST['submit-form']) && isset($_REQUEST['form_footer_full_name'])
 
 if (isset($_POST['emailsent']) && $_POST['emailsent'] == TRUE && isset($_REQUEST['form_footer_full_name'])) {
     ?>
-	<p><?php _ex('Thank you for your contact request, we will reply as soon as possible', 'Contact Form', 'Stack8');?></p>
+	<p><?php _ex('Thank you for your contact request, we will reply as soon as possible', 'Contact Form', themeDomain());?></p>
 <?php
 } else {
     ?>

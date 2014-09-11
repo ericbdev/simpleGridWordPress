@@ -2,16 +2,16 @@
 function customPostTypes() {
 	/*register_post_type('type-story', array(
 		'labels'             => array(
-			'name'          =>  _x( 'Success Stories', 'Titles', 'Stack8' ),
-			'singular_name' => _x( 'Success Story', 'Titles', 'Stack8' ),
-			'menu_name'     => _x( 'Success Stories', 'Titles', 'Stack8' ),
+			'name'          =>  _x( 'Success Stories', 'Titles', themeDomain() ),
+			'singular_name' => _x( 'Success Story', 'Titles', themeDomain() ),
+			'menu_name'     => _x( 'Success Stories', 'Titles', themeDomain() ),
 		),
 		'public'             => false,
 		'publicly_queryable' => true,
 		'show_ui'            => true,
 		'show_in_menu'       => true,
 		'query_var'          => true,
-		'rewrite'             => array('slug' => _x('success-stories', 'URL Slug', 'Stack8'), 'with_front' => false, 'page' => false),
+		'rewrite'             => array('slug' => _x('success-stories', 'URL Slug', themeDomain()), 'with_front' => false, 'page' => false),
 		'capability_type'    => 'page',
 		'has_archive'        => true,
 		'hierarchical'       => false,
@@ -21,7 +21,7 @@ function customPostTypes() {
 	));*/
 
 	$catArgs = 		array(
-		'label'                 => __('Category', 'Stack8'),
+		'label'                 => __('Category', themeDomain()),
 
 		'sort'                  => true,
 		'show_ui'               => true,

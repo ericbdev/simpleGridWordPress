@@ -604,7 +604,7 @@ function ds_form($formargs, $validation, $meta, $microcopy)
 
             $.validator.addMethod("postal_code", function (value, element) {
                 return this.optional(element) || /\d{5}-\d{4}$|^\d{5}$|^[a-zA-Z][0-9][a-zA-Z](| )?[0-9][a-zA-Z][0-9]$/.test(value);
-            }, "<?php _ex("Please enter a valid postal code.", 'Forms', 'Stack8');?>");
+            }, "<?php _ex("Please enter a valid postal code.", 'Forms', themeDomain());?>");
 
             <?php
             /* Start jQuery Validation */
