@@ -270,6 +270,16 @@ function my_strftime ($format, $timestamp){
 
 }
 
+function my_search_form( $form ) {
+	$form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
+				<input type="text" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder' ) . '" value="' . get_search_query() . '" name="s" title="' . esc_attr_x( 'Search for:', 'label' ) . '" />
+				<input type="submit" class="search-submit" value="'. esc_attr_x( 'Search', 'submit button' ) .'" />
+			</form>';
+
+	return $form;
+}
+add_filter( 'get_search_form', 'my_search_form' );
+
 function get_articles_side_bar($taxonomyUl){
 	?>
 	<div class="columns large-3 show-for-large-up article-sidebar">
