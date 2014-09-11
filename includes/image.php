@@ -35,6 +35,7 @@ class image {
 	 * @return bool | array
 	 */
 	public function get_image($thumbID, $size = 'full') {
+		//todo: return this as non assosiative array
 		$imageSizes = array();
 		if(!is_array($size)){
 			$imageSizes[] = $size;
@@ -50,9 +51,10 @@ class image {
 			$imageAttr['title']       = apply_filters('the_title', $thumbOBJ->post_title);
 			$imageAttr['alt_text']         = get_post_meta($thumbOBJ->ID, '_wp_attachment_image_alt', true);
 			$imageAttr['alt']         = ($imageAttr['alt_text'] == '' ? $imageAttr['title'] : $imageAttr['alt_text']);
+			$imageAttr['image'] = array();
 
 			foreach ($imageSizes as $newSize) {
-				$imageAttr['image'][$newSize] = wp_get_attachment_image_src($thumbOBJ->ID, $newSize); // returns an array
+				$imageAttr['image'][] = wp_get_attachment_image_src($thumbOBJ->ID, $newSize); // returns an array
 			}
 			return $imageAttr;
 

@@ -1,12 +1,12 @@
 <!doctype html>
 <!--[if lt IE 7 ]>
-<html class="ie ie6 no-js" lang="<?=get_lang_active();?>"> <![endif]-->
+<html class="ie ie6 no-js" lang="<?php echo get_lang_active();?>"> <![endif]-->
 <!--[if IE 7 ]>
-<html class="ie ie7 no-js" lang="<?=get_lang_active();?>"> <![endif]-->
+<html class="ie ie7 no-js" lang="<?php echo get_lang_active();?>"> <![endif]-->
 <!--[if IE 8 ]>
-<html class="ie ie8 no-js" lang="<?=get_lang_active();?>"> <![endif]-->
+<html class="ie ie8 no-js" lang="<?php echo get_lang_active();?>"> <![endif]-->
 <!--[if IE 9 ]>
-<html class="ie ie9 no-js" lang="<?=get_lang_active();?>"> <![endif]-->
+<html class="ie ie9 no-js" lang="<?php echo get_lang_active();?>"> <![endif]-->
 <!--[if gt IE 9]><!-->
 <html class="no-js" lang="<?= get_lang_active(); ?>"><!--<![endif]-->
 <!-- the "no-js" class is for Modernizr. -->
@@ -35,7 +35,26 @@
 <section class="wrapper main-header">
 	<div class="show-for-large-up row">
 		<nav class="columns small-12 main-menu ">
-
+			<ul class="header-nav">
+				<?php
+				$defaults = array(
+					'theme_location' => 'header-menu-desktop',
+					'container'      => false,
+					//'container_id'    => 'side-nav',
+					//'menu_class'     => 'menu',
+					//'menu_id'         => 'header-menu',
+					'echo'           => true,
+					'fallback_cb'    => 'wp_page_menu',
+					'before'         => '',
+					'after'          => '',
+					'link_before'    => '',
+					'link_after'     => '',
+					'items_wrap'     => '%3$s',
+					'walker'        => new navWalker
+				);
+				wp_nav_menu($defaults);
+				?>
+			</ul>
 		</nav>
 	</div>
 	<div class="hide-for-large-up">
@@ -57,3 +76,30 @@
 		</div>
 	</div>
 </section>
+<div id="mobile-nav" class="">
+	<nav class="mobile-nav">
+		<ul class="mobile-menu">
+			<?php
+			wp_nav_menu($defaults);
+			?>
+		</ul>
+	</nav>
+</div>
+
+<script type="text/javascript">
+	var menuButtonName = $('#btn-mobile-nav');
+	menuButtonName.sidr({
+		name: 'mobile-nav',
+		source: '#mobile-nav',
+		renaming : false,
+		displace: true,
+		onOpen: function(){
+			menuButtonName.toggleClass('inactive');
+			menuButtonName.toggleClass('active');
+		},
+		onClose: function(){
+			menuButtonName.toggleClass('active');
+			menuButtonName.toggleClass('inactive');
+		}
+	});
+</script>

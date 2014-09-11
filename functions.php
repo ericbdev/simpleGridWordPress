@@ -86,9 +86,9 @@ function get_social_links($lang = false){
 	if(!$lang) $lang = get_lang_active();
 	$links = array(
 		'twitter'  => array('title' => 'Twitter',       'link' => '#'),
-		'linkedin'  => array('title' => 'LinkedIn',     'link' => '//www.linkedin.com/company/stack8-technologies'),
-		'facebook'  => array('title' => 'Facebook',     'link' => '//www.facebook.com/Stack8'),
-		'gplus'  => array('title' => 'Google Plus',     'link' => '//plus.google.com/100139591148710008953/about'),
+		'linkedin'  => array('title' => 'LinkedIn',     'link' => '#'),
+		'facebook'  => array('title' => 'Facebook',     'link' => '#'),
+		'gplus'  => array('title' => 'Google Plus',     'link' => '#'),
 		'youtube'  => array('title' => 'YouTube',     'link' => '#'),
 
 	);
@@ -106,35 +106,5 @@ function get_id($name, $lang = false){
 			break;
 	}
 	return false;
-}
-
-
-function my_strftime ($format, $timestamp)
-{
-	$mapOrdinals = array(
-		"st" => "<sup>er</sup>",
-		"nd" => "<sup>e</sup>",
-		"th" => "<sup>e</sup>"
-	);
-
-	$format = str_replace('%O', date('S', $timestamp), $format);
-
-	return
-		str_replace (array_keys($mapOrdinals), array_values($mapOrdinals), strftime($format, $timestamp) );
-
-}
-
-
-function number_of_posts_on_archive($query){
-	if($query->is_post_type_archive('type-story') &&  $query->is_main_query()){
-		$query->set('posts_per_page', 9);
-	}
-	if($query->is_post_type_archive('type-article') &&  $query->is_main_query()){
-		$query->set('posts_per_page', 5);
-	}
-	return $query;
-}
-if(!is_admin()){
-	add_filter('pre_get_posts', 'number_of_posts_on_archive');
 }
 

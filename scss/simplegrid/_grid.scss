@@ -247,7 +247,7 @@ $position: false) {
 @include exports("grid") {
 	@if $include-html-grid-classes {
 		@if $is-static {
-			body > .wrapper{
+			body > .site-wrapper{
 				min-width: $row-width;
 			}
 		}

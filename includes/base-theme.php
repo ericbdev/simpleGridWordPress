@@ -1,15 +1,20 @@
 <?php
-remove_action('wp_head', 'wp_generator');
-foreach (array('rss2_head', 'commentsrss2_head', 'rss_head', 'rdf_header', 'atom_head', 'comments_atom_head', 'opml_head', 'app_head') as $action) {
+
+
+foreach (array('wp_head', 'rss2_head', 'commentsrss2_head', 'rss_head', 'rdf_header', 'atom_head', 'comments_atom_head', 'opml_head', 'app_head') as $action) {
 	remove_action($action, 'the_generator');
 }
-
+remove_action('wp_head', 'wp_generator');
 
 function remove_version() {
 	return '';
 }
-
 add_filter('the_generator', 'remove_version');
+
+function wphidenag() {
+	remove_action( 'admin_notices', 'update_nag', 3 );
+}
+add_action('admin_menu','wphidenag');
 
 
 function get_languages() {
@@ -88,17 +93,6 @@ function youtube_id_from_url($url) {
 	return false;
 }
 
-function get_blog_archive_url(){
-	if(function_exists('get_option')){
-		$page_for_posts = get_option('page_for_posts');
-		if($page_for_posts !== '' && $page_for_posts !== '0'){
-			return get_permalink($page_for_posts);
-		}
-	}
-	return false;
-
-}
-
 
 
 /*************************************************************************************/
@@ -126,9 +120,9 @@ add_action( 'init', 'register_my_menus' );
 function register_my_menus() {
 	register_nav_menus(
 		array(
-			//'header-menu-desktop' => __( 'Desktop Header Menu' ),
+			'header-menu-desktop' => __( 'Desktop Header Menu' ),
 			'footer-menu-desktop' => __( 'Desktop Footer Menu' ),
-			'header-menu-mobile' => __( 'Mobile Header Menu' ),
+			//'header-menu-mobile' => __( 'Mobile Header Menu' ),
 			//'footer-menu-mobile' => __( 'Mobile Footer Menu' )
 		)
 	);
@@ -147,7 +141,7 @@ class navWalker extends Walker_Nav_Menu
 	function start_el(&$output, $item, $depth, $args) {
 		global $wp_query;
 		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
-		//var_dump($item);
+
 		$class_names = $value = '';
 
 		$classes = empty( $item->classes ) ? array() : (array) $item->classes;
@@ -211,6 +205,10 @@ function set_html_content_type() {
 	return 'text/html';
 }
 
+
+
+/** Blogging / Archive **/
+
 function get_custom_except($charlength, $append = false, $pid = false) {
 	$excerpt = '';
 	if($pid){
@@ -244,8 +242,116 @@ function get_custom_except($charlength, $append = false, $pid = false) {
 	}
 }
 
-add_action('admin_menu','wphidenag');
-function wphidenag() {
-	remove_action( 'admin_notices', 'update_nag', 3 );
+
+
+function get_blog_archive_url(){
+	if(function_exists('get_option')){
+		$page_for_posts = get_option('page_for_posts');
+		if($page_for_posts !== '' && $page_for_posts !== '0'){
+			return get_permalink($page_for_posts);
+		}
+	}
+	return false;
+
+}
+
+
+function my_strftime ($format, $timestamp){
+	$mapOrdinals = array(
+		"st" => "<sup>er</sup>",
+		"nd" => "<sup>e</sup>",
+		"th" => "<sup>e</sup>"
+	);
+
+	$format = str_replace('%O', date('S', $timestamp), $format);
+
+	return
+		str_replace (array_keys($mapOrdinals), array_values($mapOrdinals), strftime($format, $timestamp) );
+
+}
+
+function get_articles_side_bar($taxonomyUl){
+	?>
+	<div class="columns large-3 show-for-large-up article-sidebar">
+		<div class="search">
+			<?php get_search_form( true ); ?>
+		</div>
+		<div class="category-display">
+			<h2><?php _ex('Categories:','Titles',themeDomain());?></h2>
+			<ul>
+				<?php
+				$archiveLink = get_blog_archive_url();
+				$archiveTitle = _x('View all','Links',themeDomain());
+				echo "<li><a href='$archiveLink'>$archiveTitle</a>";
+				echo $taxonomyUl;
+				?>
+			</ul>
+		</div>
+		<div class="recent-articles">
+			<h2><?php _ex('Recent Articles:','Titles',themeDomain());?></h2>
+			<ul>
+				<?php
+				$searchPostType = 'post';
+				$searchTax = 'category';
+
+				$args = array(
+					'post_type' => $searchPostType, // the custom post type for logos
+					'posts_per_page' => 5
+				);
+				$catQuery = new WP_Query($args);
+				$postCount = $catQuery->found_posts;
+
+				while ($catQuery->have_posts()) : $catQuery->the_post();
+					global $args;
+					global $post;
+
+					$storyCat  = wp_get_post_terms($post->ID, 'category');
+
+
+					echo "<li><a href='".get_permalink($post->ID)."'>".get_the_title($post->ID)."</a></li>";
+
+				endwhile;
+				?>
+			</ul>
+		</div>
+	</div>
+<?php
+}
+
+
+function number_of_posts_on_archive($query){
+	if($query->is_post_type_archive('type-story') &&  $query->is_main_query()){
+		$query->set('posts_per_page', 9);
+	}
+	if($query->is_post_type_archive('type-article') &&  $query->is_main_query()){
+		$query->set('posts_per_page', 5);
+	}
+	return $query;
+}
+if(!is_admin()){
+	add_filter('pre_get_posts', 'number_of_posts_on_archive');
+}
+
+
+
+function get_pagination($pageAmount, $args = array()){
+	$defaults = array(
+		'class' => '',
+		'term' => _x('Articles', 'Links', themeDomain())
+	);
+	$args = array_replace( $defaults, $args );
+	$rowClass = trim('row archive-navigation collapse '.$args['class']);
+	if ( $pageAmount > 1 ) : ?>
+		<nav class="<?php echo $rowClass?>" role="navigation">
+			<?php
+			$prevLinks = (ICL_LANGUAGE_CODE == 'fr' ? 'Suivants'.$args['term'] : 'Older '.$args['term']  );
+			$nextLinks = (ICL_LANGUAGE_CODE == 'fr' ? 'Précédents'.$args['term']   :  'Newer '.$args['term']);
+
+
+			?>
+			<div class="nav-previous columns small-5"><?php previous_posts_link( "<span class='meta-nav'>$nextLinks</span>"); ?></div>
+			<div class="nav-next columns small-5"><?php next_posts_link( "<span class='meta-nav'>$prevLinks</span>" ); ?></div>
+		</nav>
+	<?php endif;
 }
 

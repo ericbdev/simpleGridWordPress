@@ -1,0 +1,188 @@
+$color-body: $color-main !default;
+$color-body-dk-opaque: rgba($color-body, .8) !default;
+.archive-header{
+	&.articles-header{
+		padding-top:    $article-spacing;
+		padding-bottom: $article-spacing;
+		div.table-wrapper{
+			padding: 0;
+			width:   100%;
+			display: table;
+		}
+		ul.dropdown-select{
+			max-width: 100%;
+		}
+	}
+	.search-form{
+		margin-top: 20px;
+		input{
+			border: 1px solid $color-white;
+		}
+		.search-field{
+			border-right: 0px none;
+			color:        $color-white;
+			background:   transparent;
+			height:       40px;
+			line-height:  40px;
+			font-weight:  400;
+			@include placeholder(){
+				font-weight: 400;
+				color:       $color-white;
+			}
+		}
+		.search-submit{
+			border-left:     0px none;
+			height:          40px;
+			line-height:     40px;
+			background:      transparent url("../images/icon-search-white.png") 100% 50% no-repeat;
+			background-size: contain;
+			padding-left:    10px;
+			padding-right:   10px;
+		}
+	}
+	.columns > div{
+		display:        table;
+		vertical-align: middle;
+		font-weight:    600;
+		padding-top:    $article-spacing;
+		padding-bottom: $article-spacing;
+	}
+	span.title{
+		display:        table-cell;
+		vertical-align: middle;
+		font-size:      24px;
+		line-height:    100%;
+		min-height:     100%;
+		padding-right:  20px;
+		color:          $color-white
+	}
+	ul.dropdown-select{
+		vertical-align:  middle;
+		display:         table-cell;
+		list-style-type: none;
+		position:        relative;
+		padding:         0;
+		margin:          0;
+		min-width:       275px;
+		> li > a{
+			border:         1px solid $color-white;
+			display:        block;
+			padding-right:  60px;
+			padding-bottom: 10px;
+			position:       relative;
+			&:before{
+				content:         '';
+				background:      url("../images/icon-arrow-white-bottom.png") no-repeat 50% 50%;
+				background-size: contain;
+				height:          40px;
+				width:           40px;
+				position:        absolute;
+				top:             50%;
+				margin-top:      -20px;
+				right:           5px;
+			}
+		}
+		&:hover{
+			ul{
+				display: block;
+			}
+		}
+		li{
+			position:        relative;
+			list-style-type: none;
+			a{
+				color:       $color-white;
+				font-size:   14px;
+				padding:     10px 10px;
+				font-weight: 400;
+				display:     block;
+				&:hover{
+					color: darken($color-white, 20%)
+				}
+			}
+		}
+
+		ul{
+			display:    none;
+			color:      $color-white;
+			background: $color-white;
+			padding:    0;
+			position:   absolute;
+			width:      100%;
+			border:     1px solid $color-white;
+			border-top: 0px none;
+			margin-top: -1px;
+			z-index:    99999;
+			li{
+				font-weight: 700;
+				background:  $color-body-dk-opaque;
+				@include transition();
+				&:hover{
+					background: lighten($color-body-dk-opaque, 10%);
+				}
+			}
+		}
+	}
+}
+
+.archive-navigation{
+	border-top:     1px solid $color-body;
+	padding-top:    $article-spacing;
+	padding-bottom: $article-spacing;
+	&.paginate-stories{
+		margin-top: $article-spacing;
+	}
+	.nav-previous{
+		text-align: left;
+	}
+	.nav-next{
+		text-align: right;
+	}
+	a{
+		//border:         1px solid $color-main;
+		color:          $color-main;
+		//padding:        15px;
+		padding:        0;
+		text-transform: uppercase;
+		display:        block;
+		//text-align:     center;
+		font-weight:    800;
+		line-height:    100%;
+		font:           pxEm(18px);
+		@include transition();
+		&:hover{
+			color:        $color-main;
+			border-color: $color-main;
+		}
+	}
+}
+
+.search-form{
+	input{
+		border: 1px solid $color-main;
+		width:  80%;
+		float:  left;
+		height: 40px;
+	}
+	.search-field{
+		border-right: 0px none;
+		padding:      0 5px;
+		color:        $color-body;
+	}
+	.search-submit{
+		border-left:     0px none;
+		background:      $color-white url("../images/icon-search-grey.png") 50% 50% no-repeat;
+		background-size: contain;
+		width:           20%;
+		display:         block;
+		text-indent:     -999999px;
+	}
+}
+@include mediaQuery($medium-up){
+	.archive-header{
+		.search-form{
+			margin-top: 0px;
+		}
+	}
+
+}
