@@ -39,25 +39,6 @@ function metaFields( array $meta_boxes ) {
 	);
 	$homeWhitelist = array(2);
 
-	/*$meta_boxes['all_pages'] = array(
-		'id'         => 'all_pages_extras',
-		'title'      => _x( 'Extra Fields', themeDomain() ),
-		'pages'      => array( 'page', ), // Post type
-		//'show_on' => array( 'key' => 'exclude_id', 'value' => array( 2 ) ),
-		'context'    => 'normal',
-		'priority'   => 'high',
-		'show_names' => true,
-		'fields'     => array(
-			array(
-				'name'       => _x( 'Revolution Slider Alias', 'Titles', themeDomain()),
-				'id'      => $prefix . 'rev_slider',
-				'type'    => 'select',
-				'options' => $revSlide,
-			    'default' => 'default0000'
-
-			),
-		)
-	);*/
 
 	$meta_boxes['two_columns'] = array(
 		'id'         => 'two_columns',
@@ -83,24 +64,12 @@ function metaFields( array $meta_boxes ) {
 
 		)
 	);
-	$meta_boxes['product_info'] = array(
-		'id'         => 'product_downloads',
-		'title'      => _x( 'Product Downloads', 'Titles', themeDomain() ),
-		'pages'      => array('page'), // Post type
-		'show_on' => array( 'key' => 'page-template', 'value' => array('tpl-smacs.php', 'tpl-dedic8.php', 'tpl-byosp.php') ),
-		'context'    => 'normal',
-		'priority'   => 'high',
-		'show_names' => true,
-		'fields'     => array(
-			array(
-				'name' => _x( 'Datasheet', 'Titles', themeDomain() ),
-				'id'   => $prefix.'prod_datasheet',
-				'type' => 'file',
-				'allow' => array('attachment' ) // limit to just attachments with array( 'attachment' )
-			),
-
-		)
-	);
+	/*array(
+		'name' => _x( 'Datasheet', 'Titles', themeDomain() ),
+		'id'   => $prefix.'prod_datasheet',
+		'type' => 'file',
+		'allow' => array('attachment' ) // limit to just attachments with array( 'attachment' )
+	),*/
 
 
 
@@ -143,7 +112,6 @@ function templateFilter() {
 		$template = get_post_meta($id, '_wp_page_template', true);
 
 		$dontShowEditor = array(
-			'tpl-smacs.php', 'tpl-dedic8.php', 'tpl-byosp.php','tpl-two-col.php',
 			'tpl-placeholder.php','tpl-placeholder.php'
 		);
 

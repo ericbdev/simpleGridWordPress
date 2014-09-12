@@ -64,8 +64,8 @@ function btnCode($atts, $content = null) {
 
 	$url = ($link !== '' ? $link : '#' );
 	$outbound = ($outbound == 'true' ? ' target="_blank"' : '' );
-	$extraClass = ($class !== '' ? ' ' : ' class="'.$class.' featured"' );
-	return "<a href='$url'".$outbound." class='btn featured'>".do_shortcode($content)."</a>";
+	$extraClass = ($class !== 'btn' ? ' ' : $class.' btn' );
+	return "<a href='$url'".$outbound." class='$extraClass'>".do_shortcode($content)."</a>";
 
 }
 add_shortcode('btn', 'btnCode');

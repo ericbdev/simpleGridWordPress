@@ -17,13 +17,15 @@ function wphidenag() {
 add_action('admin_menu','wphidenag');
 
 
-function get_languages() {
+function get_languages_short() {
 	if(function_exists('icl_get_languages')){
 		$languages = icl_get_languages('skip_missing=0');
 		if (1 < count($languages)) {
+			$langReturn = array();
 			foreach ($languages as $l) {
-				if (!$l['active']) echo '<a href="' . $l['url'] . '">' . $l['language_code'] . '</a>';
+				if (!$l['active']) $langReturn[] =  '<a href="' . $l['url'] . '">' . $l['language_code'] . '</a>';
 			}
+			return $langReturn;
 		}
 	}else{
 		echo '';
@@ -32,12 +34,13 @@ function get_languages() {
 
 function get_languages_long() {
 	if(function_exists('icl_get_languages')){
-	$languages = icl_get_languages('skip_missing=0');
-
+		$languages = icl_get_languages('skip_missing=0');
 		if (1 < count($languages)) {
+			$langReturn = array();
 			foreach ($languages as $l) {
-				if (!$l['active']) echo '<a href="' . $l['url'] . '">' . $l['native_name'] . '</a>';
+				if (!$l['active']) $langReturn[] =  '<a href="' . $l['url'] . '">' . $l['native_name'] . '</a>';
 			}
+			return $langReturn;
 		}
 	}else{
 		echo '';
