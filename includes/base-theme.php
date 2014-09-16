@@ -333,10 +333,10 @@ function get_articles_side_bar($taxonomyUl){
 
 
 function number_of_posts_on_archive($query){
-	if($query->is_post_type_archive('type-story') &&  $query->is_main_query()){
+	if($query->is_post_type_archive('custom-post-type-1') &&  $query->is_main_query()){
 		$query->set('posts_per_page', 9);
 	}
-	if($query->is_post_type_archive('type-article') &&  $query->is_main_query()){
+	if($query->is_post_type_archive('custom-post-type-2') &&  $query->is_main_query()){
 		$query->set('posts_per_page', 5);
 	}
 	return $query;
@@ -344,6 +344,16 @@ function number_of_posts_on_archive($query){
 if(!is_admin()){
 	add_filter('pre_get_posts', 'number_of_posts_on_archive');
 }
+
+function filter_search($query) {
+	if ($query->is_search) {
+		$query->set('post_type', array('post'));
+	};
+	return $query;
+};
+add_filter('pre_get_posts', 'filter_search');
+
+
 
 
 

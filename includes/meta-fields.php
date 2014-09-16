@@ -52,12 +52,14 @@ function metaFields( array $meta_boxes ) {
 			array(
 				'name'       => _x( 'Column One', 'Titles', themeDomain() ),
 				'id'         => $prefix . 'col_one',
+				'sanitization_cb' => false,
 				'type'       => 'wysiwyg',
 				'options' => $wysiwygOptions
 			),
 			array(
 				'name'       => _x( 'Column Two', 'Titles', themeDomain() ),
 				'id'         => $prefix . 'col_two',
+				'sanitization_cb' => false,
 				'type'       => 'wysiwyg',
 				'options' => $wysiwygOptions
 			),
@@ -115,7 +117,8 @@ function templateFilter() {
 			'tpl-placeholder.php','tpl-placeholder.php'
 		);
 
-		if(in_array($template, $dontShowEditor)){
+
+		if(in_array($template, $dontShowEditor) || in_array($id, $dontShowEditor)){
 			remove_post_type_support( 'page', 'editor' );
 		}
 
