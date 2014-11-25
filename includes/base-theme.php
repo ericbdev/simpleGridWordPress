@@ -1,5 +1,21 @@
 <?php
+require_once 'disable-feeds.php';
+require_once 'image.php';
+require_once 'meta-fields.php';
+require_once 'post-types.php';
+require_once 'shortcodes.php';
 
+function is_test(){
+	if(isset($_REQUEST['reversetest'])){
+		return false;
+	}elseif(isset($_REQUEST['prev'])){
+		return true;
+	}elseif($_SERVER['REMOTE_ADDR'] == '24.37.85.130'){
+		return true;
+	}else{
+		return false;
+	}
+}
 
 foreach (array('wp_head', 'rss2_head', 'commentsrss2_head', 'rss_head', 'rdf_header', 'atom_head', 'comments_atom_head', 'opml_head', 'app_head') as $action) {
 	remove_action($action, 'the_generator');
@@ -47,16 +63,23 @@ function get_languages_long() {
 	}
 }
 
-function get_lang_active() {
+function get_lang_active($validateAgainst = false) {
 	if(function_exists('icl_get_languages')){
 		$languages = icl_get_languages('skip_missing=0');
 		if (1 < count($languages)) {
 			foreach ($languages as $l) {
-				if ($l['active']) return $l['language_code'];
+				if ($l['active']) {
+					if(!$validateAgainst){
+						return $l['language_code'];
+					}else{
+						return ($l['language_code'] == $validateAgainst);
+					}
+				}
 			}
 		}
 	}else{
 		return 'en';
+
 	}
 }
 
@@ -346,9 +369,11 @@ if(!is_admin()){
 }
 
 function filter_search($query) {
-	if ($query->is_search) {
-		$query->set('post_type', array('post'));
-	};
+	if(!is_admin()){
+		if ($query->is_search) {
+			$query->set('post_type', array('post'));
+		};
+	}
 	return $query;
 };
 add_filter('pre_get_posts', 'filter_search');

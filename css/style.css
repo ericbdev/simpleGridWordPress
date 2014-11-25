@@ -469,6 +469,42 @@ body > .site > .bottom-push { height: 100px; }
 a { color: #005696; -webkit-transition: color 1s ease; -moz-transition: color 1s ease; -ms-transition: color 1s ease; -o-transition: color 1s ease; transition: color 1s ease; }
 a:hover { color: #001c30; }
 
+h1 { font-size: 36px; line-height: 120%; margin: 0; padding: 0; }
+h1:first-child { margin-bottom: 0.67em; }
+h1:first-child:last-child { margin-bottom: 0; }
+h1:last-child { margin-top: 0.67em; }
+h1:last-child:first-child { margin-top: 0; }
+
+h2 { font-size: 30px; line-height: 120%; margin: 0; padding: 0; }
+h2:first-child { margin-bottom: 0.83em; }
+h2:first-child:last-child { margin-bottom: 0; }
+h2:last-child { margin-top: 0.83em; }
+h2:last-child:first-child { margin-top: 0; }
+
+h3 { font-size: 24px; line-height: 120%; margin: 0; padding: 0; }
+h3:first-child { margin-bottom: 1em; }
+h3:first-child:last-child { margin-bottom: 0; }
+h3:last-child { margin-top: 1em; }
+h3:last-child:first-child { margin-top: 0; }
+
+h4 { font-size: 18px; line-height: 120%; margin: 0; padding: 0; }
+h4:first-child { margin-bottom: 1.33em; }
+h4:first-child:last-child { margin-bottom: 0; }
+h4:last-child { margin-top: 1.33em; }
+h4:last-child:first-child { margin-top: 0; }
+
+h5 { font-size: 16px; line-height: 120%; margin: 0; padding: 0; }
+h5:first-child { margin-bottom: 1.67em; }
+h5:first-child:last-child { margin-bottom: 0; }
+h5:last-child { margin-top: 1.67em; }
+h5:last-child:first-child { margin-top: 0; }
+
+h6 { font-size: 16px; line-height: 120%; margin: 0; padding: 0; }
+h6:first-child { margin-bottom: 2.23em; }
+h6:first-child:last-child { margin-bottom: 0; }
+h6:last-child { margin-top: 2.23em; }
+h6:last-child:first-child { margin-top: 0; }
+
 .sidr { display: none; position: absolute; position: fixed; top: 0; height: 100%; z-index: 999999; width: 260px; overflow-x: none; overflow-y: auto; font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif sans-serif; font-size: 15px; background: #f8f8f8; color: #005696; -webkit-box-shadow: inset 0 0 5px 5px #ebebeb; -moz-box-shadow: inset 0 0 5px 5px #ebebeb; box-shadow: inset 0 0 5px 5px #ebebeb; }
 
 .sidr .sidr-inner { padding: 0 0 15px; }

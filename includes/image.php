@@ -65,12 +65,11 @@ class image {
 
 	/**
 	 * @param string $size
-	 * @param array  $extraSizes
 	 * @return array|bool
 	 *
 	 * Returns the featured image of the post, with the ability to get it in multiple sizes as needed.
 	 */
-	public function featured_image($size = 'full', $extraSizes = array()) {
+	public function featured_image($size = 'full') {
 		if (has_post_thumbnail($this->id)) {
 			$thumbID  = get_post_thumbnail_id($this->id);
 
@@ -82,62 +81,17 @@ class image {
 		}
 	}
 
-	/**
-	 * @return bool
-	 *
-	 * Detects where there is one or more image attached to the page that has the caption $this->validate
-	 *
-	 * !! DEPRECATED !!
-	 */
-	public function has_gallery() {
-		$falseimg = 0;
-		$truimg   = 0;
-		$images   = get_posts(array(
-			'post_parent'    => $this->id,
-			'post_type'      => 'attachment',
-			'numberposts'    => -1, // show all
-			'post_status'    => null,
-			'post_mime_type' => 'image',
-			'orderby'        => 'menu_order',
-			'order'          => 'ASC',
-
-		));
-		if (empty($images)) {
-
-			return false;
-		} else {
-			foreach ($images as $image) {
-				$imgCaption = get_post_meta($image->ID, '_wp_attachment_image_alt', true);
-				if ($imgCaption != $this->validate) {
-					$falseimg++;
-				}
-				if ($imgCaption == $this->validate) {
-					$truimg++;
-				}
-			}
-			if ($truimg >= 1) {
-				return true;
-			} elseif ($truimg == 0) {
-				return false;
-			}
-			return true;
-		}
-
-	}
 
 
 	/**
 	 * @param string $size
 	 * @return array
 	 *
-	 * Finds all attached images that has caption $this->validate, and returns their information in an array.
+	 * Finds all attached images, and returns their information in an array.
 	 *
-	 * !! DEPRECATED !!
 	 */
-	public function get_gallery($size = 'full') {
+	public function get_images($size = 'full') {
 		$return    = array();
-		$imageAttr = array();
-		$return[$this->id];
 		$images = get_posts(array(
 			'post_parent'    => $this->id,
 			'post_type'      => 'attachment',
@@ -151,12 +105,10 @@ class image {
 		if ($images !== '') {
 			foreach ($images as $image) {
 				$imgCaption = get_post_meta($image->ID, '_wp_attachment_image_alt', true);
-				if ($imgCaption == $this->validate) {
-					$return[] = $this->get_image($image->ID, $size);
-				}
+				$return[] = $this->get_image($image->ID, $size);
 			};
 		}
-		return $return;
+		return (empty($return) ? false : $return);
 	}
 
 

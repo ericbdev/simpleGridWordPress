@@ -63,6 +63,32 @@ a{
 	}
 }
 
+
+h1{
+	font-size:36px;
+	@include headerMargin(.67em)
+}
+h2{
+	font-size:30px;
+	@include headerMargin(.83em);
+}
+h3{
+	font-size:24px;
+	@include headerMargin(1em);
+}
+h4{
+	font-size:18px;
+	@include headerMargin(1.33em);
+}
+h5{
+	font-size:16px;
+	@include headerMargin(1.67em);
+}
+h6{
+	font-size:16px;
+	@include headerMargin(2.23em);
+}
+
 @import '_sidr.light','header','footer','page';
 
 //Have blogging?

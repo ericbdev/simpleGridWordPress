@@ -2,12 +2,9 @@
 //update_option('siteurl','http://www.liveserver.com');
 //update_option('home','http://www.liveserver.com');
 /*********************/
-require_once 'includes/disable-feeds.php';
+
 require_once 'includes/base-theme.php';
-require_once 'includes/meta-fields.php';
-require_once 'includes/image.php';
-require_once 'includes/post-types.php';
-require_once 'includes/shortcodes.php';
+
 
 
 /**Enqueing scripts**/

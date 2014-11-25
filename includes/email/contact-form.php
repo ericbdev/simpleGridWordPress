@@ -12,12 +12,10 @@ $microcopy = array(
 $sendInfo = array(
 	'send_button' => _x('Submit', 'Contact Form', themeDomain()),
 	"message"     => _x('Contact request from Website', 'Contact Form', themeDomain()),
-	//"emailto"     => 'consulting@Stack8.ca',
-	"emailto"     => 'info@Stack8.ca',
-	"emailfrom"     => 'info@Stack8.ca'
+	"emailto"     => 'eric.bright@designshopp.com',
+	"emailfrom"     => 'eric.bright@designshopp.com'
 	//'id_from_db' => $id
 );
-
 
 //"type" => "text", 'textarea', 'checkbox', 'dropdown', 'uploadmultiple'
 //'default' => 'inside label' /* custom text to display inside content, in drop downs is the default selected text*/

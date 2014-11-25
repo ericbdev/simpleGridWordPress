@@ -69,7 +69,16 @@ var handleClick = (isMobile.any() !== null) ? "touchstart" : "click";
 //var functions = '';
 $ = jQuery;
 var functions = {
-	origHeaderOffset: 270,
+	offsetHeader: 0,
+	getWindowWidth  : function () {
+		return window.outerWidth;
+	},
+	pageScroll: function(_tag){
+		var totalScroll = $(_tag).offset().top-functions.offsetHeader;
+		setTimeout(function(){
+			$('html,body').scrollTo(totalScroll, 500 );
+		}, 100)
+	},
 	emailReplace: function(){
 		/** Use JavaScript to replace <a> with a mail link, to reduce potential spam**/
 		var varPre = "mailto:",
@@ -106,6 +115,31 @@ var functions = {
 				callback();
 			}
 		}, 100));
+	},
+	matchHeight :function(_tag){
+		var _arrHeight = [],
+			_elHeight = 0;
+
+		$(_tag).each(function () {
+			_arrHeight.push($(this).outerHeight());
+		});
+		_elHeight = Math.max.apply(Math,_arrHeight);
+
+		if(functions.getWindowWidth() > 767){
+			$(_tag).each(function () {
+				$(this).stop(false,false).animate({
+						'min-height': _elHeight+"px"
+					}, 200, false
+				);
+			});
+		}else{
+			$(_tag).each(function () {
+				$(this).stop(false,false).animate({
+						'min-height': '0px'
+					}, 200, false
+				);
+			});
+		}
 	},
 	videoResize: function(){
 		if ($(".js-video-resize:visible").length > 0) {

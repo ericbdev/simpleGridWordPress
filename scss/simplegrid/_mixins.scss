@@ -26,6 +26,24 @@ $base-font-size: 16px !default;
 	transition:         $transition-property $transition-time $method;
 }
 
+@mixin headerMargin($space){
+	line-height: 120%;
+	margin:         0;
+	padding:        0;
+	&:first-child{
+		margin-bottom: $space;
+		&:last-child{
+			margin-bottom:0;
+		}
+	}
+	&:last-child{
+		margin-top: $space;
+		&:first-child{
+			margin-top:0;
+		}
+	}
+}
+
 @mixin box-shadow($h-shadow: 0, $v-shadow: 0, $blur: 0, $color: $colorBlack, $spread: 0, $inset: false, $no-shadow: false) {
 	@if $no-shadow{
 		-webkit-box-shadow: none;
