@@ -21,7 +21,10 @@ function themeDomain(){
 }
 
 function get_the_prefix() {
-	return '_themePrefix_';
+	$return = "_";
+		$return .='themePrefix';
+	$return .= "_";
+	return $return;
 }
 
 function load_my_scripts() {
