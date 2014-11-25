@@ -1,25 +1,3 @@
-/** webLog:
- *  Use a manual method for console loggings.
- *
- *  In production, comment out contents of the method to make sure no logs appear
- *  This method will determine if text is a string, or an object, and proceed as needed.
- *
- *  Usage: webLog.log(variable)
- *
- *  **/
-var webLog = {
-    log: function (text) {
-        /** This method will determine if text is a string, or an object, and proceed as needed. **/
-        if (typeof text !== 'undefined') {
-            if (typeof value === 'object') {
-                console.log(JSON.stringify(text));
-            } else {
-                console.log(text);
-            }
-        }
-    }
-}
-
 var isMobile = {
     Android   : function () {
         return navigator.userAgent.match(/Android/i);
@@ -70,6 +48,15 @@ var handleClick = (isMobile.any() !== null) ? "touchstart" : "click";
 $ = jQuery;
 var functions = {
 	offsetHeader: 0,
+	debug: true,
+	log: function(){
+		var _args = Array.prototype.slice.call(arguments);
+		if(this.debug){
+			if (typeof console !== "undefined" || typeof console.log !== "undefined") {
+				console.log(_args);
+			}
+		}
+	},
 	getWindowWidth  : function () {
 		return window.outerWidth;
 	},
@@ -81,28 +68,29 @@ var functions = {
 	},
 	emailReplace: function(){
 		/** Use JavaScript to replace <a> with a mail link, to reduce potential spam**/
-		var varPre = "mailto:",
-			varMid = '',
-			varEnd = '',
-			varText = '';
-		if ($(".js-replacer-text").length > 0) {
-			$(".js-replacer-text").each(function () {
-				var modifyText = $(this).data('modify');
-				varEnd = $(this).data('domain');
-				varMid = $(this).data('extra');
-				varText = $(this).data('text');
-				$(this).attr('href', varPre + varMid + '@' + varEnd);
-				if(typeof modifyText == 'boolean' && modifyText != true){
+		var _varPre = "mailto:",
+			_varMid = '',
+			_varEnd = '',
+			_varText = '',
+			_selector = ".js-replacer-text";
+
+		if ($(_selector).length > 0) {
+			$(_selector).each(function(){
+				var _modifyText = $(this).data('modify');
+				_varEnd = $(this).data('domain');
+				_varMid = $(this).data('extra');
+				_varText = $(this).data('text');
+				$(this).attr('href', _varPre + _varMid + '@' + _varEnd);
+				if(typeof _modifyText == 'boolean' && _modifyText != true){
 
 
 				}else{
-					if(typeof varText !== 'undefined'){
-						$(this).text(varText);
+					if(typeof _varText !== 'undefined'){
+						$(this).text(_varText);
 					}else{
-						$(this).text(varMid + '@' + varEnd);
+						$(this).text(_varMid + '@' + _varEnd);
 					}
 				}
-
 			});
 		}
 	},
