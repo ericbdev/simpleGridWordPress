@@ -158,15 +158,21 @@ function register_my_menus() {
 
 
 
-class navWalker extends Walker_Nav_Menu
-{
+class navWalker extends Walker_Nav_Menu{
 	function end_el( &$output, $item, $depth = 0, $args = array() ) {
 		$output .= "</li>";
+	}
+	function start_lvl( &$output, $depth = 0, $args = array() ) {
+		$output .= "<ul class=\"sub-menu\">";
+	}
+	function end_lvl( &$output, $depth = 0, $args = array() ) {
+		$output .= "</ul>";
 	}
 
 	function start_el(&$output, $item, $depth, $args) {
 		global $wp_query;
-		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+		//$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+		$indent = '';
 
 		$class_names = $value = '';
 
@@ -175,7 +181,8 @@ class navWalker extends Walker_Nav_Menu
 		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item ) );
 		$class_names = ' class="' . esc_attr( $class_names ) .  'post-id-'.esc_attr( $item->object_id ).'"';
 
-		$output .= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
+		//$output .= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
+		$output .= $indent . '<li ' . $value . $class_names .'>';
 
 		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
 
@@ -191,11 +198,10 @@ class navWalker extends Walker_Nav_Menu
 			//	$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
 		}
 
-		$item_output = $args->before;
-		$item_output .= '<a'. $attributes .'>';
-		$item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+		$item_output = '<a'. $attributes .'>';
+		$item_output .= apply_filters( 'the_title', $item->title, $item->ID );
 		$item_output .= '</a>'; /* This is where I changed things. */
-		$item_output .= $args->after;
+
 
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 	}
