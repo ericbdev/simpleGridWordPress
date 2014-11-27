@@ -95,6 +95,11 @@ function get_theme_path($withSlash = false, $extraPath = '') {
 	return get_template_directory_uri() . $morePath;
 }
 
+function get_meta($id, $field){
+	$prefix = get_the_prefix();
+	return get_post_meta($id, $prefix.$field, true);
+}
+
 
 function youtube_id_from_url($url) {
 	$pattern =
