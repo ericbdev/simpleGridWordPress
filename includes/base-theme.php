@@ -182,7 +182,7 @@ class navWalker extends Walker_Nav_Menu{
 		$class_names = ' class="' . esc_attr( $class_names ) .  'post-id-'.esc_attr( $item->object_id ).'"';
 
 		//$output .= $indent . '<li id="menu-item-'. $item->ID . '"' . $value . $class_names .'>';
-		$output .= $indent . '<li ' . $value . $class_names .'>';
+		$output .= $indent . '<li' . $value . $class_names .'>';
 
 		$attributes  = ! empty( $item->attr_title ) ? ' title="'  . esc_attr( $item->attr_title ) .'"' : '';
 
