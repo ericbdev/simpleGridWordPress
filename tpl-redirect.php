@@ -6,7 +6,7 @@ $children = get_pages(array('child_of'=>$post->ID,'sort_order'=>'ASC','sort_colu
 if(!empty($children)):
 	if(isset($children[0])):
 		$permaLink = get_permalink($children[0]->ID);
-		wp_redirect($permaLink);
+		wp_redirect($permaLink, 301);
 		exit;
 	endif;
 else:
