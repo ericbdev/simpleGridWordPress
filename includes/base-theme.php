@@ -64,22 +64,16 @@ function get_languages_long() {
 }
 
 function get_lang_active($validateAgainst = false) {
-	if(function_exists('icl_get_languages')){
-		$languages = icl_get_languages('skip_missing=0');
-		if (1 < count($languages)) {
-			foreach ($languages as $l) {
-				if ($l['active']) {
-					if(!$validateAgainst){
-						return $l['language_code'];
-					}else{
-						return ($l['language_code'] == $validateAgainst);
-					}
-				}
-			}
-		}
-	}else{
-		return 'en';
+	$activeLang = 'en';
+	if(class_exists('SitePress')){
+		global $sitepress;
+		$activeLang = $sitepress->get_current_language();
+	}
 
+	if(!$validateAgainst){
+		return $activeLang;
+	}else{
+		return ($activeLang == $validateAgainst);
 	}
 }
 
