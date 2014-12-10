@@ -77,6 +77,27 @@ function get_lang_active($validateAgainst = false) {
 	}
 }
 
+function get_translated_id($id) {
+	$returnID = $id;
+	if(class_exists('SitePress')){
+		if(function_exists('icl_object_id')) {
+			$returnID = icl_object_id($id, 'page', true);
+		}
+	}
+	return $returnID;
+}
+
+function get_default_id($id) {
+	$returnID = $id;
+	if(class_exists('SitePress')){
+		if(function_exists('icl_object_id')) {
+			$returnID = icl_object_id($id, 'page', true, 'en');
+		}
+	}
+	return $returnID;
+}
+
+
 function get_theme_path($withSlash = false, $extraPath = '') {
 	$morePath = '';
 	if ($withSlash == true) {

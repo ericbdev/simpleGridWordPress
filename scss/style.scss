@@ -21,7 +21,7 @@ $body-font-weight: 400;
 $article-spacing: 40px;
 
 $footerHeight: 100px;
-$footerPush: -100px;
+$footerPush: -#{$footerHeight};
 
 @import "simplegrid/settings";
 
