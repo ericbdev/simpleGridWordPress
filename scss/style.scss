@@ -2,15 +2,21 @@ $bodyFont: 'Lato', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 $headerFont: 'Open Sans', "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
 
 $color-white: #fff;
-
-
 $color-main: #005696;
 $color-alt: #d53525;
 
-$body-bg: $color-white;
+//Font Sizes
+$font-size-header-large: 24px;
+$font-size-header-small: 14px;
+$font-size-body: 14px;
+$font-size-body-small: 12px;
 
+//Foundation Setting
+$body-bg: $color-white;
 $body-font-color: $color-main;
+$body-font: $bodyFont;
 $body-font-family: $bodyFont;
+$base-font-size: $font-size-body;
 $body-font-weight: 400;
 $article-spacing: 40px;
 
@@ -65,30 +71,34 @@ a{
 
 
 h1{
-	font-size:36px;
+	font-size: fontSize(header-large);
 	@include headerMargin(.67em)
 }
+
 h2{
-	font-size:30px;
+	font-size: fontSize(header-large);
 	@include headerMargin(.83em);
 }
+
 h3{
-	font-size:24px;
+	font-size: fontSize(header-large);
 	@include headerMargin(1em);
 }
+
 h4{
-	font-size:18px;
+	font-size: fontSize(header-large);
 	@include headerMargin(1.33em);
 }
+
 h5{
-	font-size:16px;
+	font-size: fontSize(header-large);
 	@include headerMargin(1.67em);
 }
+
 h6{
-	font-size:16px;
+	font-size: fontSize(headerLarge);
 	@include headerMargin(2.23em);
 }
-
 @import '_sidr.light','header','footer','page';
 
 //Have blogging?

@@ -1,5 +1,6 @@
-$heightHeader: 80px;
-$heightHeaderOffset: -80px;
+$heightHeader: 100px;
+$mobileHeader: $heightHeader - 20px;
+$heightHeaderOffset: -100px;
 
 .main-header{
 	position:    relative;
@@ -9,10 +10,12 @@ $heightHeaderOffset: -80px;
 	z-index:     200;
 	//@include box-shadow(0, 0, 10px, rgba($color-black, .8));
 	.logo-header{
-		margin:     0;
-		padding:    0;
-		max-height: $heightHeader;
-		display:    block;
+		margin:  0;
+		padding: 0;
+		a{
+			max-height: $heightHeader;
+			display:    block;
+		}
 		img{
 			max-height: $heightHeader;
 			display:    block;
@@ -21,31 +24,17 @@ $heightHeaderOffset: -80px;
 }
 
 ul.header-nav{
-	height:      $heightHeader;
-	line-height: $heightHeader;
-	list-style:  none;
-	z-index:     10;
-	width:       100%;
-	text-align:  right;
-	margin:      0;
-	padding:     0;
-	> li{
-		text-align:  right;
-		margin-left: 30px !important;
-	}
-	> li > a{
-		margin:      0;
-		border:      0px none;
-		outline:     none;
-		background:  transparent;
-		line-height: $heightHeader;
-		color:       $color-main;
-		&:hover{
-			color: darkenColor($color-main);
-		}
-	}
+	height:         $heightHeader;
+	line-height:    $heightHeader;
+	list-style:     none;
+	z-index:        10;
+	width:          100%;
+	text-align:     right;
+	margin:         0;
+	padding:        0;
+	vertical-align: top;
 	a{
-		color:       $color-main;
+		color:          $color-main;
 		font-weight:    700;
 		display:        block;
 		text-transform: uppercase;
@@ -54,66 +43,93 @@ ul.header-nav{
 			color: darkenColor($color-main);
 		}
 	}
-	.current-menu-item > a{
-		color: darkenColor($color-main, 10%);
-	}
 	li{
+		position:       relative;
+		display:        inline-block;
+		margin:         0;
+		border:         0px none;
+		list-style:     none;
+		vertical-align: top;
 		@include transition(all, 0.2s, ease);
-		position:   relative;
-		display:    inline-block;
-		margin:     0;
-		border:     0px none;
-		list-style: none;
 		&:hover > ul{
 			display:    block;
 			opacity:    1;
 			visibility: visible;
 		}
-
-		ul{
-			$subLinkPadding: 10px;
-			text-align:         left;
-			padding:            0;
-			margin:             0;
-			position:           absolute;
-			top:                $heightHeader;
-			left:               - ($subLinkPadding);
-			width:              175px;
-			-webkit-box-shadow: none;
-			-moz-box-shadow:    none;
-			box-shadow:         none;
-			display:            none;
-			opacity:            0;
-			visibility:         hidden;
-			@include transition(opacity, 0.2s, ease);
-			> li:hover > a{
-				background: $color-white;
-				color:      $color-main;
+	}
+	> li{
+		text-align:  right;
+		margin-left: 30px;
+		&:first-child{
+			margin-left: 0;
+		}
+		> a{
+			margin:      0;
+			border:      0px none;
+			outline:     none;
+			background:  transparent;
+			line-height: $heightHeader;
+			color:       $color-main;
+			&:hover{
+				color: darkenColor($color-main);
 			}
-			li{
-				display: block;
-				color:   $color-main;
-				a{
-					line-height:    16px;
-					padding-top:    10px;
-					padding-bottom: 10px;
-					padding-left:   $subLinkPadding;
-					padding-right:  $subLinkPadding;
-					background:     $color-white;
-					color:          $color-main;
-				}
-				ul{
-					left: 175px;
-					top:  0;
-					> li:hover a,
-					a:hover{
-						background: $color-white;
-						color:      $color-main;
-					}
+		}
+		&.current-menu-ancestor,
+		&.current-menu-item{
+			> a{
+				color: darkenColor($color-main, 10%);
+			}
+		}
+		li.current-menu-item a{
+			background: darken($color-main, 10%);
+			color:      $color-white;
+		}
+	}
+
+	ul{
+		$subLinkPadding: 10px;
+		text-align:         left;
+		padding:            0;
+		margin:             0;
+		position:           absolute;
+		top:                $heightHeader;
+		left:               - ($subLinkPadding);
+		width:              175px;
+		-webkit-box-shadow: none;
+		-moz-box-shadow:    none;
+		box-shadow:         none;
+		display:            none;
+		opacity:            0;
+		visibility:         hidden;
+		@include transition(opacity, 0.2s, ease);
+		> li:hover > a{
+			background: $color-white;
+			color:      $color-main;
+		}
+		li{
+			display: block;
+			color:   $color-main;
+			a{
+				line-height:    16px;
+				padding-top:    10px;
+				padding-bottom: 10px;
+				padding-left:   $subLinkPadding;
+				padding-right:  $subLinkPadding;
+				background:     $color-white;
+				color:          $color-main;
+			}
+			ul{
+				left: 175px;
+				top:  0;
+				> li:hover a,
+				a:hover{
+					background: $color-white;
+					color:      $color-main;
 				}
 			}
 		}
 	}
+
 }
 
 @include mediaQuery($large-up){
@@ -125,8 +141,21 @@ ul.header-nav{
 	}
 }
 
+@media #{$small-only}{
+	.wrapper.main-header{
+		height:      $mobileHeader;
+		line-height: $mobileHeader;
+		.logo-header{
+			max-height: $mobileHeader;
+			img{
+				max-height: $mobileHeader;
+			}
+		}
+	}
+}
+
 #btn-mobile-nav{
-	@include image-replace(80px, 50px);
+	@include image-replace($mobileHeader, 50px);
 	display: block;
 	&.active{
 		.top{

@@ -15,8 +15,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
     <title><?php wp_title('|'); ?></title>
-	<?php /*<link rel="shortcut icon" type="image/x-icon"       href="<?php echo get_theme_path();?>/images/ico/favicon.ico" />
-	<link rel="shortcut icon" type="image/png"          href="<?php echo get_theme_path();?>/images/ico/favicon.png" />
+	<?php /*<link rel="shortcut icon" type="image/x-icon"       href="<?php echo get_theme_path();?>images/ico/favicon.ico" />
+	<link rel="shortcut icon" type="image/png"          href="<?php echo get_theme_path();?>images/ico/favicon.png" />
 	<link rel="apple-touch-icon"                        href="<?php echo get_theme_path();?>/images/ico/apple-touch-icon.png" />
 	<link rel="apple-touch-icon" sizes="57x57"          href="<?php echo get_theme_path();?>/images/ico/apple-touch-icon-57x57.png" />
 	<link rel="apple-touch-icon" sizes="72x72"          href="<?php echo get_theme_path();?>/images/ico/apple-touch-icon-72x72.png" />
@@ -69,7 +69,7 @@
 
 				<div class="columns small-8">
 					<a href="<?php echo (function_exists('icl_get_home_url') ? icl_get_home_url() :  get_permalink(get_id('home'))); ?>" class="logo-header align-right">
-						<img src="<?php echo get_theme_path();?>/images/logo-stack8.png" alt="<?php bloginfo('name'); ?>"/>
+						<img src="<?php echo get_theme_path();?>/images/logo-placeholder.png" alt="<?php bloginfo('name'); ?>"/>
 					</a>
 				</div>
 			</div>
