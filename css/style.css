@@ -505,7 +505,7 @@ h6:first-child:last-child { margin-bottom: 0; }
 h6:last-child { margin-top: 2.23em; }
 h6:last-child:first-child { margin-top: 0; }
 
-.sidr { display: none; position: absolute; position: fixed; top: 0; height: 100%; z-index: 999999; width: 260px; overflow-x: none; overflow-y: auto; font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif sans-serif; font-size: 15px; background: #f8f8f8; color: #005696; -webkit-box-shadow: inset 0 0 5px 5px #ebebeb; -moz-box-shadow: inset 0 0 5px 5px #ebebeb; box-shadow: inset 0 0 5px 5px #ebebeb; }
+.sidr { display: none; position: absolute; position: fixed; top: 0; height: 100%; z-index: 999999; width: 260px; overflow-x: none; overflow-y: auto; font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-size: 15px; background: #f8f8f8; color: #005696; -webkit-box-shadow: inset 0 0 5px 5px #ebebeb; -moz-box-shadow: inset 0 0 5px 5px #ebebeb; box-shadow: inset 0 0 5px 5px #ebebeb; }
 
 .sidr .sidr-inner { padding: 0 0 15px; }
 

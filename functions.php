@@ -40,13 +40,13 @@ function load_my_scripts() {
 		//wp_enqueue_script( $handle, $src, $deps, $ver, $in_footer );
 
 
-		wp_enqueue_script( 'scrolltofixed', $jsPath.'vendor/jquery.scrolltofixed.min.js', array('jquery'), '1.0', true);
+		//wp_enqueue_script( 'scrolltofixed', $jsPath.'vendor/jquery.scrolltofixed.min.js', array('jquery'), '1.0', true);
 		wp_enqueue_script( 'mobileMenu', $jsPath.'vendor/jquery.sidr.js',  array('jquery'), '1.0', false);
 		wp_enqueue_script( 'customSelect', $jsPath.'vendor/jquery.customSelect.min.js',  array('jquery'), '1.0', false);
 		wp_enqueue_script( 'placeHolders', $jsPath.'vendor/jquery.placeholders.js',  array('jquery'), '1.0', false);
 		wp_enqueue_script( 'owl-js', $jsPath.'vendor/owl-carousel/owl.carousel.js',  array('jquery'), '1.0', true);
 
-		wp_enqueue_script( 'siteJS', $jsPath.'site_js.js', array('jquery','mobileMenu','owl-js','scrolltofixed' ), '1.0', true);
+		wp_enqueue_script( 'siteJS', $jsPath.'site_js.js', array('jquery','mobileMenu','owl-js'), '1.0', true);
 
 		wp_enqueue_style( 'g-fonts', '//fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic|Open+Sans:300,400italic,400,600,700,800',false, '1', 'all');
 		wp_enqueue_style( 'owl-css-theme', $jsPath.'vendor/owl-carousel/owl.theme.css',array('g-fonts'), '1');
