@@ -39,7 +39,20 @@ function metaFields( array $meta_boxes ) {
 	);
 	$homeWhitelist = array(2);
 
-
+	$bannerColumnWidth = array(
+		'1' => '1',
+		'2' => '2',
+		'3' => '3',
+		'4' => '4',
+		'5' => '5',
+		'6' => '6',
+		'7' => '7',
+		'8' => '8',
+		'9' => '9',
+		'10' => '10',
+		'11' => '11',
+		'12' => '12',
+	);
 	$meta_boxes['two_columns'] = array(
 		'id'         => 'two_columns',
 		'title'      => _x( 'Columns', 'Titles', themeDomain() ),
@@ -62,6 +75,20 @@ function metaFields( array $meta_boxes ) {
 				'sanitization_cb' => false,
 				'type'       => 'wysiwyg',
 				'options' => $wysiwygOptions
+			),
+			array(
+				'name'       => _x( 'First Column Width', 'Titles', themeDomain() ),
+				'id'         =>   $prefix.'col_width_one',
+				'type'      => 'select',
+				'options'   => $bannerColumnWidth,
+				'default'=> '4'
+			),
+			array(
+				'name'       => _x( 'Second Column Width', 'Titles', themeDomain() ),
+				'id'         =>   $prefix.'col_width_two',
+				'type'      => 'select',
+				'options'   => $bannerColumnWidth,
+				'default'=> '8'
 			),
 
 		)
@@ -114,7 +141,7 @@ function templateFilter() {
 		$template = get_post_meta($id, '_wp_page_template', true);
 
 		$dontShowEditor = array(
-			'tpl-placeholder.php','tpl-placeholder.php'
+			'tpl-two-col.php','tpl-placeholder.php'
 		);
 
 
