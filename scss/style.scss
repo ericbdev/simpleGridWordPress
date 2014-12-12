@@ -24,7 +24,7 @@ $footerHeight: 100px;
 $footerPush: -#{$footerHeight};
 
 @import "simplegrid/settings";
-
+$column-gutter-plus: $column-gutter + ($column-gutter/2);
 
 //sticky footer
 //body
@@ -99,7 +99,7 @@ h6{
 	font-size: fontSize(headerLarge);
 	@include headerMargin(2.23em);
 }
-@import '_sidr.light','header','footer','page';
+@import '_sidr.light','ooc','header','footer','page';
 
 //Have blogging?
 @import 'archive','articles';
