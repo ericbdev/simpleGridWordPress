@@ -563,6 +563,10 @@ h6:last-child:first-child { margin-top: 0; }
 
 .alignleft, .float-left { float: left; }
 
+.text-upper { text-transform: uppercase; }
+
+.text-regular { text-transform: none; }
+
 .padding-top { padding-top: 30px; }
 .padding-top.double-space { padding-top: 60px; }
 .padding-top.half-space { padding-top: 15px; }

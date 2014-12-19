@@ -98,7 +98,7 @@ class image {
 			'numberposts'    => -1, // show all
 			'post_status'    => null,
 			'post_mime_type' => 'image',
-			'orderby'        => 'order',
+			'orderby'        => 'menu_order',
 			'order'          => 'ASC',
 
 		));

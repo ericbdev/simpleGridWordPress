@@ -77,21 +77,21 @@ function get_lang_active($validateAgainst = false) {
 	}
 }
 
-function get_translated_id($id) {
+function get_translated_id($id, $type = 'page') {
 	$returnID = $id;
 	if(class_exists('SitePress')){
 		if(function_exists('icl_object_id')) {
-			$returnID = icl_object_id($id, 'page', true);
+			$returnID = icl_object_id($id, $type, true);
 		}
 	}
 	return $returnID;
 }
 
-function get_default_id($id) {
+function get_default_id($id, $type = 'page') {
 	$returnID = $id;
 	if(class_exists('SitePress')){
 		if(function_exists('icl_object_id')) {
-			$returnID = icl_object_id($id, 'page', true, 'en');
+			$returnID = icl_object_id($id, $type, true, 'en');
 		}
 	}
 	return $returnID;

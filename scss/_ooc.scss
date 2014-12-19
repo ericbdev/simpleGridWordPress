@@ -18,6 +18,13 @@
 	float: left;
 }
 
+.text-upper{
+	text-transform: uppercase;
+}
+
+.text-regular{
+	text-transform: none;
+}
 
 .padding-top{
 	padding-top: $column-gutter-plus;
