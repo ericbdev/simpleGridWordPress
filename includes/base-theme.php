@@ -1,9 +1,16 @@
 <?php
-require_once 'disable-feeds.php';
-require_once 'image.php';
-require_once 'meta-fields.php';
-require_once 'post-types.php';
-require_once 'shortcodes.php';
+function cmb_initialize_cmb_meta_boxes() {
+	if (!class_exists( 'cmb_Meta_Box' ) ){
+		require_once 'vendor/lib-meta/init.php';
+	}
+}
+add_action( 'init', 'cmb_initialize_cmb_meta_boxes', 9999 );
+
+require_once 'base/disable-feeds.php';
+require_once 'base/image.php';
+require_once 'base/post-types.php';
+require_once 'base/shortcodes.php';
+require_once 'base/form-builder.php';
 
 function is_test(){
 	if(isset($_REQUEST['reversetest'])){

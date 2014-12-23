@@ -1,14 +1,7 @@
 <?php
-function cmb_initialize_cmb_meta_boxes() {
-    if ( ! class_exists( 'cmb_Meta_Box' ) )
-        require_once 'vendor/lib-meta/init.php';
+if (class_exists( 'cmb_Meta_Box' ) ){
+	add_filter( 'cmb_meta_boxes', 'metaFields' );
 }
-add_action( 'init', 'cmb_initialize_cmb_meta_boxes', 9999 );
-
-
-add_filter( 'cmb_meta_boxes', 'metaFields' );
-
-
 function metaFields( array $meta_boxes ) {
 	$prefix = get_the_prefix();
 	$wysiwygOptions = array(

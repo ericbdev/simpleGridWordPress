@@ -129,6 +129,11 @@ $base-font-size: 16px !default;
 	&::-moz-placeholder{ @content; }
 	&::-webkit-input-placeholder{ @content; }
 }
+@mixin appearance($appearance) {
+	appearance:         $appearance;
+	-moz-appearance:    $appearance;
+	-webkit-appearance: $appearance;
+}
 
 @mixin mediaQuery($size: $screen, $non-default: false) {
 	@if $non-default{
