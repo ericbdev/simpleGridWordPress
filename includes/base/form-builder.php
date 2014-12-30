@@ -1,6 +1,13 @@
 <?php
 date_default_timezone_set('America/New_York');
-
+/**
+ * TODO
+ *
+ * - Get site name from WP
+ * - Build some kind of email builder
+ * - Build some kind of validation system which will make an K->V array of Label / Message for email
+ *
+ **/
 class form_builder {
 	public $request;
 	public $post;

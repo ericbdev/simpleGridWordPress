@@ -202,3 +202,34 @@ $base-font-size: 16px !default;
 		}
 	}
 }
+
+@mixin overlay-switch($tag){
+	//assumption of tag.on + tag.off + tag.placeholder
+	position:   relative;
+	display:    inline-block;
+	text-align: center;
+	margin:     0 auto;
+	&:hover{
+		#{$tag}{
+			&.on{
+				opacity: 1;
+			}
+		}
+	}
+	#{$tag}{
+		&.on{
+			opacity:  0;
+			@include transition();
+			top:      0;
+			left:     0;
+			position: absolute;
+			z-index:  100;
+		}
+		&.off{
+			z-index:  0;
+			top:      0;
+			left:     0;
+			position: absolute;
+		}
+	}
+}
