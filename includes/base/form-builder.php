@@ -250,7 +250,6 @@ class form_builder {
 				$return .= $this->create_internal($field_name, $extras);
 				$return .= '>';
 				if($this->is_valid($field_name, $extras['type'])):
-					var_dump($this->request[$field_name]);
 					$return .= $this->request[$field_name];
 				endif;
 				$return .= "</textarea>";
