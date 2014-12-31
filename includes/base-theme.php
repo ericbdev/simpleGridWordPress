@@ -196,7 +196,7 @@ class navWalker extends Walker_Nav_Menu{
 		$output .= "</ul>";
 	}
 
-	function start_el(&$output, $item, $depth, $args) {
+	function start_el(&$output, $item, $depth, $args, $id = 0) {
 		global $wp_query;
 		//$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
 		$indent = '';
@@ -230,7 +230,7 @@ class navWalker extends Walker_Nav_Menu{
 		$item_output .= '</a>'; /* This is where I changed things. */
 
 
-		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args, $id);
 	}
 }
 /*************************************************************************************/
