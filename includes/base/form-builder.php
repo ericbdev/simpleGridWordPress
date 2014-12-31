@@ -72,6 +72,45 @@ class form_builder {
 		);
 
 	}
+	/**
+	 * See WordPress' Docs
+	 * @param $value
+	 * @return array|string
+	 */
+	private function stripslashes_deep($value) {
+		if ( is_array($value) ) {
+			$value = array_map('stripslashes_deep', $value);
+		} elseif ( is_object($value) ) {
+			$vars = get_object_vars( $value );
+			foreach ($vars as $key=>$data) {
+				$value->{$key} = $this->stripslashes_deep( $data );
+			}
+		} elseif ( is_string( $value ) ) {
+			$value = stripslashes($value);
+		}
+
+		return $value;
+	}
+	/** See WordPress' Docs**/
+	private function parse_str($string, &$array){
+		parse_str( $string, $array );
+		if ( get_magic_quotes_gpc() ):
+			$array = $this->stripslashes_deep( $array );
+		endif;
+	}
+	/** Merges arrays to provide a default**/
+	private function parse_args( $args, $defaults = '' ) {
+		if ( is_object( $args ) )
+			$r = get_object_vars( $args );
+		elseif ( is_array( $args ) )
+			$r =& $args;
+		else
+			$this->parse_str( $args, $r );
+
+		if ( is_array( $defaults ) )
+			return array_merge( $defaults, $r );
+		return $r;
+	}
 
 	private function less_one_day($date) {
 		$lastEntry        = strtotime($date);
@@ -80,6 +119,17 @@ class form_builder {
 
 		return ($lastEntryPlusOne <= $currentDate);
 	}
+	private function is_type($needle, $haystack){
+		$return = false;
+		if(is_array($haystack)):
+			$return = in_array($needle, $haystack);
+		else:
+			return ($needle == $haystack);
+		endif;
+		return $return;
+	}
+
+
 	private function different_day($date) {
 		$lastEntry = array(
 			'year' => date('Y', strtotime($date)),
@@ -142,6 +192,17 @@ class form_builder {
 		return $return;
 	}
 
+	private function create_internal_options($field_name, $extras){
+		$return = '';
+		if ($extras['placeholder']) $return .= "<option disabled='disabled'>{$this->placeholder[$field_name]}</option>";
+		foreach ($extras['options'] as $option) {
+			$return .= "<option value='{$option}'>{$option}</option>";
+		}
+
+
+		return $return;
+
+	}
 	private function create_internal($field_name, $extras) {
 		$return = '';
 
@@ -149,15 +210,18 @@ class form_builder {
 			case 'phone':
 				break;
 		endswitch;
-		if ($extras['placeholder']) $return .= " placeholder='{$this->placeholder[$field_name]}'";
+		if ($extras['placeholder'] && !$this->is_type($extras['type'], 'select')) $return .= " placeholder='{$this->placeholder[$field_name]}'";
 		if ($extras['classes']) $return .= " class='{$extras['classes']}'";
-		//if($extras['required']) $return .= " required";
 
 		$return .= " name='$field_name' id='{$extras['field_id']}'";
 
-		if ($this->is_valid($field_name, $extras['type'])) {
+		if ($this->is_valid($field_name, $extras['type']) && $this->is_type($extras['type'], array('text', 'phone','email'))):
 			$return .= " value='{$this->request[$field_name]}'";
-		}
+		endif;
+
+		if ($this->is_valid($field_name, $extras['type']) && ($this->is_type($extras['type'], array('checkbox', 'radio')))):
+			$return .= " checked='checked'";
+		endif;
 		return $return;
 
 	}
@@ -174,15 +238,21 @@ class form_builder {
 
 		if (!$optional['field_id']) $optional['field_id'] = $field_name . '_id';
 
-		$extras = wp_parse_args($optional, $defaults);
+		$extras = $this->parse_args($optional, $defaults);
 
 		if (!$extras['field_id']) $extras['field_id'] = $field_name;
 		$return = '';
+
 
 		switch ($extras['type']):
 			case 'textarea':
 				$return .= "<textarea";
 				$return .= $this->create_internal($field_name, $extras);
+				$return .= '>';
+				if($this->is_valid($field_name, $extras['type'])):
+					var_dump($this->request[$field_name]);
+					$return .= $this->request[$field_name];
+				endif;
 				$return .= "</textarea>";
 				break;
 
@@ -192,6 +262,17 @@ class form_builder {
 				$return .= " type='{$extras['type']}' ";
 				$return .= $this->create_internal($field_name, $extras);
 				$return .= "/>";
+
+				break;
+			case 'select':
+				$return .= "<select";
+				$return .= $this->create_internal($field_name, $extras);
+				$return .= ">";
+				if(isset($extras['options'])):
+					$return .= $this->create_internal_options($field_name, $extras);
+				endif;
+
+				$return .="</select>";
 
 				break;
 
