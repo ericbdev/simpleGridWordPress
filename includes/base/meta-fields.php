@@ -1,7 +1,6 @@
 <?php
-if (class_exists( 'cmb_Meta_Box' ) ){
-	add_filter( 'cmb_meta_boxes', 'metaFields' );
-}
+
+add_filter( 'cmb_meta_boxes', 'metaFields' );
 function metaFields( array $meta_boxes ) {
 	$prefix = get_the_prefix();
 	$wysiwygOptions = array(

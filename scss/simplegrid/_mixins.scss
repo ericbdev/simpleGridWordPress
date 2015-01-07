@@ -17,21 +17,6 @@ $base-font-size: 16px !default;
 @function darkenColor($color, $darkenValue: 20%){
 	@return darken($color, $darkenValue);
 }
-
-@function fontSize($request){
-	$fontSize : $font-size-body;
-	@if $request == body{
-		$fontSize : $base-font-size;
-	} @else if $request == header-large{
-		$fontSize : $font-size-header-large;
-	} @else if $request == header-small{
-		$fontSize : $font-size-header-small;
-	} @else if $request == body-small{
-		$fontSize : $font-size-body-small;
-	}
-	@return $fontSize;
-}
-
 @mixin transition($transition-property: all, $transition-time: 1s, $method: ease) { //implied defaults
 	-webkit-transition: $transition-property $transition-time $method;
 	-moz-transition:    $transition-property $transition-time $method;
