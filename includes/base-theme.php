@@ -11,6 +11,7 @@ require_once 'base/image.php';
 require_once 'base/post-types.php';
 require_once 'base/shortcodes.php';
 require_once 'base/form-builder.php';
+require_once 'base/meta-fields.php';
 
 function is_test(){
 	if(isset($_REQUEST['reversetest'])){
