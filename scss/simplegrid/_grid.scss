@@ -9,8 +9,6 @@
 
 
 
-@import "global";
-
 //
 // @variables
 //
@@ -100,7 +98,8 @@ $total-columns: 12 !default;
 // $pull - # of columns to pull. Default: false.
 // $collapse - Get rid of gutter padding on column? Default: false.
 // $float - Should this float? Default: true. Options: true, false, left, right.
-@mixin grid-column($columns: false,
+@mixin grid-column(
+$columns: false,
 $last-column: false,
 $center: false,
 $offset: false,
@@ -125,8 +124,8 @@ $position: false) {
 		// Gutter padding whenever a column isn't set to collapse
 		// (use $collapse:null to do nothing)
 	@else if $collapse == false {
-		padding-left: $column-gutter / 2;
-		padding-right: $column-gutter / 2;
+    padding-left: ($column-gutter / 2);
+    padding-right: ($column-gutter / 2);
 	}
 
 	// If a column number is given, calculate width
@@ -312,14 +311,15 @@ $position: false) {
 				@include grid-html-classes($size: large);
 
 			}
-		}
-		@if $include-xl-html-grid-classes {
-			@media #{$xlarge-up} {
-				@include grid-html-classes($size: xlarge);
+			@if $include-xl-html-grid-classes {
+				@media #{$xlarge-up} {
+					@include grid-html-classes($size: xlarge);
+				}
+				@media #{$xxlarge-up} {
+					@include grid-html-classes($size: xxlarge);
+				}
 			}
-			@media #{$xxlarge-up} {
-				@include grid-html-classes($size: xxlarge);
-			}
 		}
+
 	}
 }

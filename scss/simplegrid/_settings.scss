@@ -16,15 +16,15 @@
 // $rem-base: 16px;
 
 // Allows the use of rem-calc() or lower-bound() in your settings
-$body-font: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif sans-serif !default;
-$body-font-weight: 400 !default;
-$body-font-color: #000 !default;
+$body-font: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif sans-serif;
+$body-font-weight: 400;
+$body-font-color: #000;
 @import "functions";
 
 // Global Body Elements
 
 // We use these to control various global styles
-$body-bg: #fff !default;
+$body-bg: #fff;
 $body-font-color: $body-font-color;
 $body-font-family: $body-font;
 $body-font-weight: $body-font-weight;
@@ -38,7 +38,7 @@ $base-line-height: 150%;
 // Since the typical default browser font-size is 16px, that makes the calculation for grid size.
 // If you want your base font-size to be different and not have it affect the grid breakpoints,
 // set $rem-base to $base-font-size and make sure $base-font-size is a px value.
-$base-font-size: 16px !default;
+$base-font-size: 16px;
 
 
 // We use this to control font-smoothing
@@ -69,7 +69,8 @@ $include-html-classes: true;
 $include-html-global-classes: true;
 $include-html-grid-classes: $include-html-classes;
 $include-html-block-grid-classes: $include-html-classes;
-$include-xl-html-grid-classes: false;
+$include-xl-html-grid-classes: false ;
+$include-xl-html-block-grid-classes: $include-xl-html-grid-classes;
 $include-meta-classes: false;
 $include-print-styles: true;
 
@@ -156,5 +157,8 @@ $screen: "only screen";
 // END GRID INFO
 // ##
 
-
-@import "grid", "visibility", "block-grid","mixins";
+@import "global";
+@import "mixins";
+@import "grid";
+@import "block-grid";
+@import "visibility";
