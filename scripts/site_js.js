@@ -62,9 +62,10 @@ var functions = {
 			_bottomPush = $('.bottom-push'),
 			_site = $('body > .site'),
 			_offset = _footer.outerHeight();
-
-		_bottomPush.css('height', _offset);
-		_site.attr('style','margin-bottom:-'+_offset+'px');
+		if(_offset !== null){
+			_bottomPush.css('height', _offset);
+			_site.attr('style','margin-bottom:-'+_offset+'px');
+		}
 	},
 	getWindowWidth  : function () {
 		return window.outerWidth;
