@@ -1,3 +1,15 @@
+.row{
+	&.wide-row{
+		max-width: 1600px;
+	}
+	&.wide-row-extra{
+		max-width: 100%;
+	}
+	&.width-1200{
+		max-width: 1200px;
+	}
+}
+
 .align-right{
 	text-align: right;
 }

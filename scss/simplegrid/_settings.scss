@@ -16,15 +16,13 @@
 // $rem-base: 16px;
 
 // Allows the use of rem-calc() or lower-bound() in your settings
-$body-font: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif sans-serif;
-$body-font-weight: 400;
-$body-font-color: #000;
+
 @import "functions";
 
 // Global Body Elements
 
 // We use these to control various global styles
-$body-bg: #fff;
+$body-bg: $body-bg;
 $body-font-color: $body-font-color;
 $body-font-family: $body-font;
 $body-font-weight: $body-font-weight;

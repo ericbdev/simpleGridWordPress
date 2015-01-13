@@ -8,7 +8,7 @@
 <!--[if IE 9 ]>
 <html class="ie ie9 no-js" lang="<?php echo get_lang_active();?>"> <![endif]-->
 <!--[if gt IE 9]><!-->
-<html class="no-js" lang="<?= get_lang_active(); ?>"><!--<![endif]-->
+<html class="no-js" lang="<?php echo get_lang_active(); ?>"><!--<![endif]-->
 <!-- the "no-js" class is for Modernizr. -->
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
