@@ -3,8 +3,6 @@
 // #    Licensed under MIT Open Source
 // #    ericbdev has added in normalize.css, written by Nicolas Gallagher and Jonothan Neal
 // #    https://github.com/necolas/normalize.css
-
-
 @import "functions";
 
 //
@@ -35,7 +33,7 @@ $base-line-height: 150% !default;
 // We use this to control border radius.
 // $radius - Default: $global-radius || 4px
 @mixin radius($radius: $global-radius) {
-	@if $radius {
+	@if $radius{
 		border-radius: $radius;
 	}
 }
@@ -44,17 +42,17 @@ $base-line-height: 150% !default;
 //
 // We use this to create equal side border radius on elements.
 // $side - Options: left, right, top, bottom
-@mixin side-radius($side, $radius:$global-radius) {
+@mixin side-radius($side, $radius: $global-radius) {
 	@if ($side == left or $side == right) {
-    -webkit-border-bottom-#{$side}-radius: $radius;
-    -webkit-border-top-#{$side}-radius: $radius;
-		border-bottom-#{$side}-radius: $radius;
-    border-top-#{$side}-radius: $radius;
-	} @else {
-    -webkit-#{$side}-left-radius: $radius;
-    -webkit-#{$side}-right-radius: $radius;
-    border-#{$side}-left-radius: $radius;
-    border-#{$side}-right-radius: $radius;
+		-webkit-border-bottom-#{$side}-radius: $radius;
+		-webkit-border-top-#{$side}-radius:    $radius;
+		border-bottom-#{$side}-radius:         $radius;
+		border-top-#{$side}-radius:            $radius;
+	} @else{
+		-webkit-#{$side}-left-radius:          $radius;
+		-webkit-#{$side}-right-radius:         $radius;
+		border-#{$side}-left-radius:           $radius;
+		border-#{$side}-right-radius:          $radius;
 	}
 }
 
@@ -62,13 +60,14 @@ $base-line-height: 150% !default;
 //
 // We can control whether or not we have inset shadows edges.
 // $active - Default: true, Options: false
-@mixin inset-shadow($active:true) {
+@mixin inset-shadow($active: true) {
 	box-shadow: $shiny-edge-size $shiny-edge-color inset;
 
-  @if $active { &:active {
-    box-shadow: $shiny-edge-size $shiny-edge-active-color inset; } }
+	@if $active{
+		&:active{
+			box-shadow: $shiny-edge-size $shiny-edge-active-color inset; }
 	}
-
+}
 
 // @mixins
 //
@@ -120,10 +119,10 @@ $base-line-height: 150% !default;
 }
 
 // We use this to do clear floats
-@mixin clearfix {
+@mixin clearfix{
 	*zoom: 1;
-	&:before, &:after { content: " "; display: table; }
-	&:after { clear: both; }
+	&:before, &:after{ content: " "; display: table; }
+	&:after{ clear: both; }
 }
 
 // @mixins
@@ -135,7 +134,7 @@ $base-line-height: 150% !default;
 @mixin block-glowing-effect($selector: focus, $fade-time: 300ms, $glowing-effect-color: fade-out($primary-color, .25)) {
 	transition: box-shadow $fade-time, border-color $fade-time ease-in-out;
 
-	&:#{$selector} {
+	&:#{$selector}{
 		box-shadow:   0 0 5px $glowing-effect-color;
 		border-color: $glowing-effect-color;
 	}
@@ -154,7 +153,7 @@ $base-line-height: 150% !default;
 //
 // Makes an element visually hidden, but accessible.
 // @see http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
-@mixin element-invisible {
+@mixin element-invisible{
 	position: absolute !important;
 	height:   1px;
 	width:    1px;
@@ -165,7 +164,7 @@ $base-line-height: 150% !default;
 // @mixins
 //
 // Turns off the element-invisible effect.
-@mixin element-invisible-off {
+@mixin element-invisible-off{
 	position: static !important;
 	height:   auto;
 	width:    auto;
@@ -173,33 +172,39 @@ $base-line-height: 150% !default;
 	clip:     auto;
 }
 
-$white         : #FFFFFF !default;
-$ghost         : #FAFAFA !default;
-$snow          : #F9F9F9 !default;
-$vapor         : #F6F6F6 !default;
-$white-smoke   : #F5F5F5 !default;
-$silver        : #EFEFEF !default;
-$smoke         : #EEEEEE !default;
-$gainsboro     : #DDDDDD !default;
-$iron          : #CCCCCC !default;
-$base          : #AAAAAA !default;
-$aluminum      : #999999 !default;
-$jumbo         : #888888 !default;
-$monsoon       : #777777 !default;
-$steel         : #666666 !default;
-$charcoal      : #555555 !default;
-$tuatara       : #444444 !default;
-$oil           : #333333 !default;
-$jet           : #222222 !default;
-$black         : #000000 !default;
+$white: #ffffff !default;
+$ghost: #fafafa !default;
+$snow: #f9f9f9 !default;
+$vapor: #f6f6f6 !default;
+$white-smoke: #f5f5f5 !default;
+$silver: #efefef !default;
+$smoke: #eeeeee !default;
+$gainsboro: #dddddd !default;
+$iron: #cccccc !default;
+$base: #aaaaaa !default;
+$aluminum: #999999 !default;
+$jumbo: #888888 !default;
+$monsoon: #777777 !default;
+$steel: #666666 !default;
+$charcoal: #555555 !default;
+$tuatara: #444444 !default;
+$oil: #333333 !default;
+$jet: #222222 !default;
+$black: #000000 !default;
 
 // We use these as default colors throughout
-$primary-color: #008CBA !default;   // bondi-blue
-$secondary-color: #e7e7e7 !default; // white-lilac
-$alert-color: #f04124 !default;     // cinnabar
-$success-color: #43AC6A !default;   // sea-green
-$warning-color: #f08a24 !default;   // carrot
-$info-color: #a0d3e8 !default;      // cornflower
+$primary-color: #008cba !default;
+// bondi-blue
+$secondary-color: #e7e7e7 !default;
+// white-lilac
+$alert-color: #f04124 !default;
+// cinnabar
+$success-color: #43ac6a !default;
+// sea-green
+$warning-color: #f08a24 !default;
+// carrot
+$info-color: #a0d3e8 !default;
+// cornflower
 
 // We use these to define default font stacks
 $font-family-sans-serif: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif !default;
@@ -227,7 +232,7 @@ $opposite-direction: right !default;
 @if $text-direction == ltr {
 	$default-float: left;
 	$opposite-direction: right;
-} @else {
+} @else{
 	$default-float: right;
 	$opposite-direction: left;
 }
@@ -293,235 +298,221 @@ $cursor-pointer-value: pointer !default;
 $cursor-help-value: help !default;
 $cursor-text-value: text !default;
 
-@include exports("global") {
+@include exports("global"){
 	// Meta styles are included in all builds, as they are a dependancy of the Javascript.
 	// Used to provide media query values for javascript components.
 	// Forward slash placed around everything to convince PhantomJS to read the value.
-	@if $include-meta-classes {
-		meta.foundation-version {
+	@if $include-meta-classes{
+		meta.foundation-version{
 			font-family: "/5.5.0/";
 		}
 
-		meta.foundation-mq-small {
+		meta.foundation-mq-small{
 			font-family: "/" + unquote($small-up) + "/";
 			width:       lower-bound($small-range);
 		}
 
-		meta.foundation-mq-medium {
+		meta.foundation-mq-medium{
 			font-family: "/" + unquote($medium-up) + "/";
 			width:       lower-bound($medium-range);
 		}
 
-		meta.foundation-mq-large {
+		meta.foundation-mq-large{
 			font-family: "/" + unquote($large-up) + "/";
 			width:       lower-bound($large-range);
 		}
 
-		meta.foundation-mq-xlarge {
+		meta.foundation-mq-xlarge{
 			font-family: "/" + unquote($xlarge-up) + "/";
 			width:       lower-bound($xlarge-range);
 		}
 
-		meta.foundation-mq-xxlarge {
+		meta.foundation-mq-xxlarge{
 			font-family: "/" + unquote($xxlarge-up) + "/";
 			width:       lower-bound($xxlarge-range);
 		}
 
-		meta.foundation-data-attribute-namespace {
+		meta.foundation-data-attribute-namespace{
 			font-family: #{$namespace};
 		}
 	}
 
-	@if $include-html-global-classes {
+	@if $include-html-global-classes{
 		// Must be 100% for off canvas to work
-		html, body {
-
+		html, body{
 			font-size: $base-font-size;
-			padding:     0;
-			margin:      0;
-			height: 100%; }
-
+			padding:   0;
+			margin:    0;
+			height:    100%; }
 
 		article, aside, details, figcaption, figure, footer, header,
-		hgroup, main, nav, section, summary {
+		hgroup, main, nav, section, summary{
 			display: block;
 		}
 
-		audio, canvas, video {
+		audio, canvas, video{
 			display:  inline-block;
 			*display: inline;
 			*zoom:    1;
 		}
 
-		audio:not([controls]) {
+		audio:not([controls]){
 			display: none;
 			height:  0;
 		}
 
-		[hidden] {
+		[hidden]{
 			display: none;
 		}
 
-
-
-
-
-
 		// Default body styles
-		body {
-			-webkit-font-smoothing: antialiased;
+		body{
+			-webkit-font-smoothing:  antialiased;
 			-moz-osx-font-smoothing: grayscale;
-			background:  $body-bg;
-			color:       $body-font-color;
-			font-family: $body-font-family;
-			font-weight: $body-font-weight;
-			font-style:  $body-font-style;
-			line-height: $base-line-height; // Set to $base-line-height to take on browser default of 150%
-			position:    relative;
-			cursor:      $cursor-default-value;
+			min-width:               320px;
+			background:              $body-bg;
+			color:                   $body-font-color;
+			font-family:             $body-font-family;
+			font-weight:             $body-font-weight;
+			font-style:              $body-font-style;
+			line-height:             $base-line-height; // Set to $base-line-height to take on browser default of 150%
+			position:                relative;
+			cursor:                  $cursor-default-value;
 		}
-		html, button, input, select, textarea {
+		html, button, input, select, textarea{
 			font-family: $body-font-family;
 		}
 
-		a, a:hover {
-			outline: 0;
-			text-decoration:none;
-			cursor: $cursor-pointer-value; }
+		a, a:hover{
+			outline:         0;
+			text-decoration: none;
+			cursor:          $cursor-pointer-value; }
 
 		// Grid Defaults to get images and embeds to work properly
-		img { max-width: 100%; height: auto; }
-
-		img { -ms-interpolation-mode: bicubic; }
-
-		// Get rid of gap under images by making them display: inline-block; by default
-		img {
-			display:        inline-block;
-			vertical-align: middle;
-		}
+		img{ max-width: 100%; height: auto; -ms-interpolation-mode: bicubic; display: inline-block; vertical-align: middle; }
 
 		//
 		// Global resets for forms
 		//
 		// Make sure textarea takes on height automatically
-		textarea { height: auto; min-height: 50px; }
+		textarea{ height: auto; min-height: 50px; }
 
 		// Make select elements 100% width by default
-		select { width: 100%; }
-		abbr[title] {
+		select{ width: 100%; }
+		abbr[title]{
 			border-bottom: 1px dotted;
 		}
 
-		b, strong {
+		b, strong{
 			font-weight: bold;
 		}
 
-		blockquote {
+		blockquote{
 			margin: 1em 40px;
 		}
 
-		dfn {
+		dfn{
 			font-style: italic;
 		}
 
-		hr {
+		hr{
 			-moz-box-sizing: content-box;
 			box-sizing:      content-box;
 			height:          0;
 		}
 
-		mark {
+		mark{
 			background: #ff0;
 			color:      #000;
 		}
 
-		p, pre {
+		p, pre{
 			margin: 0 0 1em 0;
 		}
 
-		code, kbd, pre,samp {
+		code, kbd, pre, samp{
 			font-family:  monospace, serif;
 			_font-family: 'courier new', monospace;
 			font-size:    1em;
 		}
 
-		pre {
+		pre{
 			white-space: pre;
 			white-space: pre-wrap;
 			word-wrap:   break-word;
 		}
 
-		q {
+		q{
 			quotes: none;
 		}
 
 		q:before,
-		q:after {
+		q:after{
 			content: '';
 			content: none;
 		}
 
-		small {
+		small{
 			font-size: 80%;
 		}
 
-		sub, sup {
+		sub, sup{
 			font-size:      75%;
 			line-height:    0;
 			position:       relative;
 			vertical-align: baseline;
 		}
 
-		sup {
+		sup{
 			top: -0.5em;
 		}
 
-		sub {
+		sub{
 			bottom: -0.25em;
 		}
 
-		dl, menu, ol, ul {
+		dl, menu, ol, ul{
 			margin: 1em 0;
 		}
 
-		dd {
+		dd{
 			margin: 0 0 0 40px;
 		}
 
-		menu, ol, ul {
+		menu, ol, ul{
 			padding: 0 0 0 40px;
 		}
 
-		nav ul, nav ol {
+		nav ul, nav ol{
 			list-style:       none;
 			list-style-image: none;
 		}
 
-		img {
+		img{
 			border:                 0; /* 1 */
 			-ms-interpolation-mode: bicubic; /* 2 */
 			max-width:              100%;
 		}
 
-		svg:not(:root) {
+		svg:not(:root){
 			overflow: hidden;
 		}
 
-		figure {
+		figure{
 			margin: 0;
 		}
 
-		form {
+		form{
 			margin: 0;
 		}
 
-		fieldset {
+		fieldset{
 			border:  1px solid #c0c0c0;
 			margin:  0 2px;
 			padding: 0.35em 0.625em 0.75em;
 		}
 
-		legend {
+		legend{
 			border:       0; /* 1 */
 			padding:      0;
 			white-space:  normal; /* 2 */
@@ -531,7 +522,7 @@ $cursor-text-value: text !default;
 		button,
 		input,
 		select,
-		textarea {
+		textarea{
 			font-size:       100%; /* 1 */
 			margin:          0; /* 2 */
 			vertical-align:  baseline; /* 3 */
@@ -539,38 +530,38 @@ $cursor-text-value: text !default;
 		}
 
 		button,
-		input {
+		input{
 			line-height: normal;
 		}
 
 		button,
-		select {
+		select{
 			text-transform: none;
 		}
 
 		button,
 		html input[type="button"], /* 1 */
 		input[type="reset"],
-		input[type="submit"] {
+		input[type="submit"]{
 			-webkit-appearance: button; /* 2 */
 			cursor:             pointer; /* 3 */
 			*overflow:          visible; /* 4 */
 		}
 
 		button[disabled],
-		html input[disabled] {
+		html input[disabled]{
 			cursor: default;
 		}
 
 		input[type="checkbox"],
-		input[type="radio"] {
+		input[type="radio"]{
 			box-sizing: border-box; /* 1 */
 			padding:    0; /* 2 */
 			*height:    13px; /* 3 */
 			*width:     13px; /* 3 */
 		}
 
-		input[type="search"] {
+		input[type="search"]{
 			-webkit-appearance: textfield; /* 1 */
 			-moz-box-sizing:    content-box;
 			-webkit-box-sizing: content-box; /* 2 */
@@ -578,22 +569,22 @@ $cursor-text-value: text !default;
 		}
 
 		input[type="search"]::-webkit-search-cancel-button,
-		input[type="search"]::-webkit-search-decoration {
+		input[type="search"]::-webkit-search-decoration{
 			-webkit-appearance: none;
 		}
 
 		button::-moz-focus-inner,
-		input::-moz-focus-inner {
+		input::-moz-focus-inner{
 			border:  0;
 			padding: 0;
 		}
 
-		textarea {
+		textarea{
 			overflow:       auto; /* 1 */
 			vertical-align: top; /* 2 */
 		}
 
-		table {
+		table{
 			border-collapse: collapse;
 			border-spacing:  0;
 		}
@@ -601,10 +592,10 @@ $cursor-text-value: text !default;
 		// Set box-sizing globally to handle padding and border widths
 		*,
 		*:before,
-		*:after {
+		*:after{
 			@include box-sizing(border-box);
 		}
 
-		.clearfix { @include clearfix; }
+		.clearfix{ @include clearfix; }
 	}
 }

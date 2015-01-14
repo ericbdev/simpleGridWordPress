@@ -8,17 +8,13 @@ audio:not([controls]) { display: none; height: 0; }
 
 [hidden] { display: none; }
 
-body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; background: white; color: #494949; font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-weight: 300; font-style: normal; line-height: 150%; position: relative; cursor: default; }
+body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; min-width: 320px; background: white; color: #494949; font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; font-weight: 300; font-style: normal; line-height: 150%; position: relative; cursor: default; }
 
 html, button, input, select, textarea { font-family: "Lato", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif; }
 
 a, a:hover { outline: 0; text-decoration: none; cursor: pointer; }
 
-img { max-width: 100%; height: auto; }
-
-img { -ms-interpolation-mode: bicubic; }
-
-img { display: inline-block; vertical-align: middle; }
+img { max-width: 100%; height: auto; -ms-interpolation-mode: bicubic; display: inline-block; vertical-align: middle; }
 
 textarea { height: auto; min-height: 50px; }
 
