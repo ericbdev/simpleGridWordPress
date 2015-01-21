@@ -1,17 +1,17 @@
 <?php
 function is_test(){
-	if(isset($_REQUEST['reversetest'])){
+	if(isset($_REQUEST['reversetest'])):
 		return false;
-	}elseif(isset($_REQUEST['prev'])){
+	elseif(isset($_REQUEST['prev'])):
 		return true;
-	}elseif($_SERVER['REMOTE_ADDR'] == '24.37.85.130'){
+	elseif($_SERVER['REMOTE_ADDR'] == '24.37.85.130'):
 		return true;
-	}else{
+	else:
 		return false;
-	}
+	endif;
 }
 
-if(is_test()){
+if(is_test()):
 	define('WP_DEBUG_LOG', false);
 	define('SCRIPT_DEBUG', false);
 	define('WP_DEBUG', true);
@@ -19,12 +19,11 @@ if(is_test()){
 	@ini_set('ignore_repeated_errors',1);
 	@ini_set( 'log_errors', 1 );
 	@ini_set( 'error_log', get_template_directory() . '/debug.log' );
-
-}else{
+else:
 	@ini_set('display_errors',0);
 	define('WP_DEBUG', false);
 	define('WP_DEBUG_DISPLAY', false);
-}
+endif;
 
 function cmb_initialize_cmb_meta_boxes() {
 	if (!class_exists( 'cmb_Meta_Box' ) ){
@@ -424,6 +423,16 @@ function wphidenag() {
 	remove_action( 'admin_notices', 'update_nag', 3 );
 }
 add_action('admin_menu','wphidenag');
+
+function loadAdmin() {
+	/* Serif fonts are for print. */
+	if (is_admin()) {
+		add_editor_style('css/editor-style.css');
+	}
+}
+add_action('init', 'loadAdmin');
+
+add_action('init', 'loadAdmin');
 
 
 add_filter('body_class','browser_body_class');
