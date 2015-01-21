@@ -1,1 +1,1 @@
-<?php include 'archive.php';?>
+<?php include 'archive.php';

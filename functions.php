@@ -22,7 +22,7 @@ function themeDomain(){
 
 function get_the_prefix() {
 	$return = "_";
-		$return .='themePrefix';
+		$return .='prefix';
 	$return .= "_";
 	return $return;
 }
