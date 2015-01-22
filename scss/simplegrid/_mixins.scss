@@ -209,6 +209,7 @@ $base-font-size: 16px !default;
 	display:    inline-block;
 	text-align: center;
 	margin:     0 auto;
+	@include transition();
 	&:hover{
 		#{$tag}{
 			&.on{

@@ -109,6 +109,8 @@ $is-static-pixels: $is-static;
 $row-width: 1000px;
 $total-columns: 12;
 $column-gutter: 20px;
+$block-grid-elements: $total-columns;
+$block-grid-default-spacing: $column-gutter;
 
 //Default Media Query Ranges
 //$small-range: (0em, 40em);

@@ -311,10 +311,10 @@ table { border-collapse: collapse; border-spacing: 0; }
   .large-10 { width: 83.33333%; }
   .large-11 { width: 91.66667%; }
   .large-12 { width: 100%; } }
-[class*="block-grid-"] { display: block; padding: 0; margin: 0 -0.625rem; *zoom: 1; }
+[class*="block-grid-"] { display: block; padding: 0; margin: 0 -10px; *zoom: 1; }
 [class*="block-grid-"]:before, [class*="block-grid-"]:after { content: " "; display: table; }
 [class*="block-grid-"]:after { clear: both; }
-[class*="block-grid-"] > li { display: block; height: auto; float: left; padding: 0 0.625rem 1.25rem; }
+[class*="block-grid-"] > li { display: block; height: auto; float: left; padding: 0 10px 20px; }
 
 @media only screen { .small-block-grid-1 > li { width: 100%; list-style: none; }
   .small-block-grid-1 > li:nth-of-type(1n) { clear: none; }
