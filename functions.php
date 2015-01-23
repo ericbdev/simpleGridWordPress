@@ -97,14 +97,13 @@ function get_social_links($lang = false){
 }
 
 
-
 function get_id($name, $lang = false){
-	if(!$lang) $lang = get_lang_active();
+	$pageID = '';
 	switch($name){
 		case 'home':
-			return ($lang == 'en' ? 2 : 2);
+			$pageID = 2;
 			break;
 	}
-	return false;
+	$searchLang = ($lang ? $lang : get_lang_active());
+	return get_default_id($pageID, 'page', $searchLang);
 }
-

@@ -130,11 +130,11 @@ function get_translated_id($id, $type = 'page') {
 	return $returnID;
 }
 
-function get_default_id($id, $type = 'page') {
+function get_default_id($id, $type = 'page', $lang = 'en') {
 	$returnID = $id;
 	if(class_exists('SitePress')){
 		if(function_exists('icl_object_id')) {
-			$returnID = icl_object_id($id, $type, true, 'en');
+			$returnID = icl_object_id($id, $type, true, $lang);
 		}
 	}
 	return $returnID;

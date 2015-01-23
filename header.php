@@ -103,3 +103,37 @@
 		}
 	});
 </script>
+<?php
+global $post;
+$banners = array();
+if($post && ($post->ID !== null)){
+	$banners = get_meta($post->ID, 'banner_images');
+	$image = new image();
+}
+if(!empty($banners)): ?>
+	<section class="wrapper main-banner<?php echo (count($banners)  > 1 ? ' js-banner' : '');?>">
+		<?php
+		foreach($banners as $k => $v):
+			$imageInfo = array();
+			if($v['image_id'] !== '' && $v['image'] !== ''):
+				$imageInfo = $image->get_image($v['image_id']);
+				$imagePath = $imageInfo['image'][0][0];
+				$inlineStyle = " style='background-image:url({$imagePath})'";
+				$output = '';
+				echo "<div class='slide'>";
+				echo "<div class='banner' $inlineStyle>";
+				$output .= "<div class='row'>";
+				$output .= "<div class='columns small-12'>";
+				$output .= "<div class='text-wrapper'>";
+				$output .= apply_filters('the_content', $v['text']);
+				$output .= "</div>";
+				$output .= "</div>";
+				$output .= "</div>";
+				echo $output;
+				echo "</div>";
+				echo "</div>";
+			endif;
+		endforeach;
+		?>
+	</section>
+<?php endif;

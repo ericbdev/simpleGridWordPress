@@ -1,4 +1,4 @@
-html, body { font-size: 16px; padding: 0; margin: 0; height: 100%; }
+html, body { font-size: 18px; padding: 0; margin: 0; height: 100%; }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary { display: block; }
 
@@ -645,7 +645,7 @@ ul.header-nav ul li ul > li:hover a, ul.header-nav ul li ul a:hover { background
 .archive-navigation.paginate-stories { margin-top: 40px; }
 .archive-navigation .nav-previous { text-align: left; }
 .archive-navigation .nav-next { text-align: right; }
-.archive-navigation a { color: #ed1c24; padding: 0; text-transform: uppercase; display: block; font-weight: 800; line-height: 100%; font: 1.125em; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; -ms-transition: all 1s ease; -o-transition: all 1s ease; transition: all 1s ease; }
+.archive-navigation a { color: #ed1c24; padding: 0; text-transform: uppercase; display: block; font-weight: 800; line-height: 100%; font: 1em; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; -ms-transition: all 1s ease; -o-transition: all 1s ease; transition: all 1s ease; }
 .archive-navigation a:hover { color: #ed1c24; border-color: #ed1c24; }
 
 .search-form input { border: 1px solid #ed1c24; width: 80%; float: left; height: 40px; }
@@ -658,7 +658,7 @@ ul.header-nav ul li ul > li:hover a, ul.header-nav ul li ul a:hover { background
 .loop-articles .single-article .featured-image { padding-left: 0; padding-right: 20px; padding-bottom: 20px; }
 .loop-articles .single-article .general-category { margin-top: 0; }
 .loop-articles .single-article:first-child { border-top: 0px none; }
-.loop-articles .single-article .sub-header { font-size: 1.125em; line-height: 120%; }
+.loop-articles .single-article .sub-header { font-size: 1em; line-height: 120%; }
 .loop-articles .single-article p.read-more-link { margin-bottom: 0; }
 .loop-articles .single-article p.read-more-link a { text-transform: uppercase; font-weight: 800; color: #ed1c24; }
 
@@ -673,5 +673,5 @@ ul.header-nav ul li ul > li:hover a, ul.header-nav ul li ul a:hover { background
 .article-sidebar .recent-articles ul li { margin-left: 0; list-style-type: none; display: block; }
 .article-sidebar .recent-articles ul li a { border-bottom: 1px solid #ed1c24; font-weight: 800; display: block; padding-top: 5px; padding-bottom: 5px; }
 
-@media only screen and (min-width: 768px) { .loop-articles .single-article .sub-header { font-size: 1.5em; }
+@media only screen and (min-width: 768px) { .loop-articles .single-article .sub-header { font-size: 1.33333em; }
   .loop-articles .single-article .text-wrapper { padding-right: 20px; } }

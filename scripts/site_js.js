@@ -189,27 +189,13 @@ var functions = {
 	});
 
 	/** Page Logic **/
-	var successStories = $(".js-success-stories");
-	successStories.owlCarousel({
-		items : 1,
-		singleItem : true,
-		navigation: false,
-		pagination: false,
-		//navigationText : ["Previous", "Next"],
-		responsiveRefreshRate : 100,
-		mouseDrag: false,
-		afterAction: function(){
-			setTimeout(functions.videoResize(), 300);
-		}
-
-	});
-
-	$(".navigation .right").click(function(e){
-		e.preventDefault();
-		successStories.trigger('owl.next');
-	});
-	$(".navigation .left").click(function(e){
-		e.preventDefault();
-		successStories.trigger('owl.prev');
+	$(".js-banner").owlCarousel({
+		items                : 1,
+		singleItem           : true,
+		navigation           : true,
+		pagination           : false,
+		navigationText       : ["", ""],
+		responsiveRefreshRate: 100,
+		mouseDrag            : true
 	});
 }( jQuery ));

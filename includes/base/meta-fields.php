@@ -85,6 +85,45 @@ function metaFields( array $meta_boxes ) {
 
 		)
 	);
+	$meta_boxes['page_banners'] = array(
+		'id'         => 'page_banner',
+		'title'      => 'Banners',
+		'pages'      => array('page'), // Post type
+		'context'    => 'normal',
+		'priority'   => 'high',
+		'show_names' => true,
+		'fields'     => array(
+			array(
+				'title'   => 'Banner Images',
+				'id'      => $prefix . 'banner_images',
+				'type'    => 'group',
+				'options' => array(
+					'group_title'   => __('Image {#}', themeDomain()), // since version 1.1.4, {#} gets replaced by row number
+					'add_button'    => __('Add Another Image', themeDomain()),
+					'remove_button' => __('Remove Image', themeDomain()),
+					'sortable'      => true, // beta
+				),
+				// Fields array works the same, except id's only need to be unique for this group. Prefix is not needed.
+				'fields'  => array(
+					array(
+						'name'       => _x('Image', 'Titles', themeDomain()),
+						'id'         => 'image',
+						'show_names' => false,
+						'type'       => 'file',
+						'allow'      => array('attachment') // limit to just attachments with array( 'attachment' )
+					),
+					array(
+						'name' => _x('Banner Text', 'Titles', themeDomain()),
+						'id'   => 'text',
+						'type' => 'wysiwyg',
+						'options' => $wysiwygOptions,
+					),
+				),
+			)
+
+		),
+
+	);
 	/*array(
 		'name' => _x( 'Datasheet', 'Titles', themeDomain() ),
 		'id'   => $prefix.'prod_datasheet',
