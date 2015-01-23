@@ -1,5 +1,6 @@
 <?php
-add_filter('the_content', 'shortcode_empty_paragraph_fix');
+add_filter( 'the_content', 'wpautop' , 20);
+add_filter('the_content', 'shortcode_empty_paragraph_fix', 12);
 function shortcode_empty_paragraph_fix($content) {
 	$array = array (
 		'<p>['    => '[',
