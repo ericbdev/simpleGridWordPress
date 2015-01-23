@@ -29,25 +29,38 @@ return '<div class="columns'.$extraSpan.$extraInfo.$extraClass.'">' . do_shortco
 }
 add_shortcode('col', 'colCode');
 
+/** Instructions:
+ *  [email]foo@bar.com[/email]
+ * [email email='foo@bar.com']email me![/email]
+ **/
 function emailCode($atts, $content = null) {
-extract(shortcode_atts(array('domain' => '', 'email' => '', 'text' => '', 'class' => ''), $atts));
-	$returnValue = '';
-	$addClass = '';
+	/** @var $class $class */
+	/** @var $email $email */
+	extract(shortcode_atts(array('email' => '', 'class'=> ''), $atts));
 
+	$classes = "js-replacer-text $class";
+	$classes = trim($classes);
 
-	/*$domain =
-	$email =
-	$text = */
+	$toSplit = ($email !== '' ? $email : do_shortcode($content) );
+	$text = ($email !== '' ? do_shortcode($content) : '' );
 
-	$returnValue .= ($domain !== '' ? " data-domain='$domain'" : '' );
-	$returnValue .= ($email !== '' ? " data-extra='$email'" : '' );
-	$returnValue .= ($text !== '' ? " data-text='$text'" : '' );
-	$addClass .= ($class !== '' ? ' '.$class : '' );
+	$splitVals = explode('@', $toSplit);
+	$domain = array_pop($splitVals);
+	$email = $splitVals[0];
 
+	$dataTags = '';
+	$dataTags .= ($domain !== '' ? " data-domain='$domain'" : '' );
+	$dataTags .= ($email !== '' ? " data-extra='$email'" : '' );
+	$dataTags .= ($text !== '' ? " data-text='$text'" : '' );
 
-return "<a class='js-replacer-text$addClass' href='#' $returnValue>"._x('Please enable JavaScript', 'Titles', themeDomain() )."</a>";
+	$returnContent ="<a class='$classes' href='#' $dataTags>";
+	$returnContent .= _x('Please enable JavaScript', 'Titles', themeDomain());
+	$returnContent .="</a>";
+
+	return $returnContent;
 }
 add_shortcode('email', 'emailCode');
+
 
 function colorCode($atts, $content = null) {
 	extract(shortcode_atts(array('color' => '', 'weight' => '', 'class' => ''), $atts));
