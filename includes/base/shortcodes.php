@@ -30,7 +30,7 @@ return '<div class="columns'.$extraSpan.$extraInfo.$extraClass.'">' . do_shortco
 add_shortcode('col', 'colCode');
 
 /** Instructions:
- *  [email]foo@bar.com[/email]
+ * [email]foo@bar.com[/email]
  * [email email='foo@bar.com']email me![/email]
  **/
 function emailCode($atts, $content = null) {
