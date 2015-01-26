@@ -29,6 +29,13 @@ return '<div class="columns'.$extraSpan.$extraInfo.$extraClass.'">' . do_shortco
 }
 add_shortcode('col', 'colCode');
 
+function largeCode($atts, $content = null) {
+	extract(shortcode_atts(array('type' => '', ), $atts));
+	return '<span class="text-larger">' . do_shortcode($content) . '</span>';
+}
+add_shortcode('large', 'largeCode');
+add_shortcode('larger', 'largeCode');
+
 /** Instructions:
  * [email]foo@bar.com[/email]
  * [email email='foo@bar.com']email me![/email]

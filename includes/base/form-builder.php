@@ -165,6 +165,10 @@ class form_builder {
 		}
 	}
 
+	public function get_placeholder($field_name){
+		return $this->placeholder[$field_name];
+	}
+
 	public function get_error_label($field_name, $type = 'required') {
 		if ($this->has_error($field_name)) {
 			echo "<label for='$field_name' class='error'>{$this->errorVals[$field_name][$type]}</label>";

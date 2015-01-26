@@ -72,9 +72,7 @@ var functions = {
 	},
 	pageScroll: function(_tag){
 		var totalScroll = $(_tag).offset().top-functions.offsetHeader;
-		setTimeout(function(){
-			$('html,body').scrollTo(totalScroll, 500 );
-		}, 100)
+		$('html,body').scrollTo(totalScroll, 500 );
 	},
 	emailReplace: function(){
 		/** Use JavaScript to replace <a> with a mail link, to reduce potential spam**/

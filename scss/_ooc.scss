@@ -1,3 +1,8 @@
+.no-space{
+	margin-top:    0 !important;
+	margin-bottom: 0 !important;
+}
+
 .row{
 	&.wide-row{
 		max-width: 1600px;
@@ -7,6 +12,44 @@
 	}
 	&.width-1200{
 		max-width: 1200px;
+	}
+	&.collapse{
+		.columns{
+			&.padding-left{
+				padding-left: $column-gutter;
+			}
+			&.padding-right{
+				padding-right: $column-gutter;
+			}
+		}
+	}
+}
+
+.padding-left{
+	padding-left: $column-gutter;
+}
+
+.padding-right{
+	padding-right: $column-gutter;
+}
+
+.padding-top{
+	padding-top: $column-gutter;
+	&.double-space{
+		padding-top: $column-gutter*2;
+	}
+	&.half-space{
+		padding-top: $column-gutter/2;
+	}
+}
+
+.padding-bottom{
+	padding-bottom: $column-gutter;
+	&.double-space{
+		padding-bottom: $column-gutter*2;
+	}
+	&.half-space{
+		padding-bottom: $column-gutter/2;
 	}
 }
 
@@ -38,22 +81,3 @@
 	text-transform: none;
 }
 
-.padding-top{
-	padding-top: $column-gutter-plus;
-	&.double-space{
-		padding-top: $column-gutter-plus*2;
-	}
-	&.half-space{
-		padding-top: $column-gutter-plus/2;
-	}
-}
-
-.padding-bottom{
-	padding-bottom: $column-gutter-plus;
-	&.double-space{
-		padding-bottom: $column-gutter-plus*2;
-	}
-	&.half-space{
-		padding-bottom: $column-gutter-plus/2;
-	}
-}

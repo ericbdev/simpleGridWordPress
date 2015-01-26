@@ -549,9 +549,25 @@ h6:last-child:first-child { margin-top: 0; }
 
 .sidr input[type=button]:hover, .sidr input[type=submit]:hover { background: rgba(51, 51, 51, 0.9); }
 
+.no-space { margin-top: 0 !important; margin-bottom: 0 !important; }
+
 .row.wide-row { max-width: 1600px; }
 .row.wide-row-extra { max-width: 100%; }
 .row.width-1200 { max-width: 1200px; }
+.row.collapse .columns.padding-left { padding-left: 20px; }
+.row.collapse .columns.padding-right { padding-right: 20px; }
+
+.padding-left { padding-left: 20px; }
+
+.padding-right { padding-right: 20px; }
+
+.padding-top { padding-top: 20px; }
+.padding-top.double-space { padding-top: 40px; }
+.padding-top.half-space { padding-top: 10px; }
+
+.padding-bottom { padding-bottom: 20px; }
+.padding-bottom.double-space { padding-bottom: 40px; }
+.padding-bottom.half-space { padding-bottom: 10px; }
 
 .align-right { text-align: right; }
 
@@ -566,14 +582,6 @@ h6:last-child:first-child { margin-top: 0; }
 .text-upper { text-transform: uppercase; }
 
 .text-regular { text-transform: none; }
-
-.padding-top { padding-top: 30px; }
-.padding-top.double-space { padding-top: 60px; }
-.padding-top.half-space { padding-top: 15px; }
-
-.padding-bottom { padding-bottom: 30px; }
-.padding-bottom.double-space { padding-bottom: 60px; }
-.padding-bottom.half-space { padding-bottom: 15px; }
 
 .main-header { position: relative; height: 100px; line-height: 100px; background: rgba(255, 255, 255, 0.7); z-index: 200; }
 .main-header .logo-header { margin: 0; padding: 0; }
