@@ -558,8 +558,12 @@ h6:last-child:first-child { margin-top: 0; }
 .row.collapse .columns.padding-right { padding-right: 20px; }
 
 .padding-left { padding-left: 20px; }
+.padding-left.double-space { padding-left: 40px; }
+.padding-left.half-space { padding-left: 10px; }
 
 .padding-right { padding-right: 20px; }
+.padding-right.double-space { padding-right: 40px; }
+.padding-right.half-space { padding-right: 10px; }
 
 .padding-top { padding-top: 20px; }
 .padding-top.double-space { padding-top: 40px; }
