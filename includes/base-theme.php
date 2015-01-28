@@ -32,6 +32,7 @@ function cmb_initialize_cmb_meta_boxes() {
 }
 add_action( 'init', 'cmb_initialize_cmb_meta_boxes', 9999 );
 
+require_once 'base/archive-helpers.php';
 require_once 'base/disable-feeds.php';
 require_once 'base/image.php';
 require_once 'base/post-types.php';
@@ -63,8 +64,11 @@ add_image_size( 'sqr_300', '300', '300', true);
 add_image_size( 'sqr_200', '200', '200', true);*/
 
 
-add_action( 'init', 'register_my_menus' );
-function register_my_menus() {
+function load_admin_functions() {
+	/* Serif fonts are for print. */
+	if (is_admin()) {
+		add_editor_style('css/editor-style.css');
+	}
 	register_nav_menus(
 		array(
 			'header-menu-desktop' => __( 'Desktop Header Menu' ),
@@ -73,6 +77,25 @@ function register_my_menus() {
 			//'footer-menu-mobile' => __( 'Mobile Footer Menu' )
 		)
 	);
+}
+
+add_action( 'init', 'load_admin_functions' );
+
+function get_theme_path($withSlash = false, $extraPath = '') {
+	$morePath = '';
+	if ($withSlash == true) {
+		$morePath .= '/';
+	}
+	if ($extraPath !== '') {
+		$morePath .= $extraPath;
+	}
+
+	return get_template_directory_uri() . $morePath;
+}
+
+function get_meta($id, $field){
+	$prefix = get_the_prefix();
+	return get_post_meta($id, $prefix.$field, true);
 }
 
 
@@ -141,49 +164,7 @@ function get_default_id($id, $type = 'page', $lang = 'en') {
 }
 
 
-function get_theme_path($withSlash = false, $extraPath = '') {
-	$morePath = '';
-	if ($withSlash == true) {
-		$morePath .= '/';
-	}
-	if ($extraPath !== '') {
-		$morePath .= $extraPath;
-	}
-
-	return get_template_directory_uri() . $morePath;
-}
-
-function get_meta($id, $field){
-	$prefix = get_the_prefix();
-	return get_post_meta($id, $prefix.$field, true);
-}
-
-
 /*************************************************************************************/
-
-function youtube_id_from_url($url) {
-	$pattern =
-		'%^# Match any youtube URL
-		(?:https?://)?  # Optional scheme. Either http or https
-		(?:www\.)?      # Optional www subdomain
-		(?:             # Group host alternatives
-		  youtu\.be/    # Either youtu.be,
-		| youtube\.com  # or youtube.com
-		  (?:           # Group path alternatives
-			/embed/     # Either /embed/
-		  | /v/         # or /v/
-		  | /watch\?v=  # or /watch\?v=
-		  )             # End path alternatives.
-		)               # End host alternatives.
-		([\w-]{10,12})  # Allow 10-12 for 11 char youtube id.
-		$%x';
-	$result  = preg_match($pattern, $url, $matches);
-	if (false !== $result) {
-		return $matches[1];
-	}
-	return false;
-}
-
 
 class navWalker extends Walker_Nav_Menu{
 	function end_el( &$output, $item, $depth = 0, $args = array() ) {
@@ -233,178 +214,31 @@ class navWalker extends Walker_Nav_Menu{
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args, $id);
 	}
 }
-
-
-
-
-
 /*************************************************************************************/
 
-/** Blogging / Archive **/
-
-function get_custom_except($charlength, $append = false, $pid = false) {
-	$excerpt = '';
-	if($pid){
-		$excerpt = get_the_excerpt($pid);
-	}else{
-		$excerpt = get_the_excerpt();
-	}
-
-	$return = '';
-	$charlength++;
-
-	if ( mb_strlen( $excerpt ) > $charlength ) {
-
-		$excerpt = strip_tags($excerpt);
-		$subex = mb_substr( $excerpt, 0, $charlength - 5 );
-		$exwords = explode( ' ', $subex );
-		$excut = - ( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
-		if ( $excut < 0 ) {
-			$return =  mb_substr( $subex, 0, $excut );
-		} else {
-			$return =  $subex;
-		}
-		if($append){
-			return trim($return). '...';
-		}else{
-			return trim($return);
-		}
-
-	} else {
-		return $excerpt;
-	}
-}
-
-
-
-function get_blog_archive_url(){
-	if(function_exists('get_option')){
-		$page_for_posts = get_option('page_for_posts');
-		if($page_for_posts !== '' && $page_for_posts !== '0'){
-			return get_permalink($page_for_posts);
-		}
-	}
+function youtube_id_from_url($url) {
+	$pattern =
+		'%^# Match any youtube URL
+		(?:https?://)?  # Optional scheme. Either http or https
+		(?:www\.)?      # Optional www subdomain
+		(?:             # Group host alternatives
+		  youtu\.be/    # Either youtu.be,
+		| youtube\.com  # or youtube.com
+		  (?:           # Group path alternatives
+			/embed/     # Either /embed/
+		  | /v/         # or /v/
+		  | /watch\?v=  # or /watch\?v=
+		  )             # End path alternatives.
+		)               # End host alternatives.
+		([\w-]{10,12})  # Allow 10-12 for 11 char youtube id.
+		$%x';
+	$result  = preg_match($pattern, $url, $matches);
+	if (false !== $result) :
+		return $matches[1];
+	endif;
 	return false;
-
 }
 
-function my_strftime ($format, $timestamp){
-	$mapOrdinals = array(
-		"st" => "<sup>er</sup>",
-		"nd" => "<sup>e</sup>",
-		"th" => "<sup>e</sup>"
-	);
-
-	$format = str_replace('%O', date('S', $timestamp), $format);
-
-	return
-		str_replace (array_keys($mapOrdinals), array_values($mapOrdinals), strftime($format, $timestamp) );
-
-}
-
-function my_search_form( $form ) {
-	$form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">
-				<input type="text" class="search-field" placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder' ) . '" value="' . get_search_query() . '" name="s" title="' . esc_attr_x( 'Search for:', 'label' ) . '" />
-				<input type="submit" class="search-submit" value="'. esc_attr_x( 'Search', 'submit button' ) .'" />
-			</form>';
-
-	return $form;
-}
-add_filter( 'get_search_form', 'my_search_form' );
-
-function get_articles_side_bar($taxonomyUl){
-	?>
-	<div class="columns large-3 show-for-large-up article-sidebar">
-		<div class="search">
-			<?php get_search_form( true ); ?>
-		</div>
-		<div class="category-display">
-			<h2><?php _ex('Categories:','Titles',themeDomain());?></h2>
-			<ul>
-				<?php
-				$archiveLink = get_blog_archive_url();
-				$archiveTitle = _x('View all','Links',themeDomain());
-				echo "<li><a href='$archiveLink'>$archiveTitle</a>";
-				echo $taxonomyUl;
-				?>
-			</ul>
-		</div>
-		<div class="recent-articles">
-			<h2><?php _ex('Recent Articles:','Titles',themeDomain());?></h2>
-			<ul>
-				<?php
-				$searchPostType = 'post';
-				$searchTax = 'category';
-
-				$args = array(
-					'post_type' => $searchPostType, // the custom post type for logos
-					'posts_per_page' => 5
-				);
-				$catQuery = new WP_Query($args);
-				$postCount = $catQuery->found_posts;
-
-				while ($catQuery->have_posts()) : $catQuery->the_post();
-					global $args;
-					global $post;
-
-					$storyCat  = wp_get_post_terms($post->ID, 'category');
-
-
-					echo "<li><a href='".get_permalink($post->ID)."'>".get_the_title($post->ID)."</a></li>";
-
-				endwhile;
-				?>
-			</ul>
-		</div>
-	</div>
-<?php
-}
-
-
-function number_of_posts_on_archive($query){
-	if($query->is_post_type_archive('custom-post-type-1') &&  $query->is_main_query()){
-		$query->set('posts_per_page', 9);
-	}
-	if($query->is_post_type_archive('custom-post-type-2') &&  $query->is_main_query()){
-		$query->set('posts_per_page', 5);
-	}
-	return $query;
-}
-if(!is_admin()){
-	add_filter('pre_get_posts', 'number_of_posts_on_archive');
-}
-
-function filter_search($query) {
-	if(!is_admin()){
-		if ($query->is_search) {
-			$query->set('post_type', array('post'));
-		};
-	}
-	return $query;
-};
-add_filter('pre_get_posts', 'filter_search');
-
-
-function get_pagination($pageAmount, $args = array()){
-	$defaults = array(
-		'class' => '',
-		'term' => _x('Articles', 'Links', themeDomain())
-	);
-	$args = array_replace( $defaults, $args );
-	$rowClass = trim('row archive-navigation collapse '.$args['class']);
-	if ( $pageAmount > 1 ) : ?>
-		<nav class="<?php echo $rowClass?>" role="navigation">
-			<?php
-			$prevLinks = (ICL_LANGUAGE_CODE == 'fr' ? 'Suivants'.$args['term'] : 'Older '.$args['term']  );
-			$nextLinks = (ICL_LANGUAGE_CODE == 'fr' ? 'Précédents'.$args['term']   :  'Newer '.$args['term']);
-
-
-			?>
-			<div class="nav-previous columns small-5"><?php previous_posts_link( "<span class='meta-nav'>$nextLinks</span>"); ?></div>
-			<div class="nav-next columns small-5"><?php next_posts_link( "<span class='meta-nav'>$prevLinks</span>" ); ?></div>
-		</nav>
-	<?php endif;
-}
 
 /*************************************************************************************/
 
@@ -424,18 +258,6 @@ function wphidenag() {
 }
 add_action('admin_menu','wphidenag');
 
-function loadAdmin() {
-	/* Serif fonts are for print. */
-	if (is_admin()) {
-		add_editor_style('css/editor-style.css');
-	}
-}
-add_action('init', 'loadAdmin');
-
-add_action('init', 'loadAdmin');
-
-
-add_filter('body_class','browser_body_class');
 function browser_body_class($classes) {
 	global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
 	if($is_lynx) $classes[] = 'lynx';
@@ -448,9 +270,9 @@ function browser_body_class($classes) {
 	else $classes[] = 'unknown';
 	if($is_iphone) $classes[] = 'iphone';
 	if(wp_is_mobile()){$classes[] = 'mobile';}
-
 	return $classes;
 }
+add_filter('body_class','browser_body_class');
 
 add_filter( 'post_thumbnail_html', 'remove_width_attribute', 50 );
 add_filter( 'image_send_to_editor', 'remove_width_attribute', 50 );
@@ -462,28 +284,28 @@ function remove_width_attribute( $html ) {
 function set_html_content_type() {
 	return 'text/html';
 }
+function is_login() {
+	return in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php' ) );
+}
 
 
 if (!function_exists('array_replace')){
-	function array_replace( array &$array, array &$array1, $filterEmpty=false )
-	{
+	function array_replace( array &$array, array &$array1, $filterEmpty=false ){
 		$args = func_get_args();
 		$count = func_num_args()-1;
-
 		for ($i = 0; $i < $count; ++$i) {
-			if (is_array($args[$i])) {
+			if (is_array($args[$i])) :
 				foreach ($args[$i] as $key => $val) {
 					if ($filterEmpty && empty($val)) continue;
 					$array[$key] = $val;
 				}
-			}
-			else {
+			else:
 				trigger_error(
 					__FUNCTION__ . '(): Argument #' . ($i+1) . ' is not an array',
 					E_USER_WARNING
 				);
 				return NULL;
-			}
+			endif;
 		}
 
 		return $array;

@@ -5,12 +5,8 @@
 
 require_once 'includes/base-theme.php';
 
-
-
 /**Enqueing scripts**/
-function is_login() {
-	return in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php' ) );
-}
+
 function wp_head_action(){
 	echo "<script>window.jQuery || document.write('<script src=\"".get_template_directory_uri()."/scripts/vendor/jquery-1.11.0.min.js\"><\\/script>')</script>";
 }
@@ -77,9 +73,6 @@ function load_my_scripts() {
 }
 //add_action('init', 'load_my_scripts');  /*Loads up all enqueued scripts when loading the header*/
 add_action( 'wp_enqueue_scripts', 'load_my_scripts' );
-
-
-
 
 /*************************************************************************************/
 function get_social_links($lang = false){

@@ -77,24 +77,21 @@ var functions = {
 	emailReplace: function(){
 		/** Use JavaScript to replace <a> with a mail link, to reduce potential spam**/
 		var _varPre = "mailto:",
-			_varMid = '',
-			_varEnd = '',
-			_varText = '',
 			_selector = ".js-replacer-text";
 
 		if ($(_selector).length > 0) {
 			$(_selector).each(function(){
-				var _modifyText = $(this).data('modify');
-				_varEnd = $(this).data('domain');
-				_varMid = $(this).data('extra');
-				_varText = $(this).data('text');
+				var _varUpdate = $(this).data('update'),
+					_varEnd = $(this).data('domain'),
+					_varMid = $(this).data('extra'),
+					_varText = $(this).data('text');
 				$(this).attr('href', _varPre + _varMid + '@' + _varEnd);
-				if(typeof _modifyText == 'boolean' && _modifyText != true){
+				if(typeof _varUpdate == 'boolean' && _varUpdate != true){
 
 
 				}else{
 					if(typeof _varText !== 'undefined'){
-						$(this).text(_varText);
+						$(this).html(_varText);
 					}else{
 						$(this).text(_varMid + '@' + _varEnd);
 					}

@@ -36,21 +36,29 @@ function largeCode($atts, $content = null) {
 add_shortcode('large', 'largeCode');
 add_shortcode('larger', 'largeCode');
 
+function hrCode($atts){
+	return "<div class='hr'>&nbsp;</div>";
+}
+add_shortcode('hr', 'hrCode');
+
 /** Instructions:
  * [email]foo@bar.com[/email]
  * [email email='foo@bar.com']email me![/email]
+ * [email email='foo@bar.com' data-update='false']<foo>Bar html -- this doesnt get touched by js </foo>[/email]
  **/
 function emailCode($atts, $content = null) {
-	/** @var $class $class */
-	/** @var $email $email */
-	extract(shortcode_atts(array('email' => '', 'class'=> ''), $atts));
+	/**
+	 * @var $class $class
+	 * @var $email $email
+	 * @var $update_text $update_text
+	 **/
+	extract(shortcode_atts(array('email' => '', 'class'=> '', 'update_text' => true), $atts));
 
 	$classes = "js-replacer-text $class";
 	$classes = trim($classes);
 
 	$toSplit = ($email !== '' ? $email : do_shortcode($content) );
-	$text = ($email !== '' ? do_shortcode($content) : '' );
-
+	$outputContent = ($email !== '' ? do_shortcode($content) : '' );
 	$splitVals = explode('@', $toSplit);
 	$domain = array_pop($splitVals);
 	$email = $splitVals[0];
@@ -58,12 +66,16 @@ function emailCode($atts, $content = null) {
 	$dataTags = '';
 	$dataTags .= ($domain !== '' ? " data-domain='$domain'" : '' );
 	$dataTags .= ($email !== '' ? " data-extra='$email'" : '' );
-	$dataTags .= ($text !== '' ? " data-text='$text'" : '' );
+	$dataTags .= ($update_text !== true ? " data-update='false'" : '' );
+	$dataTags .= ($outputContent !== '' && $update_text === true ? " data-text='$outputContent'" : '' );
 
 	$returnContent ="<a class='$classes' href='#' $dataTags>";
-	$returnContent .= _x('Please enable JavaScript', 'Titles', themeDomain());
+	if($update_text !== true ):
+		$returnContent .= $outputContent;
+	else:
+		$returnContent .= _x('Please enable JavaScript', 'Titles', themeDomain());
+	endif;
 	$returnContent .="</a>";
-
 	return $returnContent;
 }
 add_shortcode('email', 'emailCode');
