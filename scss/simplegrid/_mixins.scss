@@ -9,25 +9,28 @@ $base-font-size: 16px !default;
 @function unit-value($num) {
 	@return $num / ($num * 0 + 1);
 }
-@function pxEm($fontSize, $base-value: $base-font-size){
+
+@function pxEm($fontSize, $base-value: $base-font-size) {
 	$fontSize: unit-value($fontSize) / unit-value($base-font-size);
-	@if ($fontSize == 0em) { $fontSize: 0; } // Turn 0em into 0
+	@if ($fontSize == 0em) { $fontSize: 0; }
+	// Turn 0em into 0
 	@return #{$fontSize}em;
 }
-@function darkenColor($color, $darkenValue: 20%){
+
+@function darkenColor($color, $darkenValue: 20%) {
 	@return darken($color, $darkenValue);
 }
 
-@function fontSize($request){
-	$fontSize : $font-size-body;
+@function fontSize($request) {
+	$fontSize: $font-size-body;
 	@if $request == body{
-		$fontSize : $base-font-size;
+		$fontSize: $base-font-size;
 	} @else if $request == header-large{
-		$fontSize : $font-size-header-large;
+		$fontSize: $font-size-header-large;
 	} @else if $request == header-small{
-		$fontSize : $font-size-header-small;
+		$fontSize: $font-size-header-small;
 	} @else if $request == body-small{
-		$fontSize : $font-size-body-small;
+		$fontSize: $font-size-body-small;
 	}
 	@return $fontSize;
 }
@@ -40,20 +43,20 @@ $base-font-size: 16px !default;
 	transition:         $transition-property $transition-time $method;
 }
 
-@mixin headerMargin($space){
+@mixin headerMargin($space) {
 	line-height: 120%;
-	margin:         0;
-	padding:        0;
+	margin:      $space 0 0 0;
+	padding:     0;
 	&:first-child{
+		margin-top:    0;
 		margin-bottom: $space;
 		&:last-child{
-			margin-bottom:0;
+			margin-bottom: 0;
 		}
 	}
 	&:last-child{
-		margin-top: $space;
 		&:first-child{
-			margin-top:0;
+			margin-top: 0;
 		}
 	}
 }
@@ -65,10 +68,10 @@ $base-font-size: 16px !default;
 		-ms-box-shadow:     none;
 		box-shadow:         none;
 	} @else if $inset{
-		-webkit-box-shadow:  $h-shadow $v-shadow $blur $spread $color inset;
-		-moz-box-shadow:     $h-shadow $v-shadow $blur $spread $color inset;
-		-ms-box-shadow:      $h-shadow $v-shadow $blur $spread $color inset;
-		box-shadow:          $h-shadow $v-shadow $blur $spread $color inset;
+		-webkit-box-shadow: $h-shadow $v-shadow $blur $spread $color inset;
+		-moz-box-shadow:    $h-shadow $v-shadow $blur $spread $color inset;
+		-ms-box-shadow:     $h-shadow $v-shadow $blur $spread $color inset;
+		box-shadow:         $h-shadow $v-shadow $blur $spread $color inset;
 	} @else{
 		-webkit-box-shadow: $h-shadow $v-shadow $blur $spread $color;
 		-moz-box-shadow:    $h-shadow $v-shadow $blur $spread $color;
@@ -80,35 +83,34 @@ $base-font-size: 16px !default;
 @mixin linear-gradient($fromColor, $toColor, $directon: vertical, $from1Dist: 0%, $toDist: 100%) {
 	@if $directon == horizontal{
 		background: $fromColor; // Old browsers
-		background: -webkit-gradient(linear, left top, right top, color-stop($from1Dist,$fromColor), color-stop($toDist,$toColor)); // Chrome,Safari4+
-		background: -webkit-linear-gradient(left,  $fromColor $from1Dist,$toColor $toDist); // Chrome10+,Safari5.1+
-		background: -moz-linear-gradient(left,  $fromColor $from1Dist, $toColor $toDist); // FF3.6+
-		background: -ms-linear-gradient(left,  $fromColor $from1Dist,$toColor $toDist); // IE10+
-		background: -o-linear-gradient(left,  $fromColor $from1Dist,$toColor $toDist); // Opera 11.10+
-		background: linear-gradient(to right,  $fromColor $from1Dist,$toColor $toDist); // W3C
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$fromColor', endColorstr='$toColor',GradientType=1 ); // IE6-9 
-
-	}@else{
+		background: -webkit-gradient(linear, left top, right top, color-stop($from1Dist, $fromColor), color-stop($toDist, $toColor)); // Chrome,Safari4+
+		background: -webkit-linear-gradient(left, $fromColor $from1Dist, $toColor $toDist); // Chrome10+,Safari5.1+
+		background: -moz-linear-gradient(left, $fromColor $from1Dist, $toColor $toDist); // FF3.6+
+		background: -ms-linear-gradient(left, $fromColor $from1Dist, $toColor $toDist); // IE10+
+		background: -o-linear-gradient(left, $fromColor $from1Dist, $toColor $toDist); // Opera 11.10+
+		background: linear-gradient(to right, $fromColor $from1Dist, $toColor $toDist); // W3C
+		filter:     progid:DXImageTransform.Microsoft.gradient(startColorstr='$fromColor', endColorstr='$toColor', GradientType=1); // IE6-9
+	} @else{
 		background: $fromColor; // Old browsers
-		background: -webkit-gradient(linear, left top, left bottom, color-stop($from1Dist,$fromColor), color-stop($toDist,$toColor)); // Chrome,Safari4+
-		background: -webkit-linear-gradient(top,  $fromColor $from1Dist,$toColor $toDist); // Chrome10+,Safari5.1+
-		background: -moz-linear-gradient(top,  $fromColor $from1Dist, $toColor $toDist); // FF3.6+
-		background: -ms-linear-gradient(top,  $fromColor $from1Dist,$toColor $toDist); // IE10+
-		background: -o-linear-gradient(top,  $fromColor $from1Dist,$toColor $toDist); // Opera 11.10+
-		background: linear-gradient(to bottom,  $fromColor $from1Dist,$toColor $toDist); // W3C
-		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$fromColor', endColorstr='$toColor',GradientType=0 ); // IE6-9
+		background: -webkit-gradient(linear, left top, left bottom, color-stop($from1Dist, $fromColor), color-stop($toDist, $toColor)); // Chrome,Safari4+
+		background: -webkit-linear-gradient(top, $fromColor $from1Dist, $toColor $toDist); // Chrome10+,Safari5.1+
+		background: -moz-linear-gradient(top, $fromColor $from1Dist, $toColor $toDist); // FF3.6+
+		background: -ms-linear-gradient(top, $fromColor $from1Dist, $toColor $toDist); // IE10+
+		background: -o-linear-gradient(top, $fromColor $from1Dist, $toColor $toDist); // Opera 11.10+
+		background: linear-gradient(to bottom, $fromColor $from1Dist, $toColor $toDist); // W3C
+		filter:     progid:DXImageTransform.Microsoft.gradient(startColorstr='$fromColor', endColorstr='$toColor', GradientType=0); // IE6-9
 	}
 }
 
 @mixin radial-gradient($fromColor, $toColor, $from1Dist: 0%, $toDist: 100%) {
 	background: $fromColor; // Old browsers
-	background: -moz-radial-gradient(center, ellipse cover,  $fromColor $from1Dist, $toColor $toDist); // FF3.6+
-	background: -webkit-gradient(radial, center center, 0px, center center, $from1Dist, color-stop($from1Dist,$fromColor), color-stop($toDist,$toColor)); // Chrome,Safari4+
-	background: -webkit-radial-gradient(center, ellipse cover,  $fromColor $from1Dist,$toColor $toDist); // Chrome10+,Safari5.1+
-	background: -o-radial-gradient(center, ellipse cover,  $fromColor $from1Dist,$toColor $toDist); // Opera 12+
-	background: -ms-radial-gradient(center, ellipse cover,  $fromColor $from1Dist,$toColor $toDist); // IE10+
-	background: radial-gradient(ellipse at center,  $fromColor $from1Dist,$toColor $toDist); // W3C
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$fromColor', endColorstr='$toColor',GradientType=1 ); // IE6-9 fallback on horizontal gradient
+	background: -moz-radial-gradient(center, ellipse cover, $fromColor $from1Dist, $toColor $toDist); // FF3.6+
+	background: -webkit-gradient(radial, center center, 0px, center center, $from1Dist, color-stop($from1Dist, $fromColor), color-stop($toDist, $toColor)); // Chrome,Safari4+
+	background: -webkit-radial-gradient(center, ellipse cover, $fromColor $from1Dist, $toColor $toDist); // Chrome10+,Safari5.1+
+	background: -o-radial-gradient(center, ellipse cover, $fromColor $from1Dist, $toColor $toDist); // Opera 12+
+	background: -ms-radial-gradient(center, ellipse cover, $fromColor $from1Dist, $toColor $toDist); // IE10+
+	background: radial-gradient(ellipse at center, $fromColor $from1Dist, $toColor $toDist); // W3C
+	filter:     progid:DXImageTransform.Microsoft.gradient(startColorstr='$fromColor', endColorstr='$toColor', GradientType=1); // IE6-9 fallback on horizontal gradient
 }
 
 @mixin box-sizing($type: border-box) {
@@ -129,6 +131,7 @@ $base-font-size: 16px !default;
 	&::-moz-placeholder{ @content; }
 	&::-webkit-input-placeholder{ @content; }
 }
+
 @mixin appearance($appearance) {
 	appearance:         $appearance;
 	-moz-appearance:    $appearance;
@@ -141,8 +144,7 @@ $base-font-size: 16px !default;
 		@if((length($size) == 2)){
 			//2 indices
 			$mediaSize: "#{$screen} and (min-width:#{nth($size, 1)}) and (max-width:#{nth($size, 2)})";
-
-		}@else{
+		} @else{
 			//1 index
 			$mediaSize: "#{$screen} and (min-width:#{$size})"
 		}
@@ -156,8 +158,6 @@ $base-font-size: 16px !default;
 		}
 	}
 }
-
-
 
 @mixin image-replace($height: 50px, $width: false, $inverse: false) {
 	@if $width == false{
@@ -180,8 +180,7 @@ $base-font-size: 16px !default;
 		&.top{
 			@if $inverse{
 				opacity: 0;
-			}
-			@else{
+			} @else{
 				opacity: 1;
 			}
 		}
@@ -196,14 +195,14 @@ $base-font-size: 16px !default;
 		.top{
 			@if $inverse{
 				opacity: 1;
-			}@else{
+			} @else{
 				opacity: 0;
 			}
 		}
 	}
 }
 
-@mixin overlay-switch($tag){
+@mixin overlay-switch($tag) {
 	//assumption of tag.on + tag.off + tag.placeholder
 	position:   relative;
 	display:    inline-block;
