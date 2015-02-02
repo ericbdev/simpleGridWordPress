@@ -1,8 +1,6 @@
 <component name="libraryTable">
   <library name="compass-library">
-    <CLASSES>
-      <root url="file://$PROJECT_DIR$/../../Utils/Ruby21-x64/lib/ruby/gems/2.1.0/gems/compass-core-1.0.1" />
-    </CLASSES>
+    <CLASSES />
     <SOURCES />
   </library>
 </component>
