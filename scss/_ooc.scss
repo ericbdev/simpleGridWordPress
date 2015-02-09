@@ -93,3 +93,26 @@
 	text-transform: none;
 }
 
+.font-size{
+	&.body-small{
+		font-size: $font-size-body-small;
+	}
+	&.body-normal{
+		font-size: $font-size-body;
+	}
+	&.body-large{
+		font-size: $font-size-body-large;
+	}
+	&.header-small{
+		font-size: $font-size-header-small;
+	}
+	&.header{
+		font-size: $font-size-header;
+	}
+	&.header-medium{
+		font-size: $font-size-header-medium;
+	}
+	&.header-large{
+		font-size: $font-size-header-large;
+	}
+}
