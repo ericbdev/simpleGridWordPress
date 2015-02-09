@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Redirect */
+/* Template Name: Redirect to Child*/
 $children = array();
 $children = get_pages(array('child_of'=>$post->ID,'sort_order'=>'ASC','sort_column' => 'menu_order'));
 
