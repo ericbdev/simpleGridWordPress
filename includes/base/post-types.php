@@ -1,6 +1,10 @@
 <?php
 $supports = array('title','custom-fields', 'revisions');
-//$generic = new customPostType('generic', $supports);
+$supportsEditor = array('title','custom-fields', 'revisions', 'editor');
+$options = array(
+	'supports' => $supports
+);
+//$generic = new customPostType('generic', $options);
 
 /** Use this to deregister bad post types **/
 if (!function_exists('unregister_post_type')) :
