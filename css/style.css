@@ -581,6 +581,14 @@ h6:last-child:first-child { margin-top: 0; }
 
 .text-regular { text-transform: none; }
 
+.font-size.body-small { font-size: 14px; }
+.font-size.body-normal { font-size: 18px; }
+.font-size.body-large { font-size: 24px; }
+.font-size.header-small { font-size: 24px; }
+.font-size.header { font-size: 36px; }
+.font-size.header-medium { font-size: 48px; }
+.font-size.header-large { font-size: 60px; }
+
 .main-header { position: relative; height: 100px; line-height: 100px; background: rgba(255, 255, 255, 0.7); z-index: 200; }
 .main-header .logo-header { margin: 0; padding: 0; }
 .main-header .logo-header a { max-height: 100px; display: block; }
@@ -681,4 +689,3 @@ ul.header-nav ul li ul > li:hover a, ul.header-nav ul li ul a:hover { background
 
 @media only screen and (min-width: 768px) { .loop-articles .single-article .sub-header { font-size: 1.33333em; }
   .loop-articles .single-article .text-wrapper { padding-right: 20px; } }
-.text { color: #000; }
