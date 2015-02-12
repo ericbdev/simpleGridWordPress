@@ -302,40 +302,6 @@ $cursor-text-value: text !default;
 	// Meta styles are included in all builds, as they are a dependancy of the Javascript.
 	// Used to provide media query values for javascript components.
 	// Forward slash placed around everything to convince PhantomJS to read the value.
-	@if $include-meta-classes{
-		meta.foundation-version{
-			font-family: "/5.5.0/";
-		}
-
-		meta.foundation-mq-small{
-			font-family: "/" + unquote($small-up) + "/";
-			width:       lower-bound($small-range);
-		}
-
-		meta.foundation-mq-medium{
-			font-family: "/" + unquote($medium-up) + "/";
-			width:       lower-bound($medium-range);
-		}
-
-		meta.foundation-mq-large{
-			font-family: "/" + unquote($large-up) + "/";
-			width:       lower-bound($large-range);
-		}
-
-		meta.foundation-mq-xlarge{
-			font-family: "/" + unquote($xlarge-up) + "/";
-			width:       lower-bound($xlarge-range);
-		}
-
-		meta.foundation-mq-xxlarge{
-			font-family: "/" + unquote($xxlarge-up) + "/";
-			width:       lower-bound($xxlarge-range);
-		}
-
-		meta.foundation-data-attribute-namespace{
-			font-family: #{$namespace};
-		}
-	}
 
 	@if $include-html-global-classes{
 		// Must be 100% for off canvas to work
@@ -408,7 +374,7 @@ $cursor-text-value: text !default;
 		}
 
 		blockquote{
-			margin: 1em 40px;
+			margin: $column-gutter/2 40px;
 		}
 
 		dfn{
@@ -427,7 +393,7 @@ $cursor-text-value: text !default;
 		}
 
 		p, pre{
-			margin: 0 0 1em 0;
+			margin: 0 0 $column-gutter/2 0;
 		}
 
 		code, kbd, pre, samp{
@@ -472,15 +438,15 @@ $cursor-text-value: text !default;
 		}
 
 		dl, menu, ol, ul{
-			margin: 1em 0;
+			margin: $column-gutter/2 0;
 		}
 
 		dd{
-			margin: 0 0 0 40px;
+			margin: 0 0 0 $column-gutter*2;
 		}
 
 		menu, ol, ul{
-			padding: 0 0 0 40px;
+			padding: 0 0 0 $column-gutter*2;
 		}
 
 		nav ul, nav ol{
