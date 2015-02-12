@@ -62,8 +62,9 @@
 			<div class="row small-padding medium-padding">
 				<div class="columns small-4">
 					<a href="#" id="btn-mobile-nav" class="inactive">
-					<img class="top" src="<?php echo get_theme_path();?>/images/icon-btn-nav-off.png" alt="Menu"/>
-					<img class="bottom" src="<?php echo get_theme_path();?>/images/icon-btn-nav-on.png" alt="Menu"/>
+						<img class="on" src="<?php echo get_theme_path();?>/images/icon-btn-nav-on.png" alt="Menu"/>
+						<img class="off" src="<?php echo get_theme_path();?>/images/icon-btn-nav-off.png" alt="Menu"/>
+						<img class="placeholder" src="<?php echo get_theme_path();?>/images/icon-btn-nav-placeholder.png" alt="Menu"/>
 					</a>
 				</div>
 

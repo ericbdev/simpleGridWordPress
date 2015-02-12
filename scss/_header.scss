@@ -155,11 +155,10 @@ ul.header-nav{
 }
 
 #btn-mobile-nav{
-	@include image-replace($mobileHeader, 50px);
 	display: block;
-	&.active{
-		.top{
-			opacity: 0;
-		}
+	@include overlay-switch(img);
+	img{
+		width:      auto;
+		max-height: 100%;
 	}
 }

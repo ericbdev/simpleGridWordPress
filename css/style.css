@@ -617,13 +617,11 @@ ul.header-nav ul li ul > li:hover a, ul.header-nav ul li ul a:hover { background
 @media only screen and (max-width: 767px) { .wrapper.main-header { height: 80px; line-height: 80px; }
   .wrapper.main-header .logo-header { max-height: 80px; }
   .wrapper.main-header .logo-header img { max-height: 80px; } }
-#btn-mobile-nav { position: relative; height: 80px; width: 50px; display: inline-block; display: block; }
-#btn-mobile-nav img { -webkit-transition: all 1s ease; -moz-transition: all 1s ease; -ms-transition: all 1s ease; -o-transition: all 1s ease; transition: all 1s ease; display: block; position: absolute; top: 0; left: 0; height: 80px; width: 50px; }
-#btn-mobile-nav img.top { opacity: 1; }
-#btn-mobile-nav img.top { z-index: 100; }
-#btn-mobile-nav img.bottom { z-index: 1; }
-#btn-mobile-nav:hover .top { opacity: 0; }
-#btn-mobile-nav.active .top { opacity: 0; }
+#btn-mobile-nav { display: block; position: relative; display: inline-block; text-align: center; margin: 0 auto; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; -ms-transition: all 1s ease; -o-transition: all 1s ease; transition: all 1s ease; }
+#btn-mobile-nav:hover img.on { opacity: 1; }
+#btn-mobile-nav img.on { opacity: 0; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; -ms-transition: all 1s ease; -o-transition: all 1s ease; transition: all 1s ease; top: 0; left: 0; position: absolute; z-index: 100; }
+#btn-mobile-nav img.off { z-index: 0; top: 0; left: 0; position: absolute; }
+#btn-mobile-nav img { width: auto; max-height: 100%; }
 
 .row.small-padding, .inner-wrapper.small-padding { padding-left: 20px; padding-right: 20px; }
 
