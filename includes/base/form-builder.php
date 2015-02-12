@@ -261,6 +261,7 @@ class form_builder {
 
 			case 'checkbox':
 			case 'radio':
+				/* TODO: This doesnt look finished? */
 				$return .= "<input";
 				$return .= " type='{$extras['type']}' ";
 				$return .= $this->create_internal($field_name, $extras);
