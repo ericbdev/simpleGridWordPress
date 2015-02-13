@@ -505,9 +505,9 @@ h6:last-child:first-child { margin-top: 0; }
 .sidr p a { color: #ed1c24; }
 .sidr > p { margin-left: 15px; margin-right: 15px; }
 .sidr ul { display: block; margin: 0 0 15px; padding: 0; border-top: 1px solid #dfdfdf; border-bottom: 1px solid #fff; }
-.sidr ul li { display: block; margin: 0; line-height: 48px; border-top: 1px solid #fff; border-bottom: 1px solid #dfdfdf; }
+.sidr ul li { display: block; margin: 0; border-top: 1px solid #fff; border-bottom: 1px solid #dfdfdf; }
+.sidr ul li a, .sidr ul li span { padding: 15px; display: block; text-decoration: none; color: #ed1c24; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; -ms-transition: all 1s ease; -o-transition: all 1s ease; transition: all 1s ease; }
 .sidr ul li.current-menu-item > a, .sidr ul li.current-menu-item > span, .sidr ul li.current-page-ancestor > a, .sidr ul li.current-page-ancestor > span, .sidr ul li:hover > a, .sidr ul li:hover > span, .sidr ul li.active > a, .sidr ul li.active > span, .sidr ul li.sidr-class-active > a, .sidr ul li.sidr-class-active > span { -webkit-box-shadow: inset 0 0 15px 5px #ebebeb ; -moz-box-shadow: inset 0 0 15px 5px #ebebeb ; -ms-box-shadow: inset 0 0 15px 5px #ebebeb ; box-shadow: inset 0 0 15px 5px #ebebeb ; }
-.sidr ul li.current-menu-item a, .sidr ul li.current-menu-item span, .sidr ul li.current-page-ancestor a, .sidr ul li.current-page-ancestor span, .sidr ul li:hover a, .sidr ul li:hover span, .sidr ul li.active a, .sidr ul li.active span, .sidr ul li.sidr-class-active a, .sidr ul li.sidr-class-active span { padding: 0 15px; display: block; text-decoration: none; color: #ed1c24; }
 .sidr ul li ul { border-bottom: none; margin: 0; }
 .sidr ul li ul li { line-height: 40px; font-size: 13px; }
 .sidr ul li ul li:last-child { border-bottom: none; }
