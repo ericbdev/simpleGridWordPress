@@ -47,7 +47,7 @@ function load_my_scripts() {
 		wp_enqueue_style( 'g-fonts', '//fonts.googleapis.com/css?family=Lato:300,400,700,900,300italic,400italic,700italic,900italic|Open+Sans:300,400italic,400,600,700,800',false, '1', 'all');
 		wp_enqueue_style( 'owl-css-theme', "$jsPath/vendor/owl-carousel/owl.theme.css",array('g-fonts'), '1');
 		wp_enqueue_style( 'owl-css-base', "$jsPath/vendor/owl-carousel/owl.carousel.css",array('owl-css-theme'), '1');
-		wp_enqueue_style( 'style', $cssPath . 'style.css', array( 'owl-css-base'), '1');
+		wp_enqueue_style( 'style', "$cssPath/style.css', array( 'owl-css-base'), '1');
 
 
 
