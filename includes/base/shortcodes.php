@@ -1,15 +1,25 @@
 <?php
-add_filter( 'the_content', 'wpautop' , 20);
-add_filter('the_content', 'shortcode_empty_paragraph_fix', 12);
+add_filter( 'the_content', 'wpautop' , 40);
+add_filter( 'the_content', 'empty_paragraph_fix' , 20);
+//add_filter('the_content', 'shortcode_empty_paragraph_fix', 12);
 function shortcode_empty_paragraph_fix($content) {
 	$array = array (
 		'<p>['    => '[',
 		']</p>'   => ']',
-		']<br />' => ']'
+		']<br />' => ']',
 	);
 	$content = strtr($content, $array);
 	return $content;
 }
+function empty_paragraph_fix($content){
+	$find = array(
+		'<p></div>','<p><div', '</div></p>','<br />','<p></p>', "</div>\n</p>\n<p>",'columns"></p>');
+	$replace = array(
+		'</div>','<div','</div>','','','</div>','columns">');
+	$content = str_replace($find, $replace, $content);
+	return $content;
+}
+
 
 function rowCode($atts, $content = null) {
 extract(shortcode_atts(array('extra' => ''), $atts));
@@ -19,13 +29,14 @@ return '<div class="row'.$extraOut.'">' . do_shortcode($content) . '</div>';
 add_shortcode('row', 'rowCode');
 
 function colCode($atts, $content = null) {
-extract(shortcode_atts(array('span' => '', 'extra' => '', 'class' => ''), $atts));
+	extract(shortcode_atts(array('span' => '', 'extra' => '', 'class' => ''), $atts));
 
-$extraSpan = ($span !== '' ? " columns $span" : ' small-12 medium-6' );
-$extraInfo = ($extra !== '' ? ' '.$extra : '' );
-$extraClass = ($class !== '' ? ' '.$class : '' );
+	$extraInfo = ($extra !== '' ? ' '.$extra : '' );
+	$extraClass = ($class !== '' ? ' '.$class : '' );
+	$extraSpan = ($span !== '' ? " $span columns" : 'columns small-12 medium-6' );
+	$finalClass = trim($extraInfo.$extraClass.$extraSpan);
 
-return '<div class="columns'.$extraSpan.$extraInfo.$extraClass.'">' . do_shortcode($content) . '</div>';
+	return '<div class="'.$finalClass.'">' . do_shortcode($content) . '</div>';
 }
 add_shortcode('col', 'colCode');
 
