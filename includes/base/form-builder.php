@@ -198,11 +198,10 @@ class form_builder {
 
 	private function create_internal_options($field_name, $extras){
 		$return = '';
-		if ($extras['placeholder']) $return .= "<option disabled='disabled'>{$this->placeholder[$field_name]}</option>";
+		if ($extras['placeholder']) $return .= "<option value=''>{$this->placeholder[$field_name]}</option>";
 		foreach ($extras['options'] as $option) {
 			$return .= "<option value='{$option}'>{$option}</option>";
 		}
-
 
 		return $return;
 
