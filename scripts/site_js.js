@@ -47,7 +47,7 @@ var handleClick = (isMobile.any() !== null) ? "touchstart" : "click";
 //var functions = '';
 $ = jQuery;
 var functions = {
-	offsetHeader: 0,
+	offsetHeader  : function(){ return $('.wrapper.main-header').outerHeight()},
 	debug: true,
 	log: function(){
 		var _args = Array.prototype.slice.call(arguments);
@@ -57,22 +57,38 @@ var functions = {
 			}
 		}
 	},
-	pushUpdate: function(){
-		var _footer = $('.main-footer'),
+	pushUpdate    : function (_launch) {
+		var _footer = $('.wrapper.main-footer'),
 			_bottomPush = $('.bottom-push'),
 			_site = $('body > .site'),
+			_mainContent = $('.wrapper.main-content'),
+			_mainHeader  = $('.wrapper.main-header').outerHeight(),
 			_offset = _footer.outerHeight();
-		if(_offset !== null){
+		if (_offset !== null) {
 			_bottomPush.css('height', _offset);
-			_site.attr('style','margin-bottom:-'+_offset+'px');
+			_site.attr('style', 'margin-bottom:-' + _offset + 'px');
+			if(typeof _mainContent !== 'undefined' && typeof _launch !== 'undefined'){
+				_mainContent.attr('style', 'min-height:100px');
+			}
 		}
 	},
 	getWindowWidth  : function () {
 		return window.outerWidth;
 	},
-	pageScroll: function(_tag){
-		var totalScroll = $(_tag).offset().top-functions.offsetHeader;
-		$('html,body').scrollTo(totalScroll, 500 );
+	pageScroll    : function (_tag) {
+		var _totalScroll = $(_tag).offset().top - functions.offsetHeader();
+		$('html,body').animate({
+			scrollTop: _totalScroll
+		}, 1000);
+	},
+	anchorScroll: function(_this, _location){
+		if (_location.pathname.replace(/^\//,'') == _this.pathname.replace(/^\//,'') && _location.hostname == _this.hostname) {
+			var _target = $(_this.hash);
+			_target = _target.length ? _target : $('[name=' + _this.hash.slice(1) +']');
+			if (_target.length) {
+				functions.pageScroll(_target.selector);
+			}
+		}
 	},
 	emailReplace: function(){
 		/** Use JavaScript to replace <a> with a mail link, to reduce potential spam**/
@@ -178,9 +194,9 @@ var functions = {
 	});
 
 
-	$(document).on(handleClick, '.js-scroll-find', function (e) {
+	$(document).on(handleClick, 'a[href*=#]:not([href=#])', function (e) {
+		functions.anchorScroll(this, location);
 		e.preventDefault();
-		//functions.scrollFind($(this), e);
 	});
 
 	/** Page Logic **/
