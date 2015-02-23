@@ -1,5 +1,9 @@
-<?php get_header();
+<?php
+get_header();
 $prefix = get_the_prefix();
+/**
+ * TODO: FIX THE ARCHIVE TO USE LESS GLOBALS, AND USE get_template_part PROPERLY
+ */
 ?>
 	<section class="wrapper main-content block">
 		<div class="inner-wrapper small-padding bg-change hide-for-large-up">
@@ -7,6 +11,7 @@ $prefix = get_the_prefix();
 				<div class="columns small-12 medium-6">
 					<div class="table-wrapper">
 						<?php
+						//get_template_part('loop/article', 'top');
 						include 'loop/article-top.php';
 						?>
 					</div>
