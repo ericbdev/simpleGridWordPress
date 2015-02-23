@@ -73,7 +73,7 @@ var functions = {
 		}
 	},
 	getWindowWidth  : function () {
-		return window.outerWidth;
+		return (window.outerWidth == 0 ? window.innerWidth : window.outerWidth);
 	},
 	pageScroll    : function (_tag) {
 		var _totalScroll = $(_tag).offset().top - functions.offsetHeader();
