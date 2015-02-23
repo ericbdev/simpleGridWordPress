@@ -81,11 +81,12 @@ var functions = {
 			scrollTop: _totalScroll
 		}, 1000);
 	},
-	anchorScroll: function(_this, _location){
+	anchorScroll: function(_this, _location, _e){
 		if (_location.pathname.replace(/^\//,'') == _this.pathname.replace(/^\//,'') && _location.hostname == _this.hostname) {
 			var _target = $(_this.hash);
 			_target = _target.length ? _target : $('[name=' + _this.hash.slice(1) +']');
 			if (_target.length) {
+				_e.preventDefault();
 				functions.pageScroll(_target.selector);
 			}
 		}
@@ -193,10 +194,8 @@ var functions = {
 
 	});
 
-
 	$(document).on(handleClick, 'a[href*=#]:not([href=#])', function (e) {
-		functions.anchorScroll(this, location);
-		e.preventDefault();
+		functions.anchorScroll(this, location, e);
 	});
 
 	/** Page Logic **/
