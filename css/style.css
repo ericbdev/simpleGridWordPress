@@ -33,6 +33,7 @@ hr { -moz-box-sizing: content-box; box-sizing: content-box; height: 0; }
 mark { background: #ff0; color: #000; }
 
 p, pre { margin: 0 0 10px 0; }
+p:last-child, pre:last-child { margin-bottom: 0; }
 
 code, kbd, pre, samp { font-family: monospace, serif; _font-family: 'courier new', monospace; font-size: 1em; }
 
@@ -444,23 +445,11 @@ table { border-collapse: collapse; border-spacing: 0; }
 
 .hide-for-landscape, .show-for-portrait { display: none !important; }
 
-/*//  .main-footer
-div.site{
-	margin: 0 auto;
-}
+div.site { min-height: 100%; position: relative; height: auto !important; height: 100%; margin: 0 auto -100px; z-index: 1; }
 
-div.bottom-push{
-	display: none;
-}
+body > .site > .bottom-push { height: 100px; z-index: 2; }
 
-.main-footer {
-	height: $footerHeight;
-}*/
-div.site { min-height: 100%; position: relative; height: auto !important; height: 100%; margin: 0 auto -100px; }
-
-body > .site > .bottom-push { height: 100px; }
-
-.main-footer { min-height: 100px; position: relative; z-index: 1000; }
+.main-footer { min-height: 100px; position: relative; z-index: 3; }
 
 a { color: #ed1c24; -webkit-transition: color 1s ease; -moz-transition: color 1s ease; -ms-transition: color 1s ease; -o-transition: color 1s ease; transition: color 1s ease; }
 a:hover { color: #970c11; }

@@ -394,6 +394,9 @@ $cursor-text-value: text !default;
 
 		p, pre{
 			margin: 0 0 $column-gutter/2 0;
+			&:last-child{
+				margin-bottom:0;
+			}
 		}
 
 		code, kbd, pre, samp{

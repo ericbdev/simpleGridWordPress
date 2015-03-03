@@ -4,26 +4,33 @@ $headerFont: "Open Sans", "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-
 $color-white: #fff;
 $color-black: #000;
 
+//Site Colors
 $color-main: #ed1c24;
 $color-alt: darkenColor($color-main);
 $color-body: #494949;
 $color-body-lt: #e1e1e1;
 
+//Site Heights
+$footerHeight: 100px;
+$footerPush: -#{$footerHeight};
+
+$heightHeader: 100px;
+$heightHeaderOffset: -#{$heightHeader};
+$mobileHeader: 80px;
+
+//Site Padding
+
+
+//Font Weights
 $weight-body: 300;
 $weight-bold: 700;
 $weight-header: 800;
 
-// Font Sizes
-// Small body: 14px;
-// Normal body: 18px;
-// Large body: 24px
-//
-// Small Header:   24px;
-// Normal header: 36px;
-// Large header: 60px
-//
-//Font Sizes
+//Layering
+$zIndex: site, bottom-push, footer, header;
 
+
+//FontSizes
 $font-size-body-small: 14px;
 $font-size-body: 18px;
 $font-size-body-large: 24px;
@@ -42,32 +49,10 @@ $base-font-size: $font-size-body;
 $body-font-weight: $weight-body;
 $article-spacing: 40px;
 
-$footerHeight: 100px;
-$footerPush: -#{$footerHeight};
 
-$heightHeader: 100px;
-$heightHeaderOffset: -#{$heightHeader};
-$mobileHeader: 80px;
 
 @import "simplegrid/settings";
 $column-gutter-plus: $column-gutter + ($column-gutter/2);
-
-//sticky footer
-//body
-//  .site
-//      .push
-/*//  .main-footer
-div.site{
-	margin: 0 auto;
-}
-
-div.bottom-push{
-	display: none;
-}
-
-.main-footer {
-	height: $footerHeight;
-}*/
 
 div.site{
 	min-height: 100%;
@@ -75,16 +60,18 @@ div.site{
 	height:     auto !important;
 	height:     100%;
 	margin:     0 auto $footerPush;
+	z-index:    index($zIndex, site);
 }
 
 body > .site > .bottom-push{
-	height: $footerHeight;
+	height:  $footerHeight;
+	z-index: index($zIndex, bottom-push);
 }
 
 .main-footer{
 	min-height: $footerHeight;
 	position:   relative;
-	z-index:    1000;
+	z-index:    index($zIndex, footer);
 }
 
 a{
