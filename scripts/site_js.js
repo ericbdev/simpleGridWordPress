@@ -47,8 +47,11 @@ var handleClick = (isMobile.any() !== null) ? "touchstart" : "click";
 //var functions = '';
 $ = jQuery;
 var functions = {
-	offsetHeader  : function(){ return $('.wrapper.main-header').outerHeight()},
 	debug: true,
+	offsetHeader  : function(){ return $('.wrapper.main-header').outerHeight()},
+	getWindowWidth  : function() {
+		return (window.outerWidth == 0 ? window.innerWidth : window.outerWidth);
+	},
 	log: function(){
 		var _args = Array.prototype.slice.call(arguments);
 		if(this.debug){
@@ -71,9 +74,6 @@ var functions = {
 				_mainContent.attr('style', 'min-height:100px');
 			}
 		}
-	},
-	getWindowWidth  : function () {
-		return (window.outerWidth == 0 ? window.innerWidth : window.outerWidth);
 	},
 	pageScroll    : function (_tag) {
 		var _totalScroll = $(_tag).offset().top - functions.offsetHeader();
