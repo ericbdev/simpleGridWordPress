@@ -293,6 +293,16 @@ function is_login() {
 	return in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php' ) );
 }
 
+if (function_exists('add_filter') && !function_exists('alter_hosting_provider_filters')) {
+	function alter_hosting_filters($methods) {
+		if (isset($methods['pingback.ping'])) {
+			unset($methods['pingback.ping']);
+		}
+		return $methods;
+	}
+	add_filter('xmlrpc_methods', 'alter_hosting_filters');
+}
+
 
 
 if (!function_exists('array_replace')) {
