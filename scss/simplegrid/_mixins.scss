@@ -165,49 +165,6 @@ $base-font-size: 16px !default;
 	}
 }
 
-@mixin image-replace($height: 50px, $width: false, $inverse: false) {
-	@if $width == false{
-		$width: $height;
-	}
-	position: relative;
-	height:   $height;
-	width:    $width;
-	display:  inline-block;
-
-	img{
-		@include transition(all, 1s, ease);
-		display:  block;
-		position: absolute;
-		top:      0;
-		left:     0;
-		height:   $height;
-		width:    $width;
-
-		&.top{
-			@if $inverse{
-				opacity: 0;
-			} @else{
-				opacity: 1;
-			}
-		}
-		&.top{ //off
-			z-index: 100;
-		}
-		&.bottom{ //on
-			z-index: 1;
-		}
-	}
-	&:hover{
-		.top{
-			@if $inverse{
-				opacity: 1;
-			} @else{
-				opacity: 0;
-			}
-		}
-	}
-}
-
 @mixin overlay-switch($tag) {
 	//assumption of tag.on + tag.off + tag.placeholder
 	position:   relative;
