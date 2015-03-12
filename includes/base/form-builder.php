@@ -78,16 +78,16 @@ class form_builder {
 	 * @return array|string
 	 */
 	private function stripslashes_deep($value) {
-		if ( is_array($value) ) {
+		if ( is_array($value) ):
 			$value = array_map('stripslashes_deep', $value);
-		} elseif ( is_object($value) ) {
+		elseif ( is_object($value) ):
 			$vars = get_object_vars( $value );
 			foreach ($vars as $key=>$data) {
 				$value->{$key} = $this->stripslashes_deep( $data );
 			}
-		} elseif ( is_string( $value ) ) {
+		elseif ( is_string( $value ) ):
 			$value = stripslashes($value);
-		}
+		endif;
 
 		return $value;
 	}
@@ -157,51 +157,50 @@ class form_builder {
 		return trim($var);
 	}
 
-	public function has_error($field_name) {
-		if (isset($this->errors[$field_name]) && $this->errors[$field_name]) {
+	public function has_error($field_name){
+		if (isset($this->errors[$field_name]) && $this->errors[$field_name]):
 			return true;
-		} else {
+		else:
 			return false;
-		}
+		endif;
 	}
 
 	public function get_placeholder($field_name){
 		return $this->placeholder[$field_name];
 	}
-
+	/** TODO: Enable retrieving of different error messages through use of $type and $this->has_error($field_name, $type)**/
 	public function get_error_label($field_name, $type = 'required') {
-		if ($this->has_error($field_name)) {
+		if ($this->has_error($field_name)):
 			echo "<label for='$field_name' class='error'>{$this->errorVals[$field_name][$type]}</label>";
-		} else {
+		else:
 			return false;
-		}
+		endif;
 	}
 
 
 	public function is_valid($field_name, $type = 'text') {
 		$return = false;
 
-		if ($type == 'email') {
+		if ($type == 'email'):
 			/** TODO: FIND A USE FOR THIS? **/
-		}
-		if (isset($this->request[$field_name])) {
+		endif;
+		/**  TODO: a string of '0' could be valid in a given context**/
+		if (isset($this->request[$field_name])) :
 			if ($this->request[$field_name] !== ''
 				&& $this->request[$field_name] !== 0
-				&& $this->request[$field_name] !== '0'
-			) {
-
+				&& $this->request[$field_name] !== '0'):
 				$return = true;
-			}
-		}
+			endif;
+		endif;
 		return $return;
 	}
 
 	private function create_internal_options($field_name, $extras){
 		$return = '';
 		if ($extras['placeholder']) $return .= "<option value=''>{$this->placeholder[$field_name]}</option>";
-		foreach ($extras['options'] as $option) {
+		foreach ($extras['options'] as $option):
 			$return .= "<option value='{$option}'>{$option}</option>";
-		}
+		endforeach;
 
 		return $return;
 
