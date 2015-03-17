@@ -303,6 +303,19 @@ if (function_exists('add_filter') && !function_exists('alter_hosting_provider_fi
 	add_filter('xmlrpc_methods', 'alter_hosting_filters');
 }
 
+function remove_menus(){
+	//remove_menu_page( 'edit.php' );                   //Posts
+	//remove_menu_page( 'edit-comments.php' );          //Comments
+	remove_menu_page( 'themes.php' );                 //Appearance
+}
+function adjust_the_wp_menu() {
+	remove_submenu_page( 'themes.php', 'themes.php' );
+	remove_submenu_page( 'themes.php', 'customize.php' );
+	remove_submenu_page( 'themes.php', 'theme-editor.php' );
+}
+add_action( 'admin_menu', 'remove_menus' );
+add_action( 'admin_menu', 'adjust_the_wp_menu', 999 );
+
 
 
 if (!function_exists('array_replace')) {
