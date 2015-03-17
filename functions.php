@@ -38,7 +38,7 @@ function load_my_scripts() {
 
 		//wp_enqueue_script( 'scrolltofixed', $jsPath.'vendor/jquery.scrolltofixed.min.js', array('jquery'), '1.0', true);
 		wp_enqueue_script( 'mobileMenu', "$jsPath/vendor/jquery.sidr.js",  array('jquery'), '1.0', false);
-		wp_enqueue_script( 'customSelect', "$jsPath/vendor/jquery.customSelect.min.js",  array('jquery'), '1.0', false);
+		wp_enqueue_script( 'customSelect', "$jsPath/vendor/jquery.customSelect.js",  array('jquery'), '1.0', false);
 		wp_enqueue_script( 'placeHolders', "$jsPath/vendor/jquery.placeholders.js",  array('jquery'), '1.0', false);
 		wp_enqueue_script( 'owl-js', "$jsPath/vendor/owl-carousel/owl.carousel.js",  array('jquery'), '1.0', true);
 
