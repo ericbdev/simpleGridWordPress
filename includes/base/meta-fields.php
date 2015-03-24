@@ -165,6 +165,33 @@ function be_metabox_exclude_for_id( $display, $meta_box ) {
 }
 add_filter( 'cmb_show_on', 'be_metabox_exclude_for_id', 10, 2 );
 
+/**
+ * Usage: 'show_on' => array( 'key' => 'page-template', 'value' => @array || @string ),
+ * @param $display
+ * @param $meta_box
+ * @return bool
+ */
+function metabox_hide_on_template( $display, $meta_box ) {
+
+	if( 'hide_on' !== $meta_box['show_on']['key'] )
+		return $display;
+
+	// Get the current ID
+	if( isset( $_GET['post'] ) ) $post_id = $_GET['post'];
+	elseif( isset( $_POST['post_ID'] ) ) $post_id = $_POST['post_ID'];
+	if( !isset( $post_id ) ) return false;
+
+	$template_name = get_page_template_slug( $post_id );
+
+	$return = true;
+	if(is_array($meta_box['show_on']['value'])):
+		$return = (in_array($template_name, $meta_box['show_on']['value']) ? false : true);
+	else:
+		$return = ($template_name == $meta_box['show_on']['value'] ? false : true);
+	endif;
+	return $return;
+}
+add_filter( 'cmb_show_on', 'metabox_hide_on_template', 10, 2 );
 
 function templateFilter() {
 	if (isset($_GET['post'])) {
