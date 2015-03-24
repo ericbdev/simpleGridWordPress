@@ -259,7 +259,9 @@ function remove_version() {
 add_filter('the_generator', 'remove_version');
 
 function wphidenag() {
-	remove_action( 'admin_notices', 'update_nag', 3 );
+	if(!is_test()):
+		remove_action( 'admin_notices', 'update_nag', 3 );
+	endif;
 }
 add_action('admin_menu','wphidenag');
 
