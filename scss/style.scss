@@ -1,5 +1,5 @@
-$bodyFont: "Lato", "Helvetica", Helvetica, Arial, sans-serif;
-$headerFont: "Open Sans", "Helvetica", Helvetica, Arial, sans-serif;
+$font-body: "Lato", "Helvetica", Helvetica, Arial, sans-serif;
+$font-header: "Open Sans", "Helvetica", Helvetica, Arial, sans-serif;
 
 $color-white: #fff;
 $color-black: #000;
@@ -43,7 +43,7 @@ $font-size-header-large: 60px;
 //Foundation Setting
 $body-bg: $color-white;
 $body-font-color: $color-body;
-$body-font: $bodyFont;
+$body-font: $font-body;
 $body-font-family: $body-font;
 $base-font-size: $font-size-body;
 $body-font-weight: $weight-body;
