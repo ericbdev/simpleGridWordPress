@@ -590,10 +590,8 @@ ul.header-nav ul li ul > li:hover a, ul.header-nav ul li ul a:hover { background
 
 .row.small-padding, .inner-wrapper.small-padding { padding-left: 20px; padding-right: 20px; }
 
-@media only screen and (min-width: 768px) and (max-width: 999px) { .row.small-padding, .inner-wrapper.small-padding { padding-left: 10px; padding-right: 10px; }
-  .inner-wrapper.medium-padding, .row.medium-padding { padding-left: 20px; padding-right: 20px; } }
-@media only screen and (min-width: 1000px) { .inner-wrapper.medium-padding, .row.medium-padding { padding-left: 10px; padding-right: 10px; }
-  .row.large-padding, .inner-wrapper.large-padding { padding-left: 20px; padding-right: 20px; } }
+@media only screen and (min-width: 1000px) { .inner-wrapper.small-padding, .row.medium-padding { padding-left: 10px; padding-right: 10px; }
+  .row.small-padding, .inner-wrapper.large-padding { padding-left: 20px; padding-right: 20px; } }
 .archive-header.articles-header { padding-top: 40px; padding-bottom: 40px; }
 .archive-header.articles-header div.table-wrapper { padding: 0; width: 100%; display: table; }
 .archive-header.articles-header ul.dropdown-select { max-width: 100%; }

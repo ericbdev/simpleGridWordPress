@@ -4,25 +4,13 @@
 	padding-right: $column-gutter;
 }
 
-@include mediaQuery($medium-only){
-	.row.small-padding,
-	.inner-wrapper.small-padding{
-		padding-left:  $column-gutter/2;
-		padding-right: $column-gutter/2;
-	}
-	.inner-wrapper.medium-padding,
-	.row.medium-padding{
-		padding-left:  $column-gutter;
-		padding-right: $column-gutter;
-	}
-}
 @include mediaQuery($large-up){
-	.inner-wrapper.medium-padding,
+	.inner-wrapper.small-padding,
 	.row.medium-padding{
 		padding-left:  $column-gutter / 2;
 		padding-right: $column-gutter / 2;
 	}
-	.row.large-padding,
+	.row.small-padding,
 	.inner-wrapper.large-padding{
 		padding-left:  $column-gutter;
 		padding-right: $column-gutter;

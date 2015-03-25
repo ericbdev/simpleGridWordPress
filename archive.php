@@ -21,7 +21,7 @@ $prefix = get_the_prefix();
 				</div>
 			</div>
 		</div>
-		<div class="inner-wrapper small-padding medium-padding">
+		<div class="inner-wrapper small-padding">
 			<div class="row loop-articles">
 				<div class="columns small-12 large-8">
 					<?php

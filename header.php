@@ -59,7 +59,7 @@
 	</div>
 	<div class="hide-for-large-up">
 		<div class="inner-wrapper">
-			<div class="row small-padding medium-padding">
+			<div class="row small-padding">
 				<div class="columns small-4">
 					<a href="#" id="btn-mobile-nav" class="inactive">
 						<img class="on" src="<?php echo get_theme_path();?>/images/icon-btn-nav-on.png" alt="Menu"/>
