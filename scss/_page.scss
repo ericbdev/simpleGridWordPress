@@ -4,6 +4,36 @@
 	padding-right: $column-gutter;
 }
 
+h1{
+	font-size: $font-size-header;
+	@include headerMargin(.67em)
+}
+
+h2{
+	font-size: $font-size-header;
+	@include headerMargin(.83em);
+}
+
+h3{
+	font-size: $font-size-header;
+	@include headerMargin(1em);
+}
+
+h4{
+	font-size: $font-size-header;
+	@include headerMargin(1.33em);
+}
+
+h5{
+	font-size: $font-size-header-small;
+	@include headerMargin(1.67em);
+}
+
+h6{
+	font-size: $font-size-header-small;
+	@include headerMargin(2.23em);
+}
+
 @include mediaQuery($large-up){
 	.inner-wrapper.small-padding,
 	.row.medium-padding{
