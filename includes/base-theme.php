@@ -318,6 +318,22 @@ function adjust_the_wp_menu() {
 add_action( 'admin_menu', 'remove_menus' );
 add_action( 'admin_menu', 'adjust_the_wp_menu', 999 );
 
+/** Add the template name as a column to the admin panel**/
+/** TODO: Improve this to pull the file information, similar to wp_get_theme()->get_page_templates**/
+add_filter( 'manage_edit-page_columns', 'page_columns_headers' ) ;
+function page_columns_headers( $columns ) {
+	$columns['template_name'] = _x( 'Template' ,'Title', themeDomain());
+	return $columns;
+}
+
+add_action( 'manage_page_posts_custom_column', 'page_columns_content', 10, 2 );
+function page_columns_content( $column, $post_id ) {
+	if($column == 'template_name'):
+		$search = array('tpl-', '-', '.php');
+		$replace = array('',' ', '');
+		echo ucwords(str_replace($search, $replace, basename(get_page_template_slug( $post_id))));
+	endif;
+}
 
 
 if (!function_exists('array_replace')) {
