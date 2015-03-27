@@ -105,43 +105,46 @@ function get_meta($id, $field){
 
 
 function get_languages_short($includeActive = false) {
-	if(function_exists('icl_get_languages')){
+	if(function_exists('icl_get_languages')):
 		$languages = icl_get_languages('skip_missing=0');
-		if (1 < count($languages)) {
+		if (1 < count($languages)):
 			$langReturn = array();
-			foreach ($languages as $l) {
+			foreach ($languages as $l):
 				if($includeActive):
-					$langReturn[] =  '<a href="' . $l['url'] . '">' . $l['language_code'] . '</a>';
+					$return = "<a href='{$l['url']}'".($l['active'] ? " class='active'" : '').">";
+					$return .= $l['language_code'];
+					$return .= "</a>";
+					$langReturn[] =  $return;
 				else:
 					if (!$l['active']) $langReturn[] =  '<a href="' . $l['url'] . '">' . $l['language_code'] . '</a>';
 				endif;
 
-			}
+			endforeach;
 			return $langReturn;
-		}
-	}else{
-		return '';
-	}
+		endif;
+	endif;
+	return '';
 }
 
 function get_languages_long($includeActive = false) {
-	if(function_exists('icl_get_languages')){
+	if(function_exists('icl_get_languages')):
 		$languages = icl_get_languages('skip_missing=0');
-		if (1 < count($languages)) {
+		if (1 < count($languages)):
 			$langReturn = array();
-			foreach ($languages as $l) {
+			foreach ($languages as $l):
 				if($includeActive):
-					$langReturn[] =  '<a href="' . $l['url'] . '">' . $l['native_name'] . '</a>';
+					$return = "<a href='{$l['url']}'".($l['active'] ? " class='active'" : '').">";
+					$return .= $l['native_name'];
+					$return .= "</a>";
+					$langReturn[] =  $return;
 				else:
 					if (!$l['active']) $langReturn[] =  '<a href="' . $l['url'] . '">' . $l['native_name'] . '</a>';
 				endif;
-
-			}
+			endforeach;
 			return $langReturn;
-		}
-	}else{
-		return '';
-	}
+		endif;
+	endif;
+	return '';
 }
 
 function get_lang_active($validateAgainst = false) {
