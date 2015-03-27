@@ -219,7 +219,7 @@
 					$('.' + settings.menuClass + ' ul').hide();
 				}
 			});
-
+ 
 			$this.remove();
 		});
 

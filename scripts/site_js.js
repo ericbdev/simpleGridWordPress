@@ -129,7 +129,7 @@ var functions = {
 	matchHeight :function(_tag){
 		var _arrHeight = [],
 			_elHeight = 0;
-
+ 
 		$(_tag).each(function () {
 			_arrHeight.push($(this).outerHeight());
 		});
