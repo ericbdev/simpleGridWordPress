@@ -216,14 +216,6 @@ class navWalker extends Walker_Nav_Menu{
 		$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
 		$strposlink = esc_attr( $item->url);
 
-		if (strpos($strposlink, site_url()) === false) {
-
-			$attributes .= ! empty( $item->url )        ? ' class="external_link"' : '';
-			$attributes .= ' target="_blank"';
-		}else{
-			//	$attributes .= ! empty( $item->target )     ? ' target="' . esc_attr( $item->target     ) .'"' : '';
-		}
-
 		$item_output = '<a'. $attributes .'>';
 		$item_output .= apply_filters( 'the_title', $item->title, $item->ID );
 		$item_output .= '</a>'; /* This is where I changed things. */
