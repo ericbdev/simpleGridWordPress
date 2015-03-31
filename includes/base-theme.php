@@ -25,6 +25,7 @@ else:
 	define('WP_DEBUG_DISPLAY', false);
 endif;
 
+add_filter( 'auto_update_core', '__return_false' );
 function cmb_initialize_cmb_meta_boxes() {
 	if (!class_exists( 'cmb_Meta_Box' ) ){
 		require_once 'vendor/lib-meta/init.php';
