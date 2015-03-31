@@ -5,35 +5,33 @@
 }
 
 h1{
-	font-size: $font-size-header;
-	@include headerMargin(.67em)
+	font-size: $font-size-header-large;
 }
 
 h2{
-	font-size: $font-size-header;
-	@include headerMargin(.83em);
+	font-size: $font-size-header-medium;
 }
 
 h3{
 	font-size: $font-size-header;
-	@include headerMargin(1em);
 }
 
 h4{
-	font-size: $font-size-header;
-	@include headerMargin(1.33em);
+	font-size: $font-size-header-small;
 }
 
 h5{
 	font-size: $font-size-header-small;
-	@include headerMargin(1.67em);
 }
 
 h6{
 	font-size: $font-size-header-small;
-	@include headerMargin(2.23em);
 }
 
+h1, h2, h3, h4, h5, h6{
+	@include headerMargin($font-size-body);
+	font-weight: $weight-body;
+}
 @include mediaQuery($large-up){
 	.inner-wrapper.small-padding,
 	.row.medium-padding{
