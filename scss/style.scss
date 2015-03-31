@@ -52,6 +52,7 @@ $article-spacing: 40px;
 
 
 @import "simplegrid/settings";
+$padding-gutter: $column-gutter;
 $column-gutter-plus: $column-gutter + ($column-gutter/2);
 
 div.site{

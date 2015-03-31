@@ -11,8 +11,8 @@ $color-body: $color-main !default;
 		}
 		.featured-image{
 			padding-left:   0;
-			padding-right:  $column-gutter;
-			padding-bottom: $column-gutter;
+			padding-right:  $padding-gutter;
+			padding-bottom: $padding-gutter;
 		}
 		.general-category{
 			margin-top: 0;
@@ -91,7 +91,7 @@ $color-body: $color-main !default;
 				font-size: pxEm(24px);
 			}
 			.text-wrapper{
-				padding-right: $column-gutter;
+				padding-right: $padding-gutter;
 			}
 		}
 	}
