@@ -113,7 +113,7 @@ function get_languages_short($includeActive = false) {
 			foreach ($languages as $l):
 				if($includeActive):
 					$return = "<a href='{$l['url']}'".($l['active'] ? " class='active'" : '').">";
-					$return .= $l['language_code'];
+					$return .= substr($l['language_code'],0,2);
 					$return .= "</a>";
 					$langReturn[] =  $return;
 				else:
@@ -152,7 +152,7 @@ function get_lang_active($validateAgainst = false) {
 	$activeLang = 'en';
 	if(class_exists('SitePress')){
 		global $sitepress;
-		$activeLang = $sitepress->get_current_language();
+		$activeLang = substr($sitepress->get_current_language(),0,2);
 	}
 
 	if(!$validateAgainst){
