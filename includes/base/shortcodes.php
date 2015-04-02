@@ -104,12 +104,19 @@ function colorCode($atts, $content = null) {
 add_shortcode('color', 'colorCode');
 
 function btnCode($atts, $content = null) {
-	extract(shortcode_atts(array('link' => '', 'outbound' => '', 'class' => ''), $atts));
-
+	/**
+	 * @var $class $class
+	 * @var $link $link
+	 **/
+	extract(shortcode_atts(array('link' => '',  'class' => ''), $atts));
+	$outbound = false;
+	if (strpos($link, site_url()) === false):
+		$outbound = true;
+	endif;
 	$url = ($link !== '' ? $link : '#' );
-	$outbound = ($outbound == 'true' ? ' target="_blank"' : '' );
-	$extraClass = ($class !== 'btn' ? ' ' : $class.' btn' );
-	return "<a href='$url'".$outbound." class='$extraClass'>".do_shortcode($content)."</a>";
+	$target = ($outbound == true ? ' target="_blank"' : '' );
+	$extraClass = ($class === '' ? 'btn' : $class );
+	return "<a href='$url'".$target." class='$extraClass'>".do_shortcode($content)."</a>";
 
 }
 add_shortcode('btn', 'btnCode');

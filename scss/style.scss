@@ -48,12 +48,10 @@ $body-font-family: $body-font;
 $base-font-size: $font-size-body;
 $body-font-weight: $weight-body;
 $article-spacing: 40px;
-
+$column-gutter: 20px;
 
 
 @import "simplegrid/settings";
-$padding-gutter: $column-gutter;
-$column-gutter-plus: $column-gutter + ($column-gutter/2);
 
 div.site{
 	min-height: 100%;

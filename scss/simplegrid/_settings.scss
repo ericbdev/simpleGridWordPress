@@ -73,16 +73,18 @@ $is-static: false;
 $is-static-pixels: $is-static;
 $row-width: 1000px;
 $total-columns: 12;
-$column-gutter: 20px;
-$block-grid-elements: $total-columns;
-$block-grid-default-spacing: $column-gutter;
+$column-gutter: 20px !default;
+$padding-gutter: $column-gutter !default;
+$column-gutter-plus: $column-gutter + ($column-gutter/2) !default;
+$block-grid-elements: 12;
+$block-grid-default-spacing: $column-gutter !default;
 
 // Media Sizes
 $small-range: (0em, 767px);
 $medium-range: (768px, 999px);
 $large-range: (1000px, 1199px);
-$xlarge-range: (1200px, 1300px);
-$xxlarge-range: (1301px, 99999999em);
+$xlarge-range: (1200px, 1400px);
+$xxlarge-range: (1401px, 99999999em);
 
 $screen: "only screen";
 
