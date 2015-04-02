@@ -23,6 +23,11 @@ function get_the_prefix() {
 	return $return;
 }
 
+/**
+ * TODO: Wouldnt it be great to do something like, load_validation, which gets a predefined list of validation plugins?
+ * Same thing with owl?
+ * Same thing with Fancybox. F'ing eh. Why didnt i think of this before?
+ */
 function load_my_scripts() {
 	$cssPath = get_template_directory_uri().'/css';
 	$jsPath = get_template_directory_uri().'/scripts';
