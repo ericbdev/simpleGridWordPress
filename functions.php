@@ -12,7 +12,7 @@ function wp_head_action(){
 }
 add_action('wp_head', 'wp_head_action');
 
-function themeDomain(){
+function theme_domain(){
 	return 'themeDomain';
 }
 

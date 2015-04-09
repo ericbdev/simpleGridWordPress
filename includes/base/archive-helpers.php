@@ -66,10 +66,10 @@ function my_search_form( $form ) {
 	$form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">';
 
 	$form .= '<input type="text" class="search-field"';
-	$form .= ' placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder', themeDomain()) . '"';
+	$form .= ' placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder', theme_domain()) . '"';
 	$form .= ' value="' . get_search_query() . '" name="s" title="' . esc_attr_x( 'Search for:', 'label' ) . '" />';
 
-	$form .= '<input type="submit" class="search-submit" value="'. esc_attr_x( 'Search', 'submit button' , themeDomain()) .'" />';
+	$form .= '<input type="submit" class="search-submit" value="'. esc_attr_x( 'Search', 'submit button' , theme_domain()) .'" />';
 
 	$form .= '</form>';
 
@@ -84,18 +84,18 @@ function get_articles_side_bar($taxonomyUl){
 			<?php get_search_form( true ); ?>
 		</div>
 		<div class="category-display">
-			<h2><?php _ex('Categories:','Titles',themeDomain());?></h2>
+			<h2><?php _ex('Categories:','Titles',theme_domain());?></h2>
 			<ul>
 				<?php
 				$archiveLink = get_blog_archive_url();
-				$archiveTitle = _x('View all','Links',themeDomain());
+				$archiveTitle = _x('View all','Links',theme_domain());
 				echo "<li><a href='$archiveLink'>$archiveTitle</a>";
 				echo $taxonomyUl;
 				?>
 			</ul>
 		</div>
 		<div class="recent-articles">
-			<h2><?php _ex('Recent Articles:','Titles',themeDomain());?></h2>
+			<h2><?php _ex('Recent Articles:','Titles',theme_domain());?></h2>
 			<ul>
 				<?php
 				$searchPostType = 'post';
@@ -153,7 +153,7 @@ add_filter('pre_get_posts', 'filter_search');
 function get_pagination($pageAmount, $args = array()){
 	$defaults = array(
 		'class' => '',
-		'term' => _x('Articles', 'Links', themeDomain())
+		'term' => _x('Articles', 'Links', theme_domain())
 	);
 	$args = array_replace( $defaults, $args );
 	$rowClass = trim('row archive-navigation collapse '.$args['class']);

@@ -11,15 +11,15 @@ if($taxQuery){
 	$firstTitle = $taxQuery->name;
 }else{
 	$firstLink = get_post_type_archive_link( 'posts' );
-	$firstTitle = _x('View all','Links',themeDomain());
+	$firstTitle = _x('View all','Links',theme_domain());
 }
 
 echo "<ul class='dropdown-select'>";
-echo "<li><a href='#'>". _x('Categories:','Titles',themeDomain())."</a>";
+echo "<li><a href='#'>". _x('Categories:','Titles',theme_domain())."</a>";
 echo "<ul>";
 
 $archiveLink = get_blog_archive_url();
-$archiveTitle = _x('View all','Links',themeDomain());
+$archiveTitle = _x('View all','Links',theme_domain());
 echo "<li><a href='$archiveLink'>$archiveTitle</a>";
 $taxonomyUl = '';
 foreach ( $terms as $term ) {

@@ -47,7 +47,7 @@ function metaFields( array $meta_boxes ) {
 	);
 	$meta_boxes['two_columns'] = array(
 		'id'         => 'two_columns',
-		'title'      => _x( 'Columns', 'Titles', themeDomain() ),
+		'title'      => _x( 'Columns', 'Titles', theme_domain() ),
 		'pages'      => array('page'), // Post type
 		'show_on' => array( 'key' => 'page-template', 'value' => array('tpl-two-col.php') ),
 		'context'    => 'normal',
@@ -55,28 +55,28 @@ function metaFields( array $meta_boxes ) {
 		'show_names' => true,
 		'fields'     => array(
 			array(
-				'name'       => _x( 'Column One', 'Titles', themeDomain() ),
+				'name'       => _x( 'Column One', 'Titles', theme_domain() ),
 				'id'         => $prefix . 'col_one',
 				'sanitization_cb' => false,
 				'type'       => 'wysiwyg',
 				'options' => $wysiwygOptions
 			),
 			array(
-				'name'       => _x( 'Column Two', 'Titles', themeDomain() ),
+				'name'       => _x( 'Column Two', 'Titles', theme_domain() ),
 				'id'         => $prefix . 'col_two',
 				'sanitization_cb' => false,
 				'type'       => 'wysiwyg',
 				'options' => $wysiwygOptions
 			),
 			array(
-				'name'       => _x( 'First Column Width', 'Titles', themeDomain() ),
+				'name'       => _x( 'First Column Width', 'Titles', theme_domain() ),
 				'id'         =>   $prefix.'col_width_one',
 				'type'      => 'select',
 				'options'   => $bannerColumnWidth,
 				'default'=> '4'
 			),
 			array(
-				'name'       => _x( 'Second Column Width', 'Titles', themeDomain() ),
+				'name'       => _x( 'Second Column Width', 'Titles', theme_domain() ),
 				'id'         =>   $prefix.'col_width_two',
 				'type'      => 'select',
 				'options'   => $bannerColumnWidth,
@@ -98,22 +98,22 @@ function metaFields( array $meta_boxes ) {
 				'id'      => $prefix . 'banner_images',
 				'type'    => 'group',
 				'options' => array(
-					'group_title'   => __('Image {#}', themeDomain()), // since version 1.1.4, {#} gets replaced by row number
-					'add_button'    => __('Add Another Image', themeDomain()),
-					'remove_button' => __('Remove Image', themeDomain()),
+					'group_title'   => __('Image {#}', theme_domain()), // since version 1.1.4, {#} gets replaced by row number
+					'add_button'    => __('Add Another Image', theme_domain()),
+					'remove_button' => __('Remove Image', theme_domain()),
 					'sortable'      => true, // beta
 				),
 				// Fields array works the same, except id's only need to be unique for this group. Prefix is not needed.
 				'fields'  => array(
 					array(
-						'name'       => _x('Image', 'Titles', themeDomain()),
+						'name'       => _x('Image', 'Titles', theme_domain()),
 						'id'         => 'image',
 						'show_names' => false,
 						'type'       => 'file',
 						'allow'      => array('attachment') // limit to just attachments with array( 'attachment' )
 					),
 					array(
-						'name' => _x('Banner Text', 'Titles', themeDomain()),
+						'name' => _x('Banner Text', 'Titles', theme_domain()),
 						'id'   => 'text',
 						'type' => 'wysiwyg',
 						'options' => $wysiwygOptions,
@@ -125,7 +125,7 @@ function metaFields( array $meta_boxes ) {
 
 	);
 	/*array(
-		'name' => _x( 'Datasheet', 'Titles', themeDomain() ),
+		'name' => _x( 'Datasheet', 'Titles', theme_domain() ),
 		'id'   => $prefix.'prod_datasheet',
 		'type' => 'file',
 		'allow' => array('attachment' ) // limit to just attachments with array( 'attachment' )

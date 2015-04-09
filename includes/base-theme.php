@@ -328,7 +328,7 @@ add_action( 'admin_menu', 'adjust_the_wp_menu', 999 );
 /** TODO: Improve this to pull the file information, similar to wp_get_theme()->get_page_templates**/
 add_filter( 'manage_edit-page_columns', 'page_columns_headers' ) ;
 function page_columns_headers( $columns ) {
-	$columns['template_name'] = _x( 'Template' ,'Title', themeDomain());
+	$columns['template_name'] = _x( 'Template' ,'Title', theme_domain());
 	return $columns;
 }
 
@@ -381,7 +381,14 @@ if (!function_exists('recurse')) {
 		return $array;
 	}
 }
-
+/**
+ * Legacy support
+ */
+if (!function_exists('themeDomain')) {
+	function themeDomain(){
+		return theme_domain();
+	}
+}
 if (!function_exists('array_replace_recursive')) {
 	function array_replace_recursive($array, $array1) {
 

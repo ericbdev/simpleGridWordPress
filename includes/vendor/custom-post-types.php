@@ -111,7 +111,7 @@ class customPostType {
 	 * @param array $options User submitted options.
 	 */
 	function __construct( $post_type_names, $options = array() ) {
-		$this->textdomain = themeDomain();
+		$this->textdomain = theme_domain();
 		// Check if post type names is a string or an array.
 		if ( is_array( $post_type_names ) ) {
 
