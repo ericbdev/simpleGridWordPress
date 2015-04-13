@@ -161,6 +161,18 @@ function get_lang_active($validateAgainst = false) {
 		return ($activeLang == $validateAgainst);
 	}
 }
+function get_lang_code($activeLang = false) {
+	if(class_exists('SitePress')){
+		if(!$activeLang):
+			$activeLang = get_lang_active();
+		endif;
+		$langs = icl_get_languages( 'skip_missing=0' );
+		if( isset( $langs[$activeLang]['default_locale'] ) ) {
+			return $langs[$activeLang]['default_locale'];
+		}
+	}
+	return false;
+}
 
 function get_translated_id($id, $type = 'page') {
 	$returnID = $id;
