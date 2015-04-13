@@ -108,8 +108,8 @@ function get_meta($id, $field){
 function get_languages_short($includeActive = false) {
 	if(function_exists('icl_get_languages')):
 		$languages = icl_get_languages('skip_missing=0');
+		$langReturn = array();
 		if (1 < count($languages)):
-			$langReturn = array();
 			foreach ($languages as $l):
 				if($includeActive):
 					$return = "<a href='{$l['url']}'".($l['active'] ? " class='active'" : '').">";
@@ -121,8 +121,8 @@ function get_languages_short($includeActive = false) {
 				endif;
 
 			endforeach;
-			return $langReturn;
 		endif;
+		return $langReturn;
 	endif;
 	return '';
 }
@@ -130,8 +130,8 @@ function get_languages_short($includeActive = false) {
 function get_languages_long($includeActive = false) {
 	if(function_exists('icl_get_languages')):
 		$languages = icl_get_languages('skip_missing=0');
+		$langReturn = array();
 		if (1 < count($languages)):
-			$langReturn = array();
 			foreach ($languages as $l):
 				if($includeActive):
 					$return = "<a href='{$l['url']}'".($l['active'] ? " class='active'" : '').">";
@@ -142,8 +142,8 @@ function get_languages_long($includeActive = false) {
 					if (!$l['active']) $langReturn[] =  '<a href="' . $l['url'] . '">' . $l['native_name'] . '</a>';
 				endif;
 			endforeach;
-			return $langReturn;
 		endif;
+		return $langReturn;
 	endif;
 	return '';
 }
