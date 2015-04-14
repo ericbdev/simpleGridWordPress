@@ -103,6 +103,14 @@ function get_meta($id, $field){
 	$prefix = get_the_prefix();
 	return get_post_meta($id, $prefix.$field, true);
 }
+function be_domain(){
+	$front_domain = 'Theme';
+	if (!function_exists('theme_domain')):
+		$front_domain = theme_domain();
+	endif;
+	return $front_domain.' Backend';
+}
+
 
 
 function get_languages_short($includeActive = false) {

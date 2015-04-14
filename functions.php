@@ -15,10 +15,6 @@ add_action('wp_head', 'wp_head_action');
 function theme_domain(){
 	return 'themeDomain';
 }
-function be_domain(){
-	$front_domain = theme_domain();
-	return $front_domain.' Backend';
-}
 
 function get_the_prefix() {
 	$return = "_";
