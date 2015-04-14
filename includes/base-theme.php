@@ -397,6 +397,10 @@ if (!function_exists('recurse')) {
  * Legacy support
  */
 if (!function_exists('themeDomain')) {
+	/**
+	 * @deprecated use theme_domain();
+	 * @return string
+	 */
 	function themeDomain(){
 		return theme_domain();
 	}

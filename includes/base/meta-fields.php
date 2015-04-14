@@ -3,6 +3,7 @@
 add_filter( 'cmb_meta_boxes', 'metaFields' );
 function metaFields( array $meta_boxes ) {
 	$prefix = get_the_prefix();
+	$backend_domain = get_the_prefix();
 	$wysiwygOptions = array(
 		'wpautop' => true, // use wpautop?
 		'media_buttons' => true, // show insert/upload button(s)
@@ -47,7 +48,7 @@ function metaFields( array $meta_boxes ) {
 	);
 	$meta_boxes['two_columns'] = array(
 		'id'         => 'two_columns',
-		'title'      => _x( 'Columns', 'Titles', theme_domain() ),
+		'title'      => _x( 'Columns', 'Titles', be_domain() ),
 		'pages'      => array('page'), // Post type
 		'show_on' => array( 'key' => 'page-template', 'value' => array('tpl-two-col.php') ),
 		'context'    => 'normal',
@@ -55,28 +56,28 @@ function metaFields( array $meta_boxes ) {
 		'show_names' => true,
 		'fields'     => array(
 			array(
-				'name'       => _x( 'Column One', 'Titles', theme_domain() ),
+				'name'       => _x( 'Column One', 'Titles', be_domain() ),
 				'id'         => $prefix . 'col_one',
 				'sanitization_cb' => false,
 				'type'       => 'wysiwyg',
 				'options' => $wysiwygOptions
 			),
 			array(
-				'name'       => _x( 'Column Two', 'Titles', theme_domain() ),
+				'name'       => _x( 'Column Two', 'Titles', be_domain() ),
 				'id'         => $prefix . 'col_two',
 				'sanitization_cb' => false,
 				'type'       => 'wysiwyg',
 				'options' => $wysiwygOptions
 			),
 			array(
-				'name'       => _x( 'First Column Width', 'Titles', theme_domain() ),
+				'name'       => _x( 'First Column Width', 'Titles', be_domain() ),
 				'id'         =>   $prefix.'col_width_one',
 				'type'      => 'select',
 				'options'   => $bannerColumnWidth,
 				'default'=> '4'
 			),
 			array(
-				'name'       => _x( 'Second Column Width', 'Titles', theme_domain() ),
+				'name'       => _x( 'Second Column Width', 'Titles', be_domain() ),
 				'id'         =>   $prefix.'col_width_two',
 				'type'      => 'select',
 				'options'   => $bannerColumnWidth,
@@ -98,22 +99,22 @@ function metaFields( array $meta_boxes ) {
 				'id'      => $prefix . 'banner_images',
 				'type'    => 'group',
 				'options' => array(
-					'group_title'   => __('Image {#}', theme_domain()), // since version 1.1.4, {#} gets replaced by row number
-					'add_button'    => __('Add Another Image', theme_domain()),
-					'remove_button' => __('Remove Image', theme_domain()),
+					'group_title'   => __('Image {#}', be_domain()), // since version 1.1.4, {#} gets replaced by row number
+					'add_button'    => __('Add Another Image', be_domain()),
+					'remove_button' => __('Remove Image', be_domain()),
 					'sortable'      => true, // beta
 				),
 				// Fields array works the same, except id's only need to be unique for this group. Prefix is not needed.
 				'fields'  => array(
 					array(
-						'name'       => _x('Image', 'Titles', theme_domain()),
+						'name'       => _x('Image', 'Titles', be_domain()),
 						'id'         => 'image',
 						'show_names' => false,
 						'type'       => 'file',
 						'allow'      => array('attachment') // limit to just attachments with array( 'attachment' )
 					),
 					array(
-						'name' => _x('Banner Text', 'Titles', theme_domain()),
+						'name' => _x('Banner Text', 'Titles', be_domain()),
 						'id'   => 'text',
 						'type' => 'wysiwyg',
 						'options' => $wysiwygOptions,
@@ -125,7 +126,7 @@ function metaFields( array $meta_boxes ) {
 
 	);
 	/*array(
-		'name' => _x( 'Datasheet', 'Titles', theme_domain() ),
+		'name' => _x( 'Datasheet', 'Titles', be_domain() ),
 		'id'   => $prefix.'prod_datasheet',
 		'type' => 'file',
 		'allow' => array('attachment' ) // limit to just attachments with array( 'attachment' )
