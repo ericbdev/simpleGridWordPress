@@ -101,6 +101,7 @@ function get_theme_path($withSlash = false, $extraPath = '') {
 
 function get_meta($id, $field){
 	$prefix = get_the_prefix();
+	$id = intval($id);
 	return get_post_meta($id, $prefix.$field, true);
 }
 function be_domain(){
