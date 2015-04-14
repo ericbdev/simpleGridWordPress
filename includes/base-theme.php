@@ -182,26 +182,36 @@ function get_lang_code($activeLang = false) {
 	return false;
 }
 
+/**
+ * @param        $id
+ * @param string $type
+ * @return int
+ */
 function get_translated_id($id, $type = 'page') {
-	$returnID = $id;
+	$returnID = intval($id);
 	if(class_exists('SitePress')){
 		if(function_exists('icl_object_id')) {
 			intval($returnID = icl_object_id($id, $type, true));
 		}
 	}
-	return $returnID;
+	return intval($returnID);
 }
 
+/**
+ * @param        $id
+ * @param string $type
+ * @param string $lang
+ * @return int
+ */
 function get_default_id($id, $type = 'page', $lang = 'en') {
-	$returnID = $id;
+	$returnID = intval($id);
 	if(class_exists('SitePress')){
 		if(function_exists('icl_object_id')) {
 			intval($returnID = icl_object_id($id, $type, true, $lang));
 		}
 	}
-	return $returnID;
+	return intval($returnID);
 }
-
 
 /*************************************************************************************/
 
