@@ -33,7 +33,7 @@ function load_my_scripts() {
 	$jsPath = get_template_directory_uri().'/scripts';
 
 	if (!is_admin()) {  //If the page is admin page, don't load//
-		wp_enqueue_script( 'modernizr', "$jsPath/vendor/modernizr.js", false, '1.0', false);
+		wp_enqueue_script( 'modernizr', "$jsPath/vendor/modernizr.min.js", false, '1.0', false);
 		wp_deregister_script( 'jquery' );
 		wp_register_script( 'jquery', "//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js", false, '1.11.0');
 		wp_enqueue_script( 'jquery' );
@@ -42,10 +42,10 @@ function load_my_scripts() {
 
 
 		//wp_enqueue_script( 'scrolltofixed', $jsPath.'vendor/jquery.scrolltofixed.min.js', array('jquery'), '1.0', true);
-		wp_enqueue_script( 'mobileMenu', "$jsPath/vendor/jquery.sidr.js",  array('jquery'), '1.0', false);
-		wp_enqueue_script( 'customSelect', "$jsPath/vendor/jquery.customSelect.js",  array('jquery'), '1.0', false);
-		wp_enqueue_script( 'placeHolders', "$jsPath/vendor/jquery.placeholders.js",  array('jquery'), '1.0', false);
-		wp_enqueue_script( 'owl-js', "$jsPath/vendor/owl-carousel/owl.carousel.js",  array('jquery'), '1.0', true);
+		wp_enqueue_script( 'mobileMenu', "$jsPath/vendor/jquery.sidr.min.js",  array('jquery'), '1.0', false);
+		//wp_enqueue_script( 'customSelect', "$jsPath/vendor/jquery.customSelect.min.js",  array('jquery'), '1.0', false);
+		wp_enqueue_script( 'placeHolders', "$jsPath/vendor/jquery.placeholders.min.js",  array('jquery'), '1.0', false);
+		wp_enqueue_script( 'owl-js', "$jsPath/vendor/owl-carousel/owl.carousel.min.js",  array('jquery'), '1.0', true);
 
 		wp_enqueue_script( 'siteJS', "$jsPath/site_js.js", array('jquery','mobileMenu','owl-js'), '1.0', true);
 
