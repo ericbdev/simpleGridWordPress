@@ -11,18 +11,14 @@ function is_test(){
 	endif;
 }
 
+
 if(is_test()):
-	define('WP_DEBUG_LOG', false);
-	define('SCRIPT_DEBUG', false);
-	define('WP_DEBUG', true);
-	@ini_set('display_errors',0);
+	@ini_set('display_errors',1 );
 	@ini_set('ignore_repeated_errors',1);
 	@ini_set( 'log_errors', 1 );
 	@ini_set( 'error_log', get_template_directory() . '/debug.log' );
 else:
 	@ini_set('display_errors',0);
-	define('WP_DEBUG', false);
-	define('WP_DEBUG_DISPLAY', false);
 endif;
 
 add_filter( 'auto_update_core', '__return_false' );
