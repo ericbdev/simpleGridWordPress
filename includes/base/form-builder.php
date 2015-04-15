@@ -21,6 +21,9 @@ class form_builder {
 	public $staticVars;
 	public $date;
 	public $userEntered;
+	public $sendTo;
+	public $sendFromAddr;
+	public $sendFromName;
 
 
 	public function __construct($lang) {
@@ -28,6 +31,9 @@ class form_builder {
 		//$this->wpdb = $wpdb;
 		//$this->wpdb->show_errors();
 		//$this->wpdb->hide_errors();
+		$this->sendFromName       = (function_exists('get_bloginfo') ? get_bloginfo('name') : 'Site Name');
+		$this->sendFromAddr       = (function_exists('admin_email') ? get_bloginfo('admin_email') : 'info@site.com');
+		$this->sendTo       = "";
 		$this->lang        = $lang;
 		$this->userEntered = array(
 			'entered' => false,
