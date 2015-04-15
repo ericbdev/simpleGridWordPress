@@ -57,24 +57,14 @@ function load_my_scripts() {
 
 
 		/*Using wpml?*/
+		if(class_exists('SitePress')):
 		define('ICL_DONT_LOAD_NAVIGATION_CSS', true);
 		define('ICL_DONT_LOAD_LANGUAGE_SELECTOR_CSS', true);
 		define('ICL_DONT_LOAD_LANGUAGES_JS', true);
+		endif;
 
 
 	}
-	if(is_login()){
-		//wp_register_style( 'wploginpage',get_template_directory_uri() . '/css/admin-style.css',false, '1', 'all');
-		//wp_enqueue_style( 'wploginpage');
-
-
-	}
-	/*Code for additional scripts:
-	wp_enqueue_script( $handle, $src, $deps, $ver, $in_foo ter );
-
-	wp_register_style( $handle, $src, $deps, $ver, $media );
-	wp_enqueue_style( $handle);*/
-
 }
 //add_action('init', 'load_my_scripts');  /*Loads up all enqueued scripts when loading the header*/
 add_action( 'wp_enqueue_scripts', 'load_my_scripts' );
@@ -99,7 +89,7 @@ function get_id($name, $lang = false){
 	$pageID = '';
 	switch($name){
 		case 'home':
-			$pageID = 2;
+			$pageID = get_translated_id(2);
 			break;
 	}
 	$searchLang = ($lang ? $lang : get_lang_active());

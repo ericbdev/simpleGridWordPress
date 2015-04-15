@@ -41,6 +41,7 @@ require_once 'base/post-types.php';
 require_once 'base/shortcodes.php';
 require_once 'base/form-builder.php';
 require_once 'base/meta-fields.php';
+require_once 'base/woo-commerce.php';
 
 
 
@@ -68,9 +69,9 @@ add_image_size( 'sqr_200', '200', '200', true);*/
 
 function load_admin_functions() {
 	/* Serif fonts are for print. */
-	if (is_admin()) {
+	if (is_admin()):
 		add_editor_style('css/editor-style.css');
-	}
+	endif;
 	register_nav_menus(
 		array(
 			'header-menu-desktop' => __( 'Desktop Header Menu' ),
@@ -85,12 +86,9 @@ add_action( 'init', 'load_admin_functions' );
 
 function get_theme_path($withSlash = false, $extraPath = '') {
 	$morePath = '';
-	if ($withSlash == true) {
-		$morePath .= '/';
-	}
-	if ($extraPath !== '') {
-		$morePath .= $extraPath;
-	}
+
+	if ($withSlash == true) $morePath .= '/';
+	if ($extraPath !== '') $morePath .= $extraPath;
 
 	return get_template_directory_uri() . $morePath;
 }
@@ -154,27 +152,27 @@ function get_languages_long($includeActive = false) {
 
 function get_lang_active($validateAgainst = false) {
 	$activeLang = 'en';
-	if(class_exists('SitePress')){
+	if(class_exists('SitePress')):
 		global $sitepress;
 		$activeLang = substr($sitepress->get_current_language(),0,2);
-	}
+	endif;
 
-	if(!$validateAgainst){
+	if(!$validateAgainst):
 		return $activeLang;
-	}else{
+	else:
 		return ($activeLang == $validateAgainst);
-	}
+	endif;
 }
 function get_lang_code($activeLang = false) {
-	if(class_exists('SitePress')){
+	if(class_exists('SitePress')):
 		if(!$activeLang):
 			$activeLang = get_lang_active();
 		endif;
 		$langs = icl_get_languages( 'skip_missing=0' );
-		if( isset( $langs[$activeLang]['default_locale'] ) ) {
+		if( isset( $langs[$activeLang]['default_locale'] ) ):
 			return $langs[$activeLang]['default_locale'];
-		}
-	}
+		endif;
+	endif;
 	return false;
 }
 
@@ -187,7 +185,7 @@ function get_translated_id($id, $type = 'page') {
 	$returnID = intval($id);
 	if(class_exists('SitePress')){
 		if(function_exists('icl_object_id')) {
-			intval($returnID = icl_object_id($id, $type, true));
+			$returnID = icl_object_id($id, $type, true);
 		}
 	}
 	return intval($returnID);
@@ -203,7 +201,7 @@ function get_default_id($id, $type = 'page', $lang = 'en') {
 	$returnID = intval($id);
 	if(class_exists('SitePress')){
 		if(function_exists('icl_object_id')) {
-			intval($returnID = icl_object_id($id, $type, true, $lang));
+			$returnID = icl_object_id($id, $type, true, $lang);
 		}
 	}
 	return intval($returnID);
@@ -340,10 +338,10 @@ if (function_exists('add_filter') && !function_exists('alter_hosting_provider_fi
 function remove_menus(){
 	//remove_menu_page( 'edit.php' );                   //Posts
 	//remove_menu_page( 'edit-comments.php' );          //Comments
-	remove_menu_page( 'themes.php' );                 //Appearance
+	//remove_menu_page( 'themes.php' );                 //Appearance
 }
 function adjust_the_wp_menu() {
-	remove_submenu_page( 'themes.php', 'themes.php' );
+	//remove_submenu_page( 'themes.php', 'themes.php' );
 	remove_submenu_page( 'themes.php', 'customize.php' );
 	remove_submenu_page( 'themes.php', 'theme-editor.php' );
 }
