@@ -4,8 +4,8 @@ $heightHeaderOffset: -100px;
 
 .main-header{
 	position:    relative;
-	height:      $heightHeader;
-	line-height: $heightHeader;
+	height:      $mobileHeader;
+	line-height: $mobileHeader;
 	background:  rgba($color-white, .7);
 	z-index:     200;
 	//@include box-shadow(0, 0, 10px, rgba($color-black, .8));
@@ -13,13 +13,22 @@ $heightHeaderOffset: -100px;
 		margin:  0;
 		padding: 0;
 		a{
-			max-height: $heightHeader;
+			max-height: $mobileHeader;
 			display:    block;
 		}
 		img{
-			max-height: $heightHeader;
+			max-height: $mobileHeader;
 			display:    block;
 		}
+	}
+}
+
+#btn-mobile-nav{
+	display: block;
+	@include overlay-switch(img);
+	img{
+		width:      auto;
+		max-height: $mobileHeader;
 	}
 }
 
@@ -135,30 +144,20 @@ ul.header-nav{
 @include mediaQuery($large-up){
 	.wrapper.main-header{
 		background: rgba($color-white, 1);
+		height:      $heightHeader;
+		line-height: $heightHeader;
+		.logo-header{
+			max-height: $heightHeader;
+			a{
+				max-height: $heightHeader;
+			}
+			img{
+				max-height: $heightHeader;
+			}
+		}
 	}
 	#site-wrapper{
 		padding-top: 0px;
 	}
 }
 
-@media #{$small-only}{
-	.wrapper.main-header{
-		height:      $mobileHeader;
-		line-height: $mobileHeader;
-		.logo-header{
-			max-height: $mobileHeader;
-			img{
-				max-height: $mobileHeader;
-			}
-		}
-	}
-}
-
-#btn-mobile-nav{
-	display: block;
-	@include overlay-switch(img);
-	img{
-		width:      auto;
-		max-height: 100%;
-	}
-}
