@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Two Columns */
+/* Template Name: Structure: Two Columns */
 get_header();
 $prefix = get_the_prefix();
 if (have_posts()) : while (have_posts()) : the_post();
