@@ -76,10 +76,12 @@ var functions = {
 		}
 	},
 	pageScroll    : function (_tag) {
-		var _totalScroll = $(_tag).offset().top - functions.offsetHeader();
-		$('html,body').animate({
-			scrollTop: _totalScroll
-		}, 1000);
+		if(typeof $(_tag) !== 'undefined'){
+			var _totalScroll = $(_tag).offset().top;
+			$('html,body').animate({
+				scrollTop: _totalScroll
+			}, 1000);
+		}
 	},
 	anchorScroll: function(_this, _location, _e){
 		if (_location.pathname.replace(/^\//,'') == _this.pathname.replace(/^\//,'') && _location.hostname == _this.hostname) {

@@ -97,6 +97,7 @@ function get_meta($id, $field){
 	$prefix = get_the_prefix();
 	return get_post_meta(intval($id), $prefix.$field, true);
 }
+
 function be_domain(){
 	$front_domain = 'Theme';
 	if (!function_exists('theme_domain')):
