@@ -279,15 +279,20 @@ function youtube_id_from_url($url) {
 /*************************************************************************************/
 
 /** WordPress Extending // Fixes **/
-foreach (array('wp_head', 'rss2_head', 'commentsrss2_head', 'rss_head', 'rdf_header', 'atom_head', 'comments_atom_head', 'opml_head', 'app_head') as $action) {
-	remove_action($action, 'the_generator');
+/** WordPress Extending // Fixes **/
+function remove_info() {
+	return false;
 }
-remove_action('wp_head', 'wp_generator');
-
-function remove_version() {
-	return '';
+function remove_generators() {
+	remove_action('wp_head', 'wp_generator');
+	remove_action('wp_head', 'wlwmanifest_link');
+	remove_action('wp_head', 'rsd_link');
+	add_filter('the_generator','remove_info');
+	if(class_exists('SitePress')):
+		remove_action('wp_head', array ( $GLOBALS['sitepress'], 'meta_generator_tag' ));
+	endif;
 }
-add_filter('the_generator', 'remove_version');
+add_action('init', 'remove_generators');
 
 function wphidenag() {
 	if(!is_test()):
