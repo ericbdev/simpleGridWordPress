@@ -77,7 +77,7 @@
 		</div>
 	</div>
 </section>
-<div id="mobile-nav" class="">
+<div id="mobile-nav" class="sidr left" style="display:none;left:-260px;">
 	<nav class="mobile-nav">
 		<ul class="mobile-menu">
 			<?php

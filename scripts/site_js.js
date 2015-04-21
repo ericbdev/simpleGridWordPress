@@ -48,16 +48,26 @@ var handleClick = (isMobile.any() !== null) ? "touchstart" : "click";
 $ = jQuery;
 var functions = {
 	debug: true,
-	offsetHeader  : function(){ return $('.wrapper.main-header').outerHeight()},
-	getWindowWidth  : function() {
-		return (window.outerWidth == 0 ? window.innerWidth : window.outerWidth);
-	},
 	log: function(){
 		var _args = Array.prototype.slice.call(arguments);
 		if(this.debug){
 			if (typeof console !== "undefined" || typeof console.log !== "undefined") {
 				console.log(_args);
 			}
+		}
+	},
+	offsetHeader  : function(){ return $('.wrapper.main-header').outerHeight()},
+	getWindowWidth  : function() {
+		return (window.outerWidth == 0 ? window.innerWidth : window.outerWidth);
+	},
+	device_type : function(){
+		/*
+		TODO: return 'phone', 'tablet', 'desktop' based on functions.getWindowWidth();
+		 */
+	},
+	menu_toggle: function(){
+		if(typeof $.sidr == 'function'){
+			$.sidr('close', 'mobile-nav');
 		}
 	},
 	pushUpdate    : function (_launch) {
@@ -185,6 +195,7 @@ var functions = {
 	$(window).resize(function() {
 		functions.windowResize('video', functions.videoResize);
 		functions.windowResize('pushUpdate', functions.pushUpdate);
+		functions.windowResize('menu_toggle', functions.menu_toggle);
 		//functions.windowResize('headerScroll', functions.headerScroll);
 	});
 
