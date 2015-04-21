@@ -9,14 +9,14 @@ $isSingle = (is_single() ? true : false);
 <div <?php post_class('single-article row collapse'.($isSingle ? ' is-single' : ''));?>>
 
 	<?php
-	$columnWidth = ' small-12 medium-12';
+	$columnWidth = ' small-12 large-12';
 	if(!$isSingle):
 
 		if($image->featured_image()):
-			$columnWidth = ' small-12 medium-8';
+			$columnWidth = ' small-12 large-8';
 			$featImg = $image->featured_image('sqr_450');
 		?>
-			<div class="column small-12 medium-4">
+			<div class="column small-12 large-4">
 				<div class="text-wrapper">
 					<img src="<?php echo $featImg['image'][0][0];?>" alt="<?php echo $featImg['alt'];?>"/>
 				</div>

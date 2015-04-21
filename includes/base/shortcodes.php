@@ -33,7 +33,7 @@ function colCode($atts, $content = null) {
 
 	$extraInfo = ($extra !== '' ? ' '.$extra : '' );
 	$extraClass = ($class !== '' ? ' '.$class : '' );
-	$extraSpan = ($span !== '' ? " $span columns" : 'columns small-12 medium-6' );
+	$extraSpan = ($span !== '' ? " $span columns" : 'columns small-12 large-6' );
 	$finalClass = trim($extraInfo.$extraClass.$extraSpan);
 
 	return '<div class="'.$finalClass.'">' . do_shortcode($content) . '</div>';

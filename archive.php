@@ -8,7 +8,7 @@ $prefix = get_the_prefix();
 	<section class="wrapper main-content block">
 		<div class="inner-wrapper small-padding bg-change hide-for-large-up">
 			<div class="row archive-header articles-header">
-				<div class="columns small-12 medium-6">
+				<div class="columns small-12 large-6">
 					<div class="table-wrapper">
 						<?php
 						//get_template_part('loop/article', 'top');
@@ -16,7 +16,7 @@ $prefix = get_the_prefix();
 						?>
 					</div>
 				</div>
-				<div class="columns small-12 medium-6">
+				<div class="columns small-12 large-6">
 					<?php get_search_form( true ); ?>
 				</div>
 			</div>
