@@ -21,7 +21,11 @@ else:
 	@ini_set('display_errors',0);
 endif;
 
+add_filter( 'auto_update_plugin', '__return_false' );
+add_filter( 'auto_update_theme', '__return_false' );
+add_filter( 'automatic_updater_disabled', '__return_true' );
 add_filter( 'auto_update_core', '__return_false' );
+
 function cmb_initialize_cmb_meta_boxes() {
 	if (!class_exists( 'cmb_Meta_Box' ) ){
 		require_once 'vendor/lib-meta/init.php';
