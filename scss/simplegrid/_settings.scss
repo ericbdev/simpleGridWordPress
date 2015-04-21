@@ -32,12 +32,22 @@ $base-font-size: $font-size-body;
 // GRID INFO
 // ##
 
+// Media Sizes
+$small-range: (0em, 568px);
+$medium-range: (569px, 800px);
+$large-range: (801px, 1199px);
+$xlarge-range: (1200px, 1400px);
+$xxlarge-range: (1401px, 99999999em);
+
+$screen: "only screen";
+
+
 // Generate Dynamic Columns?
 $include-html-classes: true;
 $include-html-global-classes: true;
 $include-html-grid-classes: $include-html-classes;
 $include-html-block-grid-classes: $include-html-classes;
-$include-xl-html-grid-classes: false ;
+$include-xl-html-grid-classes: true ;
 $include-xl-html-block-grid-classes: $include-xl-html-grid-classes;
 $include-meta-classes: false;
 $include-print-styles: true;
@@ -78,16 +88,6 @@ $padding-gutter: $column-gutter !default;
 $column-gutter-plus: $column-gutter + ($column-gutter/2) !default;
 $block-grid-elements: 12;
 $block-grid-default-spacing: $column-gutter !default;
-
-// Media Sizes
-$small-range: (0em, 767px);
-$medium-range: (768px, 999px);
-$large-range: (1000px, 1199px);
-$xlarge-range: (1200px, 1400px);
-$xxlarge-range: (1401px, 99999999em);
-
-$screen: "only screen";
-
 
 // ##
 // END GRID INFO
