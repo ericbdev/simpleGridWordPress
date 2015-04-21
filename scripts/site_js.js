@@ -61,9 +61,13 @@ var functions = {
 		return (window.outerWidth == 0 ? window.innerWidth : window.outerWidth);
 	},
 	device_type : function(){
-		/*
-		TODO: return 'phone', 'tablet', 'desktop' based on functions.getWindowWidth();
-		 */
+		if(this.getWindowWidth() <= 568){
+			return 'phone';
+		}else if(this.getWindowWidth() <= 800){
+			return 'tablet';
+		}else{
+			return 'desktop';
+		}
 	},
 	menu_toggle: function(){
 		if(typeof $.sidr == 'function'){
