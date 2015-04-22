@@ -374,7 +374,7 @@ $cursor-text-value: text !default;
 		}
 
 		blockquote{
-			margin: $column-gutter/2 40px;
+			margin: $font-size-body 40px;
 		}
 
 		dfn{
@@ -388,12 +388,12 @@ $cursor-text-value: text !default;
 		}
 
 		mark{
-			background: #ff0;
-			color:      #000;
+			//background: #ff0;
+			//color:      #000;
 		}
 
 		p, pre{
-			margin: 0 0 $column-gutter/2 0;
+			margin: 0 0 $font-size-body 0;
 			&:last-child{
 				margin-bottom:0;
 			}
@@ -441,15 +441,15 @@ $cursor-text-value: text !default;
 		}
 
 		dl, menu, ol, ul{
-			margin: $column-gutter/2 0;
+			margin: $font-size-body 0;
 		}
 
 		dd{
-			margin: 0 0 0 $column-gutter*2;
+			margin: 0 0 0 $font-size-body*2;
 		}
 
 		menu, ol, ul{
-			padding: 0 0 0 $column-gutter*2;
+			padding: 0 0 0 $font-size-body*2;
 		}
 
 		nav ul, nav ol{
