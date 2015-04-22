@@ -45,36 +45,26 @@ class form_builder {
 		$this->post        = (isset($_POST) ? $_POST : false);
 
 		$this->errorVals = array(
-			'form_first_fname'       => array(
-				'required' => ($this->lang == 'en' ? 'Please enter your first name' : 'Veuillez indiquer votre prénom')
+			'form_full_name'       => array(
+				'required' => _x('Please enter your name', 'Form', theme_domain())
 			),
-			'form_first_lname'       => array(
-				'required' => ($this->lang == 'en' ? 'Please enter your last name' : "Veuillez indiquer votre nom")
+			'form_email'       => array(
+				'required' => _x('Please enter a valid e-mail address', 'Form', theme_domain()),
+				'valid'    => _x('Please enter a valid e-mail address', 'Form', theme_domain()),
 			),
-			'form_first_email'       => array(
-				'required' => ($this->lang == 'en' ? 'Please enter a valid e-mail address' : 'Veuillez indiquer une adresse courriel valide'),
-				'valid'    => ($this->lang == 'en' ? 'Please enter a valid e-mail address' : 'Veuillez indiquer une adresse courriel valide'),
+			'form_telephone'       => array(
+				'required' => _x('Please enter your phone number', 'Form', theme_domain()),
 			),
-			'form_first_telephone'   => array(
-				'required' => ($this->lang == 'en' ? 'Please enter your telephone number with area code' : "Veuillez  indiquer votre numéro de téléphone avec l'indicatif régional")
+			'form_message'   => array(
+				'required' => _x('Please enter a message', 'Form', theme_domain()),
 			),
-			'form_first_agree_terms' => array(
-				'required' => ($this->lang == 'en' ? 'Please agree to the terms' : 'Veuillez accepter les règles et les règlements'),
-			),
-			'form_return_email'      => array(
-				'required' => ($this->lang == 'en' ? 'Please enter a valid e-mail address' : 'Veuillez indiquer une adresse courriel valide'),
-				'valid'    => ($this->lang == 'en' ? 'Please enter a valid e-mail address' : 'Veuillez indiquer une adresse courriel valide'),
-			)
 		);
 
 		$this->placeholder = array(
-			'form_first_fname'     => ($this->lang == 'en' ? 'First Name' : 'Prénom'),
-			'form_first_lname'     => ($this->lang == 'en' ? 'Last Name' : 'Nom'),
-			'form_first_email'     => ($this->lang == 'en' ? 'Email' : 'Courriel'),
-			'form_first_telephone' => ($this->lang == 'en' ? 'Phone number' : 'Numéro de téléphone'),
-			'form_return_fname'    => ($this->lang == 'en' ? 'First Name' : 'Prénom'),
-			'form_return_lname'    => ($this->lang == 'en' ? 'Last Name' : 'Nom'),
-			'form_return_email'    => ($this->lang == 'en' ? 'Email' : 'Courriel'),
+			'form_full_name'     => _x('Name', 'Form', theme_domain()),
+			'form_email'     => _x('Email', 'Form', theme_domain()),
+			'form_telephone'     => _x('Phone', 'Form', theme_domain()),
+			'form_message' => _x('Message', 'Form', theme_domain()),
 		);
 
 	}
