@@ -30,6 +30,8 @@ dfn { font-style: italic; }
 
 hr { -moz-box-sizing: content-box; box-sizing: content-box; height: 0; }
 
+mark { background: none; color: inherit; }
+
 p, pre { margin: 0 0 16px 0; }
 p:last-child, pre:last-child { margin-bottom: 0; }
 

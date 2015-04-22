@@ -388,8 +388,8 @@ $cursor-text-value: text !default;
 		}
 
 		mark{
-			//background: #ff0;
-			//color:      #000;
+			background: none;
+			color:      inherit;
 		}
 
 		p, pre{
