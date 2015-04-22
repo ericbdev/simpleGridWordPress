@@ -1,0 +1,52 @@
+$font-body: "Lato", "Helvetica", Helvetica, Arial, sans-serif;
+$font-header: "Open Sans", "Helvetica", Helvetica, Arial, sans-serif;
+
+$color-white: #fff;
+$color-black: #000;
+
+//Site Colors
+$color-main: #ed1c24;
+$color-alt: darkenColor($color-main);
+$color-body: #494949;
+$color-body-lt: #e1e1e1;
+
+//Site Heights
+$footerHeight: 100px;
+$footerPush: -#{$footerHeight};
+
+$heightHeader: 100px;
+$heightHeaderOffset: -#{$heightHeader};
+$mobileHeader: 80px;
+
+//Site Padding
+
+
+//Font Weights
+$weight-body: 300;
+$weight-bold: 700;
+$weight-header: 800;
+
+//Layering
+$zIndex: site, bottom-push, footer, header;
+
+
+//FontSizes
+$font-size-body-small: 14px;
+$font-size-body: 16px;
+$font-size-body-large: 18px;
+
+$font-size-header-small: 24px;
+$font-size-header: 30px;
+$font-size-header-medium: 48px;
+$font-size-header-large: 60px;
+
+//Foundation Setting
+$body-bg: $color-white;
+$body-font-color: $color-body;
+$body-font: $font-body;
+$body-font-family: $body-font;
+$base-font-size: $font-size-body;
+$body-font-weight: $weight-body;
+$column-gutter: 20px;
+$padding-gutter: 20px;
+$article-spacing: $padding-gutter*2;
