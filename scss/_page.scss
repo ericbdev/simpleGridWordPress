@@ -34,11 +34,11 @@ h1, h2, h3, h4, h5, h6{
 }
 @include mediaQuery($large-up){
 	.inner-wrapper.small-padding,
-	.row.medium-padding{
+	.row.small-padding{
 		padding-left:  $padding-gutter / 2;
 		padding-right: $padding-gutter / 2;
 	}
-	.row.small-padding,
+	.row.large-padding,
 	.inner-wrapper.large-padding{
 		padding-left:  $padding-gutter;
 		padding-right: $padding-gutter;
