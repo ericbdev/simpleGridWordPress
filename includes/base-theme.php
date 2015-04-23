@@ -101,6 +101,22 @@ function get_meta($id, $field){
 	$prefix = get_the_prefix();
 	return get_post_meta(intval($id), $prefix.$field, true);
 }
+if(!function_exists('get_term_name')):
+	/**
+	 * @param int    $term_id
+	 * @param string $taxonomy_name
+	 * @return string
+	 */
+	function get_term_name($term_id = 0, $taxonomy_name = '') {
+		$term_id = (is_int($term_id) ? $term_id : intval($term_id));
+		$return = '';
+		if(!empty($taxonomy_name)):
+			$term = get_term($term_id, $taxonomy_name);
+			$return = $term['name'];
+		endif;
+		return $return;
+	}
+endif;
 
 function be_domain(){
 	$front_domain = 'Theme';
