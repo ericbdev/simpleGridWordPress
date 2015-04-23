@@ -71,6 +71,16 @@ add_image_size( 'sqr_300', '300', '300', true);
 add_image_size( 'sqr_200', '200', '200', true);*/
 
 
+function be_domain(){
+	$front_domain = 'Theme';
+	if (!function_exists('theme_domain')):
+		$front_domain = theme_domain();
+	endif;
+	return $front_domain.' Backend';
+}
+
+
+
 function load_admin_functions() {
 	/* Serif fonts are for print. */
 	if (is_admin()):
@@ -85,7 +95,6 @@ function load_admin_functions() {
 		)
 	);
 }
-
 add_action( 'init', 'load_admin_functions' );
 
 function get_theme_path($withSlash = false, $extraPath = '') {
@@ -101,6 +110,7 @@ function get_meta($id, $field){
 	$prefix = get_the_prefix();
 	return get_post_meta(intval($id), $prefix.$field, true);
 }
+
 if(!function_exists('get_term_name')):
 	/**
 	 * @param int    $term_id
@@ -117,16 +127,6 @@ if(!function_exists('get_term_name')):
 		return $return;
 	}
 endif;
-
-function be_domain(){
-	$front_domain = 'Theme';
-	if (!function_exists('theme_domain')):
-		$front_domain = theme_domain();
-	endif;
-	return $front_domain.' Backend';
-}
-
-
 
 function get_languages_short($includeActive = false) {
 	if(function_exists('icl_get_languages')):
