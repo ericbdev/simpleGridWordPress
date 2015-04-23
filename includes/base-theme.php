@@ -122,7 +122,7 @@ if(!function_exists('get_term_name')):
 		$return = '';
 		if(!empty($taxonomy_name)):
 			$term = get_term($term_id, $taxonomy_name);
-			$return = $term['name'];
+			$return = $term->name;
 		endif;
 		return $return;
 	}
