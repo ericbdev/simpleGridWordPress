@@ -73,7 +73,7 @@ add_image_size( 'sqr_200', '200', '200', true);*/
 
 function be_domain(){
 	$front_domain = 'Theme';
-	if (!function_exists('theme_domain')):
+	if (function_exists('theme_domain')):
 		$front_domain = theme_domain();
 	endif;
 	return $front_domain.' Backend';
