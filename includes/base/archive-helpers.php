@@ -66,10 +66,10 @@ function my_search_form( $form ) {
 	$form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">';
 
 	$form .= '<input type="text" class="search-field"';
-	$form .= ' placeholder="' . esc_attr_x( 'Search &hellip;', 'placeholder', theme_domain()) . '"';
-	$form .= ' value="' . get_search_query() . '" name="s" title="' . esc_attr_x( 'Search for:', 'label' ) . '" />';
+	$form .= ' placeholder="' . esc_attr__( 'Search &hellip;',  theme_domain()) . '"';
+	$form .= ' value="' . get_search_query() . '" name="s" title="' . esc_attr__( 'Search for:', theme_domain() ) . '" />';
 
-	$form .= '<input type="submit" class="search-submit" value="'. esc_attr_x( 'Search', 'submit button' , theme_domain()) .'" />';
+	$form .= '<input type="submit" class="search-submit" value="'. esc_attr__( 'Search', theme_domain()) .'" />';
 
 	$form .= '</form>';
 
