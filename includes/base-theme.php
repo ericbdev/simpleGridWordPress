@@ -299,7 +299,6 @@ function youtube_id_from_url($url) {
 /*************************************************************************************/
 
 /** WordPress Extending // Fixes **/
-/** WordPress Extending // Fixes **/
 function remove_info() {
 	return false;
 }
