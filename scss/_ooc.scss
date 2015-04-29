@@ -65,6 +65,16 @@
 	}
 }
 
+.padding-all{
+	padding: $column-gutter;
+	&.double-space{
+		padding: $column-gutter*2;
+	}
+	&.half-space{
+		padding: $column-gutter/2;
+	}
+}
+
 .align-right{
 	text-align: right;
 }

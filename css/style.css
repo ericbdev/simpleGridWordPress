@@ -672,6 +672,10 @@ a:hover { color: #970c11; }
 .padding-bottom.double-space { padding-bottom: 40px; }
 .padding-bottom.half-space { padding-bottom: 10px; }
 
+.padding-all { padding: 20px; }
+.padding-all.double-space { padding: 40px; }
+.padding-all.half-space { padding: 10px; }
+
 .align-right { text-align: right; }
 
 .align-left { text-align: left; }
