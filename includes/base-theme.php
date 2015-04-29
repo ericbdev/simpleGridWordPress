@@ -302,7 +302,10 @@ function youtube_id_from_url($url) {
 function remove_info() {
 	return false;
 }
-function remove_generators() {
+function remove_wp_non_essentials() {
+	/**
+	 * Disable generators
+	 **/
 	remove_action('wp_head', 'wp_generator');
 	remove_action('wp_head', 'wlwmanifest_link');
 	remove_action('wp_head', 'rsd_link');
@@ -310,8 +313,20 @@ function remove_generators() {
 	if(class_exists('SitePress')):
 		remove_action('wp_head', array ( $GLOBALS['sitepress'], 'meta_generator_tag' ));
 	endif;
+
+	/**
+	 * Disable Emojis
+	 **/
+	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+	remove_action( 'wp_print_styles', 'print_emoji_styles' );
+	remove_action( 'admin_print_styles', 'print_emoji_styles' );
+	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
+	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );
+	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );
+	add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
 }
-add_action('init', 'remove_generators');
+add_action('init', 'remove_wp_non_essentials');
 
 function wphidenag() {
 	if(!is_test()):
