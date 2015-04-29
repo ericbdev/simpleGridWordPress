@@ -7,10 +7,10 @@ require_once 'includes/base-theme.php';
 
 /**Enqueing scripts**/
 
-function wp_head_action(){
+function wp_header_jquery(){
 	echo "<script>window.jQuery || document.write('<script src=\"".get_template_directory_uri()."/scripts/vendor/jquery-1.11.0.min.js\"><\\/script>')</script>";
 }
-add_action('wp_head', 'wp_head_action');
+add_action('wp_head', 'wp_header_jquery');
 
 function theme_domain(){
 	return 'themeDomain';
