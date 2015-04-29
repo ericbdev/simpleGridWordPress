@@ -63,7 +63,7 @@ var functions = {
 	device_type : function(){
 		if(this.getWindowWidth() <= 568){
 			return 'phone';
-		}else if(this.getWindowWidth() <= 800){
+		}else if(this.getWindowWidth() <= 850){
 			return 'tablet';
 		}else{
 			return 'desktop';

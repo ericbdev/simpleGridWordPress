@@ -263,7 +263,7 @@ table { border-collapse: collapse; border-spacing: 0; }
   .medium-10 { width: 83.33333%; }
   .medium-11 { width: 91.66667%; }
   .medium-12 { width: 100%; } }
-@media only screen and (min-width: 801px) { .large-push-0 { position: relative; left: 0%; right: auto; }
+@media only screen and (min-width: 851px) { .large-push-0 { position: relative; left: 0%; right: auto; }
   .large-push-1 { position: relative; left: 8.33333%; right: auto; }
   .large-push-2 { position: relative; left: 16.66667%; right: auto; }
   .large-push-3 { position: relative; left: 25%; right: auto; }
@@ -487,7 +487,7 @@ table { border-collapse: collapse; border-spacing: 0; }
   .medium-block-grid-12 > li { width: 8.33333%; list-style: none; }
   .medium-block-grid-12 > li:nth-of-type(1n) { clear: none; }
   .medium-block-grid-12 > li:nth-of-type(12n+1) { clear: both; } }
-@media only screen and (min-width: 801px) { .large-block-grid-1 > li { width: 100%; list-style: none; }
+@media only screen and (min-width: 851px) { .large-block-grid-1 > li { width: 100%; list-style: none; }
   .large-block-grid-1 > li:nth-of-type(1n) { clear: none; }
   .large-block-grid-1 > li:nth-of-type(1n+1) { clear: both; }
   .large-block-grid-2 > li { width: 50%; list-style: none; }
@@ -602,7 +602,7 @@ table { border-collapse: collapse; border-spacing: 0; }
 @media only screen and (min-width: 569px) { .hide-for-small-only, .show-for-small-up, .show-for-medium-only, .show-for-medium-up, .hide-for-large-only, .hide-for-large-up, .hide-for-xlarge-only, .hide-for-xlarge-up, .hide-for-xxlarge-only, .hide-for-xxlarge-up { display: inherit !important; }
   .show-for-small-only, .hide-for-small-up, .hide-for-medium-only, .hide-for-medium-up, .show-for-large-only, .show-for-large-up, .show-for-xlarge-only, .show-for-xlarge-up, .show-for-xxlarge-only, .show-for-xxlarge-up { display: none !important; } }
 /* large displays */
-@media only screen and (min-width: 801px) { .hide-for-small-only, .show-for-small-up, .hide-for-medium-only, .show-for-medium-up, .show-for-large-only, .show-for-large-up, .hide-for-xlarge-only, .hide-for-xlarge-up, .hide-for-xxlarge-only, .hide-for-xxlarge-up { display: inherit !important; }
+@media only screen and (min-width: 851px) { .hide-for-small-only, .show-for-small-up, .hide-for-medium-only, .show-for-medium-up, .show-for-large-only, .show-for-large-up, .hide-for-xlarge-only, .hide-for-xlarge-up, .hide-for-xxlarge-only, .hide-for-xxlarge-up { display: inherit !important; }
   .show-for-small-only, .hide-for-small-up, .show-for-medium-only, .hide-for-medium-up, .hide-for-large-only, .hide-for-large-up, .show-for-xlarge-only, .show-for-xlarge-up, .show-for-xxlarge-only, .show-for-xxlarge-up { display: none !important; } }
 /* xlarge displays */
 @media only screen and (min-width: 1200px) { .hide-for-small-only, .show-for-small-up, .hide-for-medium-only, .show-for-medium-up, .hide-for-large-only, .show-for-large-up, .show-for-xlarge-only, .show-for-xlarge-up, .hide-for-xxlarge-only, .hide-for-xxlarge-up { display: inherit !important; }
@@ -727,7 +727,7 @@ ul.header-nav ul li a { line-height: 16px; padding-top: 10px; padding-bottom: 10
 ul.header-nav ul li ul { left: 175px; top: 0; }
 ul.header-nav ul li ul > li:hover a, ul.header-nav ul li ul a:hover { background: white; color: #ed1c24; }
 
-@media only screen and (min-width: 801px) { .wrapper.main-header { background: white; height: 100px; line-height: 100px; }
+@media only screen and (min-width: 851px) { .wrapper.main-header { background: white; height: 100px; line-height: 100px; }
   .wrapper.main-header .logo-header { max-height: 100px; }
   .wrapper.main-header .logo-header a { max-height: 100px; }
   .wrapper.main-header .logo-header img { max-height: 100px; }
@@ -751,7 +751,7 @@ h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, 
 h1:first-child:last-child, h2:first-child:last-child, h3:first-child:last-child, h4:first-child:last-child, h5:first-child:last-child, h6:first-child:last-child { margin-bottom: 0; }
 h1:last-child:first-child, h2:last-child:first-child, h3:last-child:first-child, h4:last-child:first-child, h5:last-child:first-child, h6:last-child:first-child { margin-top: 0; }
 
-@media only screen and (min-width: 801px) { .inner-wrapper.small-padding, .row.small-padding { padding-left: 10px; padding-right: 10px; }
+@media only screen and (min-width: 851px) { .inner-wrapper.small-padding, .row.small-padding { padding-left: 10px; padding-right: 10px; }
   .row.large-padding, .inner-wrapper.large-padding { padding-left: 20px; padding-right: 20px; } }
 .archive-header.articles-header { padding-top: 40px; padding-bottom: 40px; }
 .archive-header.articles-header div.table-wrapper { padding: 0; width: 100%; display: table; }
