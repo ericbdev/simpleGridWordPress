@@ -62,6 +62,19 @@ class image {
 			return false;
 		}
 	}
+	/**
+	 * @param        $image
+	 * @param int    $index
+	 * @param string $class
+	 * @return string
+	 */
+	public function get_image_html($image, $index = 0, $class = '') {
+		if ($image):
+			return "<img src='" . $image['image'][$index][0] . "' alt='" . $image['alt'] . "'" . ($class !== '' ? ' class="' . $class . '"' : '') . "/>";
+		else:
+			return '';
+		endif;
+	}
 
 	/**
 	 * @param string $size
