@@ -60,6 +60,9 @@ var functions = {
 	getWindowWidth  : function() {
 		return (window.outerWidth == 0 ? window.innerWidth : window.outerWidth);
 	},
+	getWindowHeight  : function() {
+		return (document.documentElement.clientHeight == 0 ? $(window).height() : document.documentElement.clientHeight);
+	},
 	device_type : function(){
 		if(this.getWindowWidth() <= 568){
 			return 'phone';

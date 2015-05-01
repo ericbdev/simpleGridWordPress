@@ -695,8 +695,8 @@ a:hover { color: #970c11; }
 .font-size.body-large { font-size: 18px; }
 .font-size.header-small { font-size: 24px; }
 .font-size.header { font-size: 30px; }
-.font-size.header-medium { font-size: 48px; }
-.font-size.header-large { font-size: 60px; }
+.font-size.header-medium { font-size: 40px; }
+.font-size.header-large { font-size: 48px; }
 
 .main-header { position: relative; height: 80px; line-height: 80px; background: rgba(255, 255, 255, 0.7); z-index: 200; }
 .main-header .logo-header { margin: 0; padding: 0; }
@@ -734,9 +734,9 @@ ul.header-nav ul li ul > li:hover a, ul.header-nav ul li ul a:hover { background
   #site-wrapper { padding-top: 0px; } }
 .row.small-padding, .inner-wrapper.small-padding { padding-left: 20px; padding-right: 20px; }
 
-h1 { font-size: 60px; }
+h1 { font-size: 48px; }
 
-h2 { font-size: 48px; }
+h2 { font-size: 40px; }
 
 h3 { font-size: 30px; }
 
@@ -750,6 +750,10 @@ h1, h2, h3, h4, h5, h6 { line-height: 120%; margin: 16px 0 0 0; padding: 0; font
 h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child { margin-top: 0; margin-bottom: 16px; }
 h1:first-child:last-child, h2:first-child:last-child, h3:first-child:last-child, h4:first-child:last-child, h5:first-child:last-child, h6:first-child:last-child { margin-bottom: 0; }
 h1:last-child:first-child, h2:last-child:first-child, h3:last-child:first-child, h4:last-child:first-child, h5:last-child:first-child, h6:last-child:first-child { margin-top: 0; }
+h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p { line-height: 120%; margin: 16px 0 0 0; padding: 0; }
+h1 + p:first-child, h2 + p:first-child, h3 + p:first-child, h4 + p:first-child, h5 + p:first-child, h6 + p:first-child { margin-top: 0; margin-bottom: 16px; }
+h1 + p:first-child:last-child, h2 + p:first-child:last-child, h3 + p:first-child:last-child, h4 + p:first-child:last-child, h5 + p:first-child:last-child, h6 + p:first-child:last-child { margin-bottom: 0; }
+h1 + p:last-child:first-child, h2 + p:last-child:first-child, h3 + p:last-child:first-child, h4 + p:last-child:first-child, h5 + p:last-child:first-child, h6 + p:last-child:first-child { margin-top: 0; }
 
 @media only screen and (min-width: 851px) { .inner-wrapper.small-padding, .row.small-padding { padding-left: 10px; padding-right: 10px; }
   .row.large-padding, .inner-wrapper.large-padding { padding-left: 20px; padding-right: 20px; } }
