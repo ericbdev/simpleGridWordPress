@@ -67,6 +67,7 @@ class image {
 	 * @param int    $index
 	 * @param string $class
 	 * @return string
+	 * TODO: Take an array or int. If int, get array:proceed. If array:proceed
 	 */
 	public function get_image_html($image, $class = '', $index = 0) {
 		if ($image):
