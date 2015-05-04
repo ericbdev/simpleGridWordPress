@@ -29,10 +29,10 @@ h6{
 }
 
 h1, h2, h3, h4, h5, h6{
-	@include headerMargin($font-size-body);
+	@include header-margin($padding-gutter*2);
 	font-weight: $weight-body;
 	+ p{
-		@include headerMargin($font-size-body, false);
+		@include header-margin($font-size-body, false);
 	}
 }
 @include mediaQuery($large-up){

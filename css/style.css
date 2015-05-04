@@ -801,8 +801,8 @@ h5 { font-size: 18px; }
 
 h6 { font-size: 16px; }
 
-h1, h2, h3, h4, h5, h6 { line-height: 120%; margin: 16px 0 0 0; padding: 0; font-weight: 300; }
-h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child { margin-top: 0; margin-bottom: 16px; }
+h1, h2, h3, h4, h5, h6 { line-height: 120%; margin: 40px 0 0 0; padding: 0; font-weight: 300; }
+h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child { margin-top: 0; margin-bottom: 40px; }
 h1:first-child:last-child, h2:first-child:last-child, h3:first-child:last-child, h4:first-child:last-child, h5:first-child:last-child, h6:first-child:last-child { margin-bottom: 0; }
 h1:last-child:first-child, h2:last-child:first-child, h3:last-child:first-child, h4:last-child:first-child, h5:last-child:first-child, h6:last-child:first-child { margin-top: 0; }
 h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p { margin: 16px 0; padding: 0; }

@@ -69,12 +69,12 @@ $base-font-size: 16px !default;
 	}
 }
 
-@mixin headerMargin($space, $is_header: true) {
+@mixin header-margin($space, $is_header: true) {
 	@if $is_header == true{
 		line-height: 120%;
 		margin:      $space 0 0 0;
 	} @else{
-		margin:      $space 0 ;
+		margin:      $font-size-body 0 ;
 	}
 	padding:     0;
 	&:first-child{
