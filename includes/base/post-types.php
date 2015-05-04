@@ -1,4 +1,5 @@
 <?php
+/** Confused? Read up. https://github.com/jjgrainger/wp-custom-post-type-class/ */
 $supports = array('title','custom-fields', 'revisions');
 $supportsEditor = array('title','custom-fields', 'revisions', 'editor');
 $options = array(

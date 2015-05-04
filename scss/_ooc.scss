@@ -24,22 +24,36 @@
 		}
 	}
 }
-
 @media #{$small-up} {
 	@include responsive-padding($size: small);
+}
+@media #{$small-only} {
+	@include responsive-padding($size: small-only);
 }
 @media #{$medium-up} {
 	@include responsive-padding($size: medium);
 }
+@media #{$medium-only} {
+	@include responsive-padding($size: medium-only);
+}
 @media #{$large-up} {
 	@include responsive-padding($size: large);
+}
+@media #{$large-only} {
+	@include responsive-padding($size: large-only);
 }
 @if $include-xl-html-grid-classes{
 	@media #{$xlarge-up} {
 		@include responsive-padding($size: xlarge);
 	}
+	@media #{$xlarge-only} {
+		@include responsive-padding($size: xlarge-only);
+	}
 	@media #{$xxlarge-up} {
 		@include responsive-padding($size: xxlarge);
+	}
+	@media #{$xxlarge-only} {
+		@include responsive-padding($size: xxlarge-only);
 	}
 }
 
