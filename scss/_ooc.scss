@@ -16,10 +16,10 @@
 	&.collapse{
 		.columns{
 			&.padding-left{
-				padding-left: $column-gutter;
+				padding-left: $padding-gutter;
 			}
 			&.padding-right{
-				padding-right: $column-gutter;
+				padding-right: $padding-gutter;
 			}
 		}
 	}
