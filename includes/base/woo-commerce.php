@@ -19,7 +19,7 @@ add_action('woocommerce_after_main_content', 'woocommerce_wrapper_close', 10);
 function woocommerce_wrapper_open(){
 	$return = '';
 	$return .= "<section class='wrapper main-content default'>\n";
-	$return .= "<div class='inner-wrapper small-padding'>\n";
+	$return .= "<div class='inner-wrapper small-padding-left small-padding-right'>\n";
 	$return .= "<div class='row'>\n";
 	$return .= "<div class='columns small-12'>\n";
 	$return .= "\n";

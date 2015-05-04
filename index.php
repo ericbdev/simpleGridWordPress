@@ -3,7 +3,7 @@ get_header();
 
 if (have_posts()) : while (have_posts()) : the_post(); ?>
 	<section class="wrapper main-content default">
-		<div class="inner-wrapper small-padding">
+		<div class="inner-wrapper small-padding-left small-padding-right">
 			<div class="row">
 				<div class="columns small-12">
 					<?php

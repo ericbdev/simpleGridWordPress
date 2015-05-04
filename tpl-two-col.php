@@ -27,7 +27,7 @@ if (have_posts()) : while (have_posts()) : the_post();
 
 	?>
 	<section class="wrapper main-content default two-cols">
-		<div class="inner-wrapper small-padding text-content">
+		<div class="inner-wrapper small-padding-left small-padding-right text-content">
 			<div class="row">
 				<div class="columns small-12 large-<?php echo $colSpanLeft ;?>">
 					<?php echo apply_filters('the_content', $leftCol);?>

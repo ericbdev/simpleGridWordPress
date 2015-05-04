@@ -6,7 +6,7 @@ $prefix = get_the_prefix();
  */
 ?>
 	<section class="wrapper main-content block">
-		<div class="inner-wrapper small-padding bg-change hide-for-large-up">
+		<div class="inner-wrapper small-padding-left small-padding-right bg-change hide-for-large-up">
 			<div class="row archive-header articles-header">
 				<div class="columns small-12 large-6">
 					<div class="table-wrapper">
@@ -21,7 +21,7 @@ $prefix = get_the_prefix();
 				</div>
 			</div>
 		</div>
-		<div class="inner-wrapper small-padding">
+		<div class="inner-wrapper small-padding-left small-padding-right">
 			<div class="row loop-articles">
 				<div class="columns small-12 large-8">
 					<?php
