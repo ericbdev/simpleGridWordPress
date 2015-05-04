@@ -25,53 +25,21 @@
 	}
 }
 
-.padding-left{
-	padding-left: $column-gutter;
-	&.double-space{
-		padding-left: $column-gutter*2;
-	}
-	&.half-space{
-		padding-left: $column-gutter/2;
-	}
+@media #{$small-up} {
+	@include responsive-padding($size: small);
 }
-
-.padding-right{
-	padding-right: $column-gutter;
-	&.double-space{
-		padding-right: $column-gutter*2;
-	}
-	&.half-space{
-		padding-right: $column-gutter/2;
-	}
+@media #{$medium-up} {
+	@include responsive-padding($size: medium);
 }
-
-.padding-top{
-	padding-top: $column-gutter;
-	&.double-space{
-		padding-top: $column-gutter*2;
-	}
-	&.half-space{
-		padding-top: $column-gutter/2;
-	}
+@media #{$large-up} {
+	@include responsive-padding($size: large);
 }
-
-.padding-bottom{
-	padding-bottom: $column-gutter;
-	&.double-space{
-		padding-bottom: $column-gutter*2;
+@if $include-xl-html-grid-classes{
+	@media #{$xlarge-up} {
+		@include responsive-padding($size: xlarge);
 	}
-	&.half-space{
-		padding-bottom: $column-gutter/2;
-	}
-}
-
-.padding-all{
-	padding: $column-gutter;
-	&.double-space{
-		padding: $column-gutter*2;
-	}
-	&.half-space{
-		padding: $column-gutter/2;
+	@media #{$xxlarge-up} {
+		@include responsive-padding($size: xxlarge);
 	}
 }
 

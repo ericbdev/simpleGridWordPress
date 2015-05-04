@@ -20,6 +20,54 @@ $base-font-size: 16px !default;
 @function darkenColor($color, $darkenValue: 20%) {
 	@return darken($color, $darkenValue);
 }
+@mixin responsive-padding($size){
+	.#{$size}-padding-right{
+		padding-right: $column-gutter;
+		&.double-space{
+			padding-right: $column-gutter*2;
+		}
+		&.half-space{
+			padding-right: $column-gutter/2;
+		}
+	}
+	.#{$size}-padding-left{
+		padding-left: $column-gutter;
+		&.double-space{
+			padding-left: $column-gutter*2;
+		}
+		&.half-space{
+			padding-left: $column-gutter/2;
+		}
+	}
+	.#{$size}-padding-bottom{
+		padding-bottom: $column-gutter;
+		&.double-space{
+			padding-bottom: $column-gutter*2;
+		}
+		&.half-space{
+			padding-bottom: $column-gutter/2;
+		}
+	}
+	.#{$size}-padding-top{
+		padding-top: $column-gutter;
+		&.double-space{
+			padding-top: $column-gutter*2;
+		}
+		&.half-space{
+			padding-top: $column-gutter/2;
+		}
+	}
+
+	.#{$size}-padding-all{
+		padding: $column-gutter;
+		&.double-space{
+			padding: $column-gutter*2;
+		}
+		&.half-space{
+			padding: $column-gutter/2;
+		}
+	}
+}
 
 @mixin keyframes($animation-name) {
 	@-webkit-keyframes #{$animation-name} {
