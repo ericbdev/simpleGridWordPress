@@ -164,10 +164,20 @@ class form_builder {
 	public function get_placeholder($field_name){
 		return $this->placeholder[$field_name];
 	}
+
+	function get_error_message($field_name, $type = false){
+		$message_type = ($type ? $type : 'required');
+		if(isset($this->errorVals[$field_name][$message_type])):
+			return $this->errorVals[$field_name][$message_type];
+		else:
+			return $this->errorVals['default']['required'];
+		endif;
+	}
+
 	/** TODO: Enable retrieving of different error messages through use of $type and $this->has_error($field_name, $type)**/
 	public function get_label($field_name, $type = false, $has_error = false) {
 		if($has_error):
-			echo "<label for='$field_name' class='error'>{$this->errorVals[$field_name][$type]}</label>";
+			echo "<label for='$field_name' class='error'>".$this->get_error_message($field_name, $type)."</label>";
 		else:
 			echo "<label for='$field_name'>{$this->placeholder[$field_name]}".($type ? ' *': '')."</label>";
 		endif;
