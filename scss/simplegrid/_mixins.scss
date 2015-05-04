@@ -69,6 +69,28 @@ $base-font-size: 16px !default;
 	}
 }
 
+@mixin headerMargin($space, $is_header: true) {
+	@if $is_header == true{
+		line-height: 120%;
+		margin:      $space 0 0 0;
+	} @else{
+		margin:      $space 0 ;
+	}
+	padding:     0;
+	&:first-child{
+		margin-top:    0;
+		margin-bottom: $space;
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+	&:last-child{
+		&:first-child{
+			margin-top: 0;
+		}
+	}
+}
+
 @mixin keyframes($animation-name) {
 	@-webkit-keyframes #{$animation-name} {
 		@content;
@@ -103,27 +125,6 @@ $base-font-size: 16px !default;
 	transition:         $transition-property $transition-time $method;
 }
 
-@mixin headerMargin($space, $is_header: true) {
-	line-height: 120%;
-	@if $is_header == true{
-		margin:      $space 0 0 0;
-	} @else{
-		margin:      $space 0 ;
-	}
-	padding:     0;
-	&:first-child{
-		margin-top:    0;
-		margin-bottom: $space;
-		&:last-child{
-			margin-bottom: 0;
-		}
-	}
-	&:last-child{
-		&:first-child{
-			margin-top: 0;
-		}
-	}
-}
 @mixin box-shadow($properties, $inset: "") {
 	//h-shadow v-shadow blur spread
 	-webkit-box-shadow: #{$properties} #{$inset};
