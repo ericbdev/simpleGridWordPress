@@ -21,23 +21,17 @@ else:
 	@ini_set('display_errors',0);
 endif;
 
-add_filter( 'auto_update_plugin', '__return_false' );
-add_filter( 'auto_update_theme', '__return_false' );
-add_filter( 'automatic_updater_disabled', '__return_true' );
-add_filter( 'auto_update_core', '__return_false' );
-
+/**  Load dependent Files **/
+require_once 'base/deprecated.php';
 function cmb_initialize_cmb_meta_boxes() {
 	if (!class_exists( 'cmb_Meta_Box' ) ){
 		require_once 'vendor/lib-meta/init.php';
 	}
 }
 add_action( 'init', 'cmb_initialize_cmb_meta_boxes', 9999 );
-
 if (!class_exists( 'customPostType' ) ){
 	require_once 'vendor/custom-post-types.php';
 }
-
-
 require_once 'base/archive-helpers.php';
 require_once 'base/disable-feeds.php';
 require_once 'base/image.php';
@@ -46,6 +40,7 @@ require_once 'base/shortcodes.php';
 require_once 'base/form-builder.php';
 require_once 'base/meta-fields.php';
 require_once 'base/woo-commerce.php';
+
 
 
 
@@ -299,6 +294,11 @@ function youtube_id_from_url($url) {
 /*************************************************************************************/
 
 /** WordPress Extending // Fixes **/
+add_filter( 'auto_update_plugin', '__return_false' );
+add_filter( 'auto_update_theme', '__return_false' );
+add_filter( 'automatic_updater_disabled', '__return_true' );
+add_filter( 'auto_update_core', '__return_false' );
+
 function remove_info() {
 	return false;
 }
