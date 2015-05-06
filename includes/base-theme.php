@@ -51,6 +51,7 @@ if(!function_exists('_wp_render_title_tag')):
 		?><title><?php wp_title('|'); ?></title><?php
 	}
 	add_action('wp_head', 'add_document_title');
+	add_theme_support( 'title-tag' );
 endif;
 //add_image_size( $name, $width, $height, $crop );
 add_theme_support( 'html5', array( 'search-form' ) );
