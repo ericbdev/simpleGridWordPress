@@ -342,6 +342,14 @@ function wphidenag() {
 }
 add_action('admin_menu','wphidenag');
 
+function remove_admin_bar() {
+	if(isset($_REQUEST['hide_admin_bar'])):
+		//show_admin_bar(false);
+		add_filter('show_admin_bar', '__return_false');
+	endif;
+}
+add_action('after_setup_theme', 'remove_admin_bar');
+
 function browser_body_class($classes) {
 	global $is_lynx, $is_gecko, $is_IE, $is_opera, $is_NS4, $is_safari, $is_chrome, $is_iphone;
 	if($is_lynx) $classes[] = 'lynx';
