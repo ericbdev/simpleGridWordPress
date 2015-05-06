@@ -46,6 +46,12 @@ require_once 'base/woo-commerce.php';
 
 /*************************************************************************************/
 /** Theme By Theme Customization **/
+if(!function_exists('_wp_render_title_tag')):
+	function add_document_title(){
+		?><title><?php wp_title('|'); ?></title><?php
+	}
+	add_action('wp_head', 'add_document_title');
+endif;
 //add_image_size( $name, $width, $height, $crop );
 add_theme_support( 'html5', array( 'search-form' ) );
 
