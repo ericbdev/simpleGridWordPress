@@ -143,6 +143,7 @@ function metaFields( array $meta_boxes ) {
 
 /**
  * Excludes a PostID array
+ * 	'show_on'    => array('key' => 'exclude_id', 'value' => array('id'),
  * @param $display
  * @param $meta_box
  * @return bool
