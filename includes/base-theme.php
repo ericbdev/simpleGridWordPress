@@ -53,24 +53,9 @@ if(!function_exists('_wp_render_title_tag')):
 	add_action('wp_head', 'add_document_title');
 	add_theme_support( 'title-tag' );
 endif;
-//add_image_size( $name, $width, $height, $crop );
 add_theme_support( 'html5', array( 'search-form' ) );
-
 add_theme_support( 'post-thumbnails' );
-add_image_size( 'page-banner', '1400', '377', false );
-add_image_size( 'home-banner', '1600', '600', false );
-add_image_size( 'sqr_450', '450', '450', true);
-add_image_size( 'sqr_300', '300', '300', true);
-add_image_size( 'sqr_210', '210', '210', true);
-//add_image_size( 'preview', '300', '300', true);
 
-
-/*add_image_size( 'sqr_750', '750', '750', true);
-add_image_size( 'sqr_600', '600', '600', true);
-
-add_image_size( 'sqr_450', '450', '450', true);
-add_image_size( 'sqr_300', '300', '300', true);
-add_image_size( 'sqr_200', '200', '200', true);*/
 
 
 function be_domain(){
@@ -490,3 +475,61 @@ if (!function_exists('array_replace_recursive')) {
 		return $array;
 	}
 }
+
+
+/** Adding in Image Sizes for thumbnails **/
+$imageSizes = array(
+	array(
+		'name'   => _x('Full Original', 'Image Sizes', be_domain()),
+		'slug'   => 'full-original',
+		'width'  => 9999,
+		'height' => 9999,
+		'crop'   => false
+	),
+	array(
+		'name'   => _x('Page Banner', 'Image Sizes', be_domain()),
+		'slug'   => 'page-banner',
+		'width'  => 1600,
+		'height' => 500,
+		'crop'   => false
+	),
+	array(
+		'name'   => _x('Square: 450px', 'Image Sizes', be_domain()),
+		'slug'   => 'sqr_450',
+		'width'  => 450,
+		'height' => 450,
+		'crop'   => true
+	),
+	array(
+		'name'   => _x('Square: 300px', 'Image Sizes', be_domain()),
+		'slug'   => 'sqr_300',
+		'width'  => 300,
+		'height' => 300,
+		'crop'   => true
+	),
+	array(
+		'name'   => _x('Square: 200px', 'Image Sizes', be_domain()),
+		'slug'   => 'sqr_200',
+		'width'  => 200,
+		'height' => 200,
+		'crop'   => true
+	),
+);
+function add_image_sizes() {
+	global $imageSizes;
+	foreach($imageSizes as $size):
+		add_image_size($size['slug'], $size['width'], $size['height'], $size['crop']);
+	endforeach;
+}
+function image_sizes_names($sizes){
+	global $imageSizes;
+	$addNames = array();
+	foreach($imageSizes as $size):
+		$addNames[$size['slug']] = $size['name'];
+	endforeach;
+	$return = array_merge( $sizes, $addNames);
+	return $return;
+
+}
+add_action('init', 'add_image_sizes');
+add_filter( 'image_size_names_choose', 'image_sizes_names' );
