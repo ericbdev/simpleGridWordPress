@@ -70,7 +70,7 @@ class image {
 	 * TODO: Take an array or int. If int, get array:proceed. If array:proceed
 	 */
 	public function get_image_html($image, $class = '', $index = 0) {
-		if ($image):
+		if ($image && $image['image'][0]):
 			return "<img src='" . $image['image'][$index][0] . "' alt='" . $image['alt'] . "'" . ($class !== '' ? ' class="' . $class . '"' : '') . "/>";
 		else:
 			return '';
