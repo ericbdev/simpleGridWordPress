@@ -63,7 +63,8 @@ var functions = {
 	getWindowHeight  : function() {
 		return (document.documentElement.clientHeight == 0 ? $(window).height() : document.documentElement.clientHeight);
 	},
-	device_type : function(){
+	device_type : function(_match){
+		var _return = '';
 		if(this.getWindowWidth() <= 568){
 			return 'phone';
 		}else if(this.getWindowWidth() <= 850){
@@ -71,6 +72,23 @@ var functions = {
 		}else{
 			return 'desktop';
 		}
+	},
+	vertical_center          : function () {
+		var _center = $(".js-vertical-center");
+		_center.each(function () {
+			var _pH = $(this).parent().height(),
+				_c = $(this).outerHeight(),
+				_dif = ((_pH - _c) / 2);
+			if($(this).hasClass('js-no-vertical-mobile') && functions.device_type('mobile')){
+				$(this).css('margin-top', '');
+			}else{
+				$(this).stop(false, false).animate({
+						'margin-top': _dif + "px"
+					}, 200, false
+				);
+			}
+
+		});
 	},
 	menu_toggle: function(){
 		if(typeof $.sidr == 'function'){
@@ -192,7 +210,12 @@ var functions = {
 				//webLog.log({vid: _this, vidID: iFrameID, vW: vidWidth, vH: vidHeight, rW: ratioWidth, rH: ratioHeight});
 			});
 		}
-
+	},
+	generic_resize           : function () {
+		functions.videoResize();
+		functions.pushUpdate();
+		functions.vertical_center();
+		functions.menu_toggle();
 	}
 
 };
@@ -200,9 +223,7 @@ var functions = {
 (function ( $ ) {
 	$.this = 'undefined';
 	$(window).resize(function() {
-		functions.windowResize('video', functions.videoResize);
-		functions.windowResize('pushUpdate', functions.pushUpdate);
-		functions.windowResize('menu_toggle', functions.menu_toggle);
+		functions.windowResize('generic', functions.generic_resize);
 		//functions.windowResize('headerScroll', functions.headerScroll);
 	});
 
@@ -210,6 +231,7 @@ var functions = {
 		functions.videoResize();
 		functions.emailReplace();
 		functions.pushUpdate();
+		functions.vertical_center();
 		//functions.headerScroll();
 
 	});

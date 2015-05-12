@@ -33,7 +33,7 @@ $prefix = get_the_prefix();
 						}
 					endwhile;
 					else:
-						get_template_part('loop/404-message');
+						get_template_part('lozop/404-message');
 					endif;
 					if(!is_single()){
 						get_pagination($wp_query->max_num_pages);
