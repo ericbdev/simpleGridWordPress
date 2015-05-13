@@ -133,8 +133,10 @@ function get_languages_short($includeActive = false) {
 			endforeach;
 		endif;
 		return $langReturn;
+	else:
+		return array("<a href='".(function_exists('icl_get_home_url') ? icl_get_home_url() :  get_home_url())."'>".get_bloginfo('name')."</a>");
 	endif;
-	return '';
+
 }
 
 function get_languages_long($includeActive = false) {
@@ -154,8 +156,9 @@ function get_languages_long($includeActive = false) {
 			endforeach;
 		endif;
 		return $langReturn;
+	else:
+		return array("<a href='".(function_exists('icl_get_home_url') ? icl_get_home_url() :  get_home_url())."'>".get_bloginfo('name')."</a>");
 	endif;
-	return '';
 }
 
 function get_lang_active($validateAgainst = false) {

@@ -68,7 +68,7 @@
 				</div>
 
 				<div class="columns small-8">
-					<a href="<?php echo (function_exists('icl_get_home_url') ? icl_get_home_url() :  get_permalink(get_id('home'))); ?>" class="logo-header float-right">
+					<a href="<?php echo (function_exists('icl_get_home_url') ? icl_get_home_url() :  get_home_url()); ?>" class="logo-header float-right">
 						<img src="<?php echo get_theme_path();?>/images/logo-placeholder.png" alt="<?php bloginfo('name'); ?>"/>
 					</a>
 				</div>
