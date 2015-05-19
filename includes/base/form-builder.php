@@ -45,6 +45,9 @@ class form_builder {
 		$this->post        = (isset($_POST) ? $_POST : false);
 
 		$this->errorVals = array(
+			'default' => array(
+				'required' => _x('This field is required', 'Form', theme_domain())
+			),
 			'form_full_name'       => array(
 				'required' => _x('Please enter your name', 'Form', theme_domain())
 			),
@@ -251,7 +254,7 @@ class form_builder {
 			'classes'     => false
 		);
 
-		if (!$optional['field_id']) $optional['field_id'] = $field_name . '_id';
+		if (isset($optional['field_id'])) $optional['field_id'] = $field_name . '_id';
 
 		$extras = $this->parse_args($optional, $defaults);
 
