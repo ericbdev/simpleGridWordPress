@@ -624,7 +624,7 @@ body > .site > .bottom-push { height: 100px; z-index: 2; }
 a { color: #ed1c24; -webkit-transition: color 1s ease; -moz-transition: color 1s ease; -ms-transition: color 1s ease; -o-transition: color 1s ease; transition: color 1s ease; }
 a:hover { color: #970c11; }
 
-.sidr { display: none; position: absolute; position: fixed; top: 0; height: 100%; z-index: 999999; width: 260px; overflow-x: none; overflow-y: auto; font-family: "Lato", "Helvetica", Helvetica, Arial, sans-serif; font-size: 15px; background: #f8f8f8; color: #ed1c24; -webkit-box-shadow: inset 0 0 5px 5px #ebebeb ; -moz-box-shadow: inset 0 0 5px 5px #ebebeb ; -ms-box-shadow: inset 0 0 5px 5px #ebebeb ; box-shadow: inset 0 0 5px 5px #ebebeb ; }
+.sidr { display: none; position: absolute; position: fixed; top: 0; height: 100%; z-index: 999999; width: 260px; overflow-x: none; overflow-y: auto; font-family: "Lato", "Helvetica", Helvetica, Arial, sans-serif; font-size: 15px; background: white; color: #ed1c24; -webkit-box-shadow: inset 0 0 5px 5px #ebebeb ; -moz-box-shadow: inset 0 0 5px 5px #ebebeb ; -ms-box-shadow: inset 0 0 5px 5px #ebebeb ; box-shadow: inset 0 0 5px 5px #ebebeb ; }
 .sidr .sidr-inner { padding: 0 0 15px; }
 .sidr .sidr-inner > p { margin-left: 15px; margin-right: 15px; }
 .sidr.right { left: auto; right: -260px; }

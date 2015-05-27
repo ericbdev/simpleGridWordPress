@@ -1,23 +1,24 @@
+$sidr_spacing: 15px;
 .sidr{
-	display:            none;
-	position:           absolute;
-	position:           fixed;
-	top:                0;
-	height:             100%;
-	z-index:            999999;
-	width:              260px;
-	overflow-x:         none;
-	overflow-y:         auto;
-	font-family:        $font-body;
-	font-size:          15px;
-	background:         #f8f8f8;
-	color:              $color-main;
+	display:     none;
+	position:    absolute;
+	position:    fixed;
+	top:         0;
+	height:      100%;
+	z-index:     999999;
+	width:       260px;
+	overflow-x:  none;
+	overflow-y:  auto;
+	font-family: $font-body;
+	font-size:   $sidr_spacing;
+	background:  $color-white;
+	color:       $color-main;
 	@include box-shadow(inset 0 0 5px 5px #ebebeb);
 	.sidr-inner{
-		padding: 0 0 15px;
+		padding: 0 0 $sidr_spacing;
 		> p{
-			margin-left:  15px;
-			margin-right: 15px;
+			margin-left:  $sidr_spacing;
+			margin-right: $sidr_spacing;
 		}
 	}
 	&.right{
@@ -30,17 +31,17 @@
 	}
 	h1, h2, h3,
 	h4, h5, h6{
-		font-size:          11px;
-		font-weight:        normal;
-		padding:            0 15px;
-		margin:             0 0 5px;
-		color:              $color-main;
-		line-height:        24px;
-		background-image:   -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #dfdfdf));
-		background-image:   -webkit-linear-gradient(#ffffff, #dfdfdf);
-		background-image:   -moz-linear-gradient(#ffffff, #dfdfdf);
-		background-image:   -o-linear-gradient(#ffffff, #dfdfdf);
-		background-image:   linear-gradient(#ffffff, #dfdfdf);
+		font-size:        11px;
+		font-weight:      normal;
+		padding:          0 $sidr_spacing;
+		margin:           0 0 5px;
+		color:            $color-main;
+		line-height:      24px;
+		background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #dfdfdf));
+		background-image: -webkit-linear-gradient(#ffffff, #dfdfdf);
+		background-image: -moz-linear-gradient(#ffffff, #dfdfdf);
+		background-image: -o-linear-gradient(#ffffff, #dfdfdf);
+		background-image: linear-gradient(#ffffff, #dfdfdf);
 		@include box-shadow(0 5px 5px 3px rgba(#000000, 0.2));
 	}
 	p{
@@ -51,12 +52,12 @@
 		}
 	}
 	> p{
-		margin-left:  15px;
-		margin-right: 15px;
+		margin-left:  $sidr_spacing;
+		margin-right: $sidr_spacing;
 	}
 	ul{
 		display:       block;
-		margin:        0 0 15px;
+		margin:        0 0 $sidr_spacing;
 		padding:       0;
 		border-top:    1px solid #dfdfdf;
 		border-bottom: 1px solid #fff;
@@ -66,7 +67,7 @@
 			border-top:    1px solid #fff;
 			border-bottom: 1px solid #dfdfdf;
 			a, span{
-				padding:         15px;
+				padding:         $sidr_spacing;
 				display:         block;
 				text-decoration: none;
 				color:           $color-main;
@@ -79,7 +80,7 @@
 			&.sidr-class-active{
 				> a,
 				> span{
-					@include box-shadow(inset 0 0 15px 5px #ebebeb);
+					@include box-shadow(inset 0 0 $sidr_spacing 5px #ebebeb);
 				}
 			}
 
@@ -101,7 +102,7 @@
 		}
 	}
 	form{
-		margin: 0 15px;
+		margin: 0 $sidr_spacing;
 		label{
 			font-size: 13px;
 		}
@@ -117,15 +118,15 @@
 		input[type="url"],
 		textarea,
 		select{
-			width:                 100%;
-			font-size:             13px;
-			padding:               5px;
-			margin:                0 0 10px;
-			border:                none;
-			background:            rgba(#000000, 0.1);
-			color:                 rgba(#333333, 0.6);
-			display:               block;
-			clear:                 both;
+			width:      100%;
+			font-size:  13px;
+			padding:    5px;
+			margin:     0 0 10px;
+			border:     none;
+			background: rgba(#000000, 0.1);
+			color:      rgba(#333333, 0.6);
+			display:    block;
+			clear:      both;
 			@include border-radius(0);
 		}
 		input[type=checkbox]{
