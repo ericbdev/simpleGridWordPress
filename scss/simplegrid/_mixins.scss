@@ -142,7 +142,7 @@ $base-font-size: 16px !default;
 		background: -ms-linear-gradient(left, $fromColor $from1Dist, $toColor $toDist); // IE10+
 		background: -o-linear-gradient(left, $fromColor $from1Dist, $toColor $toDist); // Opera 11.10+
 		background: linear-gradient(to right, $fromColor $from1Dist, $toColor $toDist); // W3C
-		filter:     progid:DXImageTransform.Microsoft.gradient(startColorstr='$fromColor', endColorstr='$toColor', GradientType=1); // IE6-9
+		filter:     progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$fromColor}', endColorstr='#{$toColor}', GradientType=1); // IE6-9
 	} @else{
 		background: $fromColor; // Old browsers
 		background: -webkit-gradient(linear, left top, left bottom, color-stop($from1Dist, $fromColor), color-stop($toDist, $toColor)); // Chrome,Safari4+
@@ -151,7 +151,7 @@ $base-font-size: 16px !default;
 		background: -ms-linear-gradient(top, $fromColor $from1Dist, $toColor $toDist); // IE10+
 		background: -o-linear-gradient(top, $fromColor $from1Dist, $toColor $toDist); // Opera 11.10+
 		background: linear-gradient(to bottom, $fromColor $from1Dist, $toColor $toDist); // W3C
-		filter:     progid:DXImageTransform.Microsoft.gradient(startColorstr='$fromColor', endColorstr='$toColor', GradientType=0); // IE6-9
+		filter:     progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$fromColor}', endColorstr='#{$toColor}', GradientType=0); // IE6-9
 	}
 }
 
@@ -163,7 +163,7 @@ $base-font-size: 16px !default;
 	background: -o-radial-gradient(center, ellipse cover, $fromColor $from1Dist, $toColor $toDist); // Opera 12+
 	background: -ms-radial-gradient(center, ellipse cover, $fromColor $from1Dist, $toColor $toDist); // IE10+
 	background: radial-gradient(ellipse at center, $fromColor $from1Dist, $toColor $toDist); // W3C
-	filter:     progid:DXImageTransform.Microsoft.gradient(startColorstr='$fromColor', endColorstr='$toColor', GradientType=1); // IE6-9 fallback on horizontal gradient
+	filter:     progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$fromColor}', endColorstr='#{$toColor}', GradientType=1); // IE6-9 fallback on horizontal gradient
 }
 
 @mixin box-sizing($type: border-box) {
