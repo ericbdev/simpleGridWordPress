@@ -29,7 +29,15 @@
 </head>
 
 <body <?php body_class(get_lang_active()); ?>>
-
+<div id="mobile-nav" class="sidr left" style="display:none;left:-260px;">
+	<nav class="mobile-nav">
+		<ul class="mobile-menu">
+			<?php
+			wp_nav_menu($defaults);
+			?>
+		</ul>
+	</nav>
+</div>
 <div class="site" id="site-wrapper">
 <section class="wrapper main-header">
 	<div class="show-for-large-up row">
@@ -76,15 +84,6 @@
 		</div>
 	</div>
 </section>
-<div id="mobile-nav" class="sidr left" style="display:none;left:-260px;">
-	<nav class="mobile-nav">
-		<ul class="mobile-menu">
-			<?php
-			wp_nav_menu($defaults);
-			?>
-		</ul>
-	</nav>
-</div>
 
 <script type="text/javascript">
 	var menuButtonName = $('#btn-mobile-nav');
