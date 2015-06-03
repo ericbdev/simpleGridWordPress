@@ -23,12 +23,9 @@ endif;
 
 /**  Load dependent Files **/
 require_once 'base/deprecated.php';
-function cmb_initialize_cmb_meta_boxes() {
-	if (!class_exists( 'cmb_Meta_Box' ) ){
-		require_once 'vendor/lib-meta/init.php';
-	}
+if (!class_exists( 'CMB2_Bootstrap_208' ) ){
+	require_once 'vendor/cmb2/init.php';
 }
-add_action( 'init', 'cmb_initialize_cmb_meta_boxes', 9999 );
 if (!class_exists( 'customPostType' ) ){
 	require_once 'vendor/custom-post-types.php';
 }

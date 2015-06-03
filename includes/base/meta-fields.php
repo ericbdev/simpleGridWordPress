@@ -1,7 +1,7 @@
 <?php
 
-add_filter( 'cmb_meta_boxes', 'metaFields' );
-function metaFields( array $meta_boxes ) {
+add_action( 'cmb2_init', 'ds_meta_fields' );
+function ds_meta_fields( ) {
 	$prefix = get_the_prefix();
 	$backend_domain = get_the_prefix();
 	$wysiwygOptions = array(
@@ -46,85 +46,91 @@ function metaFields( array $meta_boxes ) {
 		'11' => '11',
 		'12' => '12',
 	);
-	$meta_boxes['two_columns'] = array(
-		'id'         => 'two_columns',
-		'title'      => _x( 'Columns', 'Titles', be_domain() ),
-		'pages'      => array('page'), // Post type
-		'show_on' => array( 'key' => 'page-template', 'value' => array('tpl-two-col.php') ),
-		'context'    => 'normal',
-		'priority'   => 'high',
-		'show_names' => true,
-		'fields'     => array(
-			array(
-				'name'       => _x( 'Column One', 'Titles', be_domain() ),
-				'id'         => $prefix . 'col_one',
-				'sanitization_cb' => false,
-				'type'       => 'wysiwyg',
-				'options' => $wysiwygOptions
-			),
-			array(
-				'name'       => _x( 'Column Two', 'Titles', be_domain() ),
-				'id'         => $prefix . 'col_two',
-				'sanitization_cb' => false,
-				'type'       => 'wysiwyg',
-				'options' => $wysiwygOptions
-			),
-			array(
-				'name'       => _x( 'First Column Width', 'Titles', be_domain() ),
-				'id'         =>   $prefix.'col_width_one',
-				'type'      => 'select',
-				'options'   => $bannerColumnWidth,
-				'default'=> '4'
-			),
-			array(
-				'name'       => _x( 'Second Column Width', 'Titles', be_domain() ),
-				'id'         =>   $prefix.'col_width_two',
-				'type'      => 'select',
-				'options'   => $bannerColumnWidth,
-				'default'=> '8'
-			),
 
-		)
-	);
-	$meta_boxes['page_banners'] = array(
+
+	/**
+	 * Set options for the two page column
+	 * @var  $two_cols
+	 */
+	$two_cols = new_cmb2_box( array(
+		'id'            => $prefix . 'two_columns',
+		'title'      => _x( 'Columns', 'Titles', be_domain() ),
+		'object_types'  => array( 'page', ), // Post type
+		'show_on' => array( 'key' => 'page-template', 'value' => array('tpl-two-col.php') ),
+		// 'show_on_cb' => 'yourprefix_show_if_front_page', // function should return a bool value
+		// 'context'    => 'normal',
+		// 'priority'   => 'high',
+		// 'show_names' => true, // Show field names on the left
+		// 'cmb_styles' => false, // false to disable the CMB stylesheet
+		// 'closed'     => true, // true to keep the metabox closed by default
+	) );
+	$two_cols->add_field(array(
+		'name'       => _x( 'Column One', 'Titles', be_domain() ),
+		'id'         => $prefix . 'col_one',
+		'sanitization_cb' => false,
+		'type'       => 'wysiwyg',
+		'options' => $wysiwygOptions
+	));
+	$two_cols->add_field(array(
+		'name'       => _x( 'Column Two', 'Titles', be_domain() ),
+		'id'         => $prefix . 'col_two',
+		'sanitization_cb' => false,
+		'type'       => 'wysiwyg',
+		'options' => $wysiwygOptions
+	));
+	$two_cols->add_field(array(
+		'name'       => _x( 'First Column Width', 'Titles', be_domain() ),
+		'id'         =>   $prefix.'col_width_one',
+		'type'      => 'select',
+		'options'   => $bannerColumnWidth,
+		'default'=> '4'
+	));
+	$two_cols->add_field(array(
+		'name'       => _x( 'Second Column Width', 'Titles', be_domain() ),
+		'id'         =>   $prefix.'col_width_two',
+		'type'      => 'select',
+		'options'   => $bannerColumnWidth,
+		'default'=> '8'
+	));
+
+
+	/**
+	 * Add banners to the top of the page
+	 * @var  $page_banners
+	 */
+	$page_banners = new_cmb2_box(array(
 		'id'         => 'page_banner',
 		'title'      => 'Banners',
-		'pages'      => array('page'), // Post type
+		'object_types'  => array( 'page', ), // Post type
 		'context'    => 'normal',
 		'priority'   => 'high',
-		'show_names' => true,
-		'fields'     => array(
-			array(
-				'title'   => 'Banner Images',
-				'id'      => $prefix . 'banner_images',
-				'type'    => 'group',
-				'options' => array(
-					'group_title'   => __('Image {#}', be_domain()), // since version 1.1.4, {#} gets replaced by row number
-					'add_button'    => __('Add Another Image', be_domain()),
-					'remove_button' => __('Remove Image', be_domain()),
-					'sortable'      => true, // beta
-				),
-				// Fields array works the same, except id's only need to be unique for this group. Prefix is not needed.
-				'fields'  => array(
-					array(
-						'name'       => _x('Image', 'Titles', be_domain()),
-						'id'         => 'image',
-						'show_names' => false,
-						'type'       => 'file',
-						'allow'      => array('attachment') // limit to just attachments with array( 'attachment' )
-					),
-					array(
-						'name' => _x('Banner Text', 'Titles', be_domain()),
-						'id'   => 'text',
-						'type' => 'wysiwyg',
-						'options' => $wysiwygOptions,
-					),
-				),
-			)
+		'show_names' => true
+	));
+	$banner_group = $page_banners->add_field(array(
+		'title'   => 'Banner Images',
+		'id'      => $prefix . 'banner_images',
+		'type'    => 'group',
+		'options' => array(
+			'group_title'   => __('Image {#}', be_domain()), // since version 1.1.4, {#} gets replaced by row number
+			'add_button'    => __('Add Another Image', be_domain()),
+			'remove_button' => __('Remove Image', be_domain()),
+			'sortable'      => true, // beta
+		)
+	));
+	$page_banners->add_group_field($banner_group, array(
+		'name'       => _x('Image', 'Titles', be_domain()),
+		'id'         => 'image',
+		'show_names' => false,
+		'type'       => 'file',
+		'allow'      => array('attachment') // limit to just attachments with array( 'attachment' )
+	));
+	$page_banners->add_group_field($banner_group, array(
+		'name' => _x('Banner Text', 'Titles', be_domain()),
+		'id'   => 'text',
+		'type' => 'wysiwyg',
+		'options' => $wysiwygOptions,
+	));
 
-		),
-
-	);
 	/*array(
 		'name' => _x( 'Datasheet', 'Titles', be_domain() ),
 		'id'   => $prefix.'prod_datasheet',
@@ -137,7 +143,7 @@ function metaFields( array $meta_boxes ) {
 
 
 
-	return $meta_boxes;
+
 }
 
 
