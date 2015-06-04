@@ -35,15 +35,3 @@ h1, h2, h3, h4, h5, h6{
 		@include header-margin($font-size-body, false);
 	}
 }
-@include mediaQuery($large-up){
-	.inner-wrapper.small-padding,
-	.row.small-padding{
-		padding-left:  $padding-gutter / 2;
-		padding-right: $padding-gutter / 2;
-	}
-	.row.large-padding,
-	.inner-wrapper.large-padding{
-		padding-left:  $padding-gutter;
-		padding-right: $padding-gutter;
-	}
-}
