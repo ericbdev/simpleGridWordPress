@@ -35,8 +35,8 @@ function enable_debug(){
 function load_my_scripts() {
 	$cssPath = get_template_directory_uri().'/css';
 	$jsPath = get_template_directory_uri().'/scripts';
-	$jsExt = (enable_debug() ? ".min.js" : ".js");
-	$cssExt = (enable_debug() ? ".min.js" : ".js");
+	$jsExt = (!enable_debug() ? ".min.js" : ".js");
+	$cssExt = (!enable_debug() ? ".min.js" : ".js");
 
 	if (!is_admin()) {  //If the page is admin page, don't load//
 		wp_enqueue_script( 'modernizr', "$jsPath/vendor/modernizr.min.js", false, '1.0', false);
