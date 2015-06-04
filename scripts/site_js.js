@@ -240,14 +240,4 @@ var functions = {
 		functions.anchorScroll(this, location, e);
 	});
 
-	/** Page Logic **/
-	$(".js-banner").owlCarousel({
-		items                : 1,
-		singleItem           : true,
-		navigation           : true,
-		pagination           : false,
-		navigationText       : ["", ""],
-		responsiveRefreshRate: 100,
-		mouseDrag            : true
-	});
 }( jQuery ));
