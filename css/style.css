@@ -862,8 +862,6 @@ ul.header-nav ul li ul > li:hover a, ul.header-nav ul li ul a:hover { background
   .wrapper.main-header .logo-header a { max-height: 100px; }
   .wrapper.main-header .logo-header img { max-height: 100px; }
   #site-wrapper { padding-top: 0px; } }
-.row.small-padding, .inner-wrapper.small-padding { padding-left: 20px; padding-right: 20px; }
-
 h1 { font-size: 48px; }
 
 h2 { font-size: 40px; }
