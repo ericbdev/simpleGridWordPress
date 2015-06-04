@@ -125,6 +125,34 @@ $base-font-size: 16px !default;
 	transition:         $transition-property $transition-time $method;
 }
 
+@mixin transform($transforms) {
+	-moz-transform: $transforms;
+	-o-transform: $transforms;
+	-ms-transform: $transforms;
+	-webkit-transform: $transforms;
+	transform: $transforms;
+}
+
+@mixin rotate ($deg) {
+	@include transform(rotate(#{$deg}deg));
+}
+
+@mixin scale($scale) {
+	@include transform(scale($scale));
+}
+
+@mixin translate ($x, $y) {
+	@include transform(translate($x, $y));
+}
+
+@mixin transform-origin($val) {
+	-webkit-transform-origin: $val;
+	-moz-transform-origin: $val;
+	-ms-transform-origin: $val;
+	transform-origin: $val;
+}
+
+
 @mixin box-shadow($properties, $inset: "") {
 	//h-shadow v-shadow blur spread
 	-webkit-box-shadow: #{$properties} #{$inset};
