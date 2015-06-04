@@ -13,10 +13,12 @@ function is_test(){
 
 
 if(is_test()):
-	@ini_set('display_errors',1 );
-	@ini_set('ignore_repeated_errors',1);
-	@ini_set( 'log_errors', 1 );
-	@ini_set( 'error_log', get_template_directory() . '/debug.log' );
+	if(enable_debug()):
+		@ini_set('display_errors',1 );
+		@ini_set('ignore_repeated_errors',1);
+		@ini_set( 'log_errors', 1 );
+		@ini_set( 'error_log', get_template_directory() . '/debug.log' );
+	endif;
 else:
 	@ini_set('display_errors',0);
 endif;
