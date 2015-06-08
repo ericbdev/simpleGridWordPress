@@ -219,7 +219,7 @@ var functions = {
 	}
 
 };
-
+var menuButtonName = {};
 (function ( $ ) {
 	$.this = 'undefined';
 	$(window).resize(function() {
@@ -233,6 +233,22 @@ var functions = {
 		functions.pushUpdate();
 		functions.vertical_center();
 		//functions.headerScroll();
+
+		menuButtonName = $('#btn-mobile-nav');
+		menuButtonName.sidr({
+			name: 'mobile-nav',
+			source: '#mobile-nav',
+			renaming : false,
+			displace: true,
+			onOpen: function(){
+				menuButtonName.toggleClass('inactive');
+				menuButtonName.toggleClass('active');
+			},
+			onClose: function(){
+				menuButtonName.toggleClass('active');
+				menuButtonName.toggleClass('inactive');
+			}
+		});
 
 	});
 

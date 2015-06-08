@@ -75,24 +75,6 @@
 		</div>
 	</div>
 </section>
-
-<script type="text/javascript">
-	var menuButtonName = $('#btn-mobile-nav');
-	menuButtonName.sidr({
-		name: 'mobile-nav',
-		source: '#mobile-nav',
-		renaming : false,
-		displace: true,
-		onOpen: function(){
-			menuButtonName.toggleClass('inactive');
-			menuButtonName.toggleClass('active');
-		},
-		onClose: function(){
-			menuButtonName.toggleClass('active');
-			menuButtonName.toggleClass('inactive');
-		}
-	});
-</script>
 <?php
 global $post;
 $banners = array();
