@@ -5,28 +5,53 @@ h1, h2, h3, h4, h5, h6{
 		@include header-margin($font-size-body, false);
 	}
 }
-
 h1{
-	font-size: $font-size-header-large;
+	font-size: $font-size-header-large*.8;
 }
 
 h2{
-	font-size: $font-size-header-medium;
+	font-size: $font-size-header-medium*.8;
 }
 
 h3{
-	font-size: $font-size-header;
+	font-size: $font-size-header*.8;
 }
 
 h4{
-	font-size: $font-size-header-small;
+	font-size: $font-size-header-small*.8;
 }
 
 h5{
-	font-size: $font-size-body-large;
+	font-size: $font-size-body-large*.8;
 }
 
 h6{
-	font-size: $font-size-body;
+	font-size: $font-size-body*.8;
+}
+
+@media #{$medium-up}{
+	h1{
+		font-size: $font-size-header-large;
+	}
+
+	h2{
+		font-size: $font-size-header-medium;
+	}
+
+	h3{
+		font-size: $font-size-header;
+	}
+
+	h4{
+		font-size: $font-size-header-small;
+	}
+
+	h5{
+		font-size: $font-size-body-large;
+	}
+
+	h6{
+		font-size: $font-size-body;
+	}
 }
 

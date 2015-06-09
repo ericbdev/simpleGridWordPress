@@ -909,18 +909,24 @@ h1 + p:first-child, h2 + p:first-child, h3 + p:first-child, h4 + p:first-child, 
 h1 + p:first-child:last-child, h2 + p:first-child:last-child, h3 + p:first-child:last-child, h4 + p:first-child:last-child, h5 + p:first-child:last-child, h6 + p:first-child:last-child { margin-bottom: 0; }
 h1 + p:last-child:first-child, h2 + p:last-child:first-child, h3 + p:last-child:first-child, h4 + p:last-child:first-child, h5 + p:last-child:first-child, h6 + p:last-child:first-child { margin-top: 0; }
 
-h1 { font-size: 48px; }
+h1 { font-size: 38.4px; }
 
-h2 { font-size: 40px; }
+h2 { font-size: 32px; }
 
-h3 { font-size: 30px; }
+h3 { font-size: 24px; }
 
-h4 { font-size: 24px; }
+h4 { font-size: 19.2px; }
 
-h5 { font-size: 18px; }
+h5 { font-size: 14.4px; }
 
-h6 { font-size: 16px; }
+h6 { font-size: 12.8px; }
 
+@media only screen and (min-width: 569px) { h1 { font-size: 48px; }
+  h2 { font-size: 40px; }
+  h3 { font-size: 30px; }
+  h4 { font-size: 24px; }
+  h5 { font-size: 18px; }
+  h6 { font-size: 16px; } }
 .archive-header.articles-header { padding-top: 40px; padding-bottom: 40px; }
 .archive-header.articles-header div.table-wrapper { padding: 0; width: 100%; display: table; }
 .archive-header.articles-header ul.dropdown-select { max-width: 100%; }
