@@ -87,10 +87,10 @@ $show-touch-visibility : false;
 
 
 // Grid Attributes
-$is-static: false;
-$is-static-pixels: $is-static;
-$row-width: 1000px;
-$total-columns: 12;
+$is-static: false !default;
+$is-static-pixels: $is-static !default;
+$row-width: 1000px !default;
+$total-columns: 12 !default;
 $column-gutter: 20px !default;
 $padding-gutter: $column-gutter !default;
 $column-gutter-plus: $column-gutter + ($column-gutter/2) !default;
