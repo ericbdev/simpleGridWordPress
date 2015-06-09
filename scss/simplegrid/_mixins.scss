@@ -23,6 +23,9 @@ $base-font-size: 16px !default;
 @mixin responsive-padding($size){
 	.#{$size}-padding-right{
 		padding-right: $padding-gutter;
+		&.triple-space{
+			padding-right: $padding-gutter*3;
+		}
 		&.double-space{
 			padding-right: $padding-gutter*2;
 		}
@@ -32,6 +35,9 @@ $base-font-size: 16px !default;
 	}
 	.#{$size}-padding-left{
 		padding-left: $padding-gutter;
+		&.triple-space{
+			padding-left: $padding-gutter*3;
+		}
 		&.double-space{
 			padding-left: $padding-gutter*2;
 		}
@@ -41,6 +47,9 @@ $base-font-size: 16px !default;
 	}
 	.#{$size}-padding-bottom{
 		padding-bottom: $padding-gutter;
+		&.triple-space{
+			padding-bottom: $padding-gutter*3;
+		}
 		&.double-space{
 			padding-bottom: $padding-gutter*2;
 		}
@@ -50,6 +59,9 @@ $base-font-size: 16px !default;
 	}
 	.#{$size}-padding-top{
 		padding-top: $padding-gutter;
+		&.triple-space{
+			padding-top: $padding-gutter*3;
+		}
 		&.double-space{
 			padding-top: $padding-gutter*2;
 		}
