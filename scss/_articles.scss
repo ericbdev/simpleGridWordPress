@@ -84,7 +84,7 @@ $color-body: $color-main !default;
 	}
 }
 
-@include mediaQuery($medium-up){
+@media #{$medium-up}{
 	.loop-articles{
 		.single-article{
 			.sub-header{

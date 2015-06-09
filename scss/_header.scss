@@ -139,7 +139,7 @@ ul.header-nav{
 
 }
 
-@include mediaQuery($large-up){
+@media #{$large-up}{
 	.wrapper.main-header{
 		background: rgba($color-white, 1);
 		height:      $heightHeader;

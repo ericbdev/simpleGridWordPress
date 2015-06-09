@@ -178,7 +178,7 @@ $color-body-dk-opaque: rgba($color-body, .8) !default;
 		text-indent:     -999999px;
 	}
 }
-@include mediaQuery($medium-up){
+@media #{$medium-up}{
 	.archive-header{
 		.search-form{
 			margin-top: 0px;
