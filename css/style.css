@@ -829,9 +829,8 @@ a:hover { color: #970c11; }
 .font-size.header-large { font-size: 48px; }
 
 .main-header { position: relative; height: 80px; line-height: 80px; background: rgba(255, 255, 255, 0.7); z-index: 200; }
-.main-header .logo-header { margin: 0; padding: 0; }
-.main-header .logo-header a { max-height: 80px; display: block; }
-.main-header .logo-header img { max-height: 80px; display: block; }
+.main-header a.logo-header { margin: 0; padding: 0; max-height: 80px; display: block; }
+.main-header a.logo-header img { max-height: 80px; display: block; }
 
 #btn-mobile-nav { display: block; position: relative; display: inline-block; text-align: center; margin: 0 auto; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; -ms-transition: all 1s ease; -o-transition: all 1s ease; transition: all 1s ease; }
 #btn-mobile-nav:hover img.on { opacity: 1; }
@@ -858,9 +857,8 @@ ul.header-nav ul li ul { left: 175px; top: 0; }
 ul.header-nav ul li ul > li:hover a, ul.header-nav ul li ul a:hover { background: white; color: #ed1c24; }
 
 @media only screen and (min-width: 851px) { .wrapper.main-header { background: white; height: 100px; line-height: 100px; }
-  .wrapper.main-header .logo-header { max-height: 100px; }
-  .wrapper.main-header .logo-header a { max-height: 100px; }
-  .wrapper.main-header .logo-header img { max-height: 100px; }
+  .wrapper.main-header a.logo-header { max-height: 100px; }
+  .wrapper.main-header a.logo-header img { max-height: 100px; }
   #site-wrapper { padding-top: 0px; } }
 h1, h2, h3, h4, h5, h6 { line-height: 120%; margin: 40px 0 0 0; padding: 0; font-weight: 300; }
 h1:first-child, h2:first-child, h3:first-child, h4:first-child, h5:first-child, h6:first-child { margin-top: 0; margin-bottom: 40px; }

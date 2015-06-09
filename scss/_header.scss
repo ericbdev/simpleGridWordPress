@@ -9,13 +9,11 @@ $heightHeaderOffset: -100px;
 	background:  rgba($color-white, .7);
 	z-index:     200;
 	//@include box-shadow(0, 0, 10px, rgba($color-black, .8));
-	.logo-header{
+	a.logo-header{
 		margin:  0;
 		padding: 0;
-		a{
-			max-height: $mobileHeader;
-			display:    block;
-		}
+		max-height: $mobileHeader;
+		display:    block;
 		img{
 			max-height: $mobileHeader;
 			display:    block;
@@ -146,11 +144,8 @@ ul.header-nav{
 		background: rgba($color-white, 1);
 		height:      $heightHeader;
 		line-height: $heightHeader;
-		.logo-header{
+		a.logo-header{
 			max-height: $heightHeader;
-			a{
-				max-height: $heightHeader;
-			}
 			img{
 				max-height: $heightHeader;
 			}

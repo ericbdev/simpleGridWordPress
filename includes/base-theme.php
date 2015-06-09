@@ -1,10 +1,15 @@
 <?php
 function is_test(){
+	$ip = '24.37.85.130';
 	if(isset($_REQUEST['reversetest'])):
 		return false;
 	elseif(isset($_REQUEST['prev'])):
 		return true;
-	elseif($_SERVER['REMOTE_ADDR'] == '24.37.85.130'):
+	elseif (($_SERVER['HTTP_X_FORWARDED_FOR'] !== NULL) && ($_SERVER['HTTP_X_FORWARDED_FOR'] == $ip)):
+		return true;
+	elseif (($_SERVER['HTTP_X_CLUSTER_CLIENT_IP'] !== NULL) && ($_SERVER['HTTP_X_CLUSTER_CLIENT_IP'] == $ip)):
+		return true;
+	elseif (($_SERVER['REMOTE_ADDR'] !== NULL) && ($_SERVER['REMOTE_ADDR'] == $ip)):
 		return true;
 	else:
 		return false;
