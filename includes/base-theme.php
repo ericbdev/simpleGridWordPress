@@ -50,17 +50,18 @@ require_once 'base/woo-commerce.php';
 
 /*************************************************************************************/
 /** Theme By Theme Customization **/
-function add_document_title(){
-	if(function_exists('_wp_render_title_tag')):
-		?><title><?php wp_title('|'); ?></title><?php
-	else:
-		?><title><?php wp_title( '|', true, 'right' ); ?></title><?php
-	endif;
+function theme_setup() {
+	add_theme_support('title-tag');
+	add_theme_support('html5', array('search-form'));
+	add_theme_support('post-thumbnails');
 }
-add_action('wp_head', 'add_document_title');
-add_theme_support( 'title-tag' );
-add_theme_support( 'html5', array( 'search-form' ) );
-add_theme_support( 'post-thumbnails' );
+if (!function_exists('_wp_render_title_tag')) :
+	function fallback_render_title() {
+		?><title><?php wp_title('|', true, 'right'); ?></title><?php
+	}
+	add_action('wp_head', 'fallback_render_title');
+endif;
+add_action('after_setup_theme', 'theme_setup');
 
 
 
