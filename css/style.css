@@ -876,6 +876,7 @@ a:hover { color: #970c11; }
 
 .alignleft, .float-left { float: left; }
 
+/** FONT STYLING **/
 .text-upper { text-transform: uppercase; }
 
 .text-regular { text-transform: none; }
@@ -887,6 +888,23 @@ a:hover { color: #970c11; }
 .font-size.header { font-size: 30px; }
 .font-size.header-medium { font-size: 40px; }
 .font-size.header-large { font-size: 48px; }
+
+/** COLOR OBJECTS **/
+.color-body { color: #494949; }
+.color-body.light { color: #7c7c7c; }
+
+.bg-white { background: white; }
+
+.color-white { color: white; }
+
+.bg-black { background: black; }
+
+.color-black { color: black; }
+
+.button { display: inline-block; padding: 5px 10px; font: 400 16px/120% "Open Sans", "Helvetica", Helvetica, Arial, sans-serif; text-transform: uppercase; -webkit-transition: all 1s ease; -moz-transition: all 1s ease; -ms-transition: all 1s ease; -o-transition: all 1s ease; transition: all 1s ease; }
+.button.display-block { display: block; }
+.button.button-body { color: white; background: #7c7c7c; }
+.button.button-body:hover { background: #494949; }
 
 .main-header { position: relative; height: 80px; line-height: 80px; background: rgba(255, 255, 255, 0.7); z-index: 200; }
 .main-header a.logo-header { margin: 0; padding: 0; max-height: 80px; display: block; }

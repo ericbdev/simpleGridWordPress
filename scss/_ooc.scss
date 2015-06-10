@@ -24,24 +24,31 @@
 		}
 	}
 }
+
 @media #{$small-up} {
 	@include responsive-padding($size: small);
 }
+
 @media #{$small-only} {
 	@include responsive-padding($size: small-only);
 }
+
 @media #{$medium-up} {
 	@include responsive-padding($size: medium);
 }
+
 @media #{$medium-only} {
 	@include responsive-padding($size: medium-only);
 }
+
 @media #{$large-up} {
 	@include responsive-padding($size: large);
 }
+
 @media #{$large-only} {
 	@include responsive-padding($size: large-only);
 }
+
 @if $include-xl-html-grid-classes{
 	@media #{$xlarge-up} {
 		@include responsive-padding($size: xlarge);
@@ -56,29 +63,33 @@
 		@include responsive-padding($size: xxlarge-only);
 	}
 }
+
 .small-squared,
 .medium-squared,
 .large-squared{
-	position:       relative;
-	display:        block;
+	position: relative;
+	display:  block;
 	img.square{
-		display:none;
+		display: none;
 	}
 	.content{
-		padding:  $padding-gutter*2;
+		padding: $padding-gutter*2;
 	}
 }
+
 @media #{$small-only}{
 	@include squared-content(small);
 }
+
 @media #{$medium-only}{
 	@include squared-content(medium);
 }
+
 @media #{$large-up}{
 	@include squared-content(large);
 }
-/** div.x-squared>div.content.content-center+img.square **/
 
+/** div.x-squared>div.content.content-center+img.square **/
 
 .align-right{
 	text-align: right;
@@ -102,6 +113,7 @@
 	float: left;
 }
 
+/** FONT STYLING **/
 .text-upper{
 	text-transform: uppercase;
 }
@@ -131,5 +143,47 @@
 	}
 	&.header-large{
 		font-size: $font-size-header-large;
+	}
+}
+
+/** COLOR OBJECTS **/
+.color-body{
+	color: $color-body;
+	&.light{
+		color: $color-body-lt;
+	}
+}
+
+.bg-white{
+	background: $color-white;
+}
+
+.color-white{
+	color: $color-white;
+}
+
+.bg-black{
+	background: $color-black;
+}
+
+.color-black{
+	color: $color-black;
+}
+
+.button{
+	display:        inline-block;
+	padding:        $padding-gutter/4 $padding-gutter/2;
+	font:           400 #{$font-size-body}/120% $font-header;
+	text-transform: uppercase;
+	@include transition();
+	&.display-block{
+		display: block;
+	}
+	&.button-body{
+		color:      $color-white;
+		background: $color-body-lt;
+		&:hover{
+			background: $color-body;
+		}
 	}
 }
