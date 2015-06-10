@@ -56,6 +56,29 @@
 		@include responsive-padding($size: xxlarge-only);
 	}
 }
+.small-squared,
+.medium-squared,
+.large-squared{
+	position:       relative;
+	display:        block;
+	img.square{
+		display:none;
+	}
+	.content{
+		padding:  $padding-gutter*2;
+	}
+}
+@media #{$small-only}{
+	@include squared-content(small);
+}
+@media #{$medium-only}{
+	@include squared-content(medium);
+}
+@media #{$large-up}{
+	@include squared-content(large);
+}
+/** div.x-squared>div.content.content-center+img.square **/
+
 
 .align-right{
 	text-align: right;

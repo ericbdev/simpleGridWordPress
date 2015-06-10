@@ -80,6 +80,29 @@ $base-font-size: 16px !default;
 		}
 	}
 }
+@mixin squared-content($size){
+	.#{$size}-squared{
+		vertical-align: middle;
+		img.square{
+			max-width: 100%;
+			display:   block;
+			position:  relative;
+		}
+		.content{
+			position: absolute;
+			width:    100%;
+			left:     0;
+			&.content-center{
+				top: 50%;
+				@include transform(translateY(-50%));
+			}
+			&.content-top{
+				top: 0%;
+			}
+		}
+	}
+}
+
 
 @mixin header-margin($space, $is_header: true) {
 	@if $is_header == true{

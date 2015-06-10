@@ -846,6 +846,26 @@ a:hover { color: #970c11; }
   .xxlarge-only-padding-all { padding: 20px; }
   .xxlarge-only-padding-all.double-space { padding: 40px; }
   .xxlarge-only-padding-all.half-space { padding: 10px; } }
+.small-squared, .medium-squared, .large-squared { position: relative; display: block; }
+.small-squared img.square, .medium-squared img.square, .large-squared img.square { display: none; }
+.small-squared .content, .medium-squared .content, .large-squared .content { padding: 40px; }
+
+@media only screen and (max-width: 568px) { .small-squared { vertical-align: middle; }
+  .small-squared img.square { max-width: 100%; display: block; position: relative; }
+  .small-squared .content { position: absolute; width: 100%; left: 0; }
+  .small-squared .content.content-center { top: 50%; -moz-transform: translateY(-50%); -o-transform: translateY(-50%); -ms-transform: translateY(-50%); -webkit-transform: translateY(-50%); transform: translateY(-50%); }
+  .small-squared .content.content-top { top: 0%; } }
+@media only screen and (min-width: 569px) and (max-width: 850px) { .medium-squared { vertical-align: middle; }
+  .medium-squared img.square { max-width: 100%; display: block; position: relative; }
+  .medium-squared .content { position: absolute; width: 100%; left: 0; }
+  .medium-squared .content.content-center { top: 50%; -moz-transform: translateY(-50%); -o-transform: translateY(-50%); -ms-transform: translateY(-50%); -webkit-transform: translateY(-50%); transform: translateY(-50%); }
+  .medium-squared .content.content-top { top: 0%; } }
+@media only screen and (min-width: 851px) { .large-squared { vertical-align: middle; }
+  .large-squared img.square { max-width: 100%; display: block; position: relative; }
+  .large-squared .content { position: absolute; width: 100%; left: 0; }
+  .large-squared .content.content-center { top: 50%; -moz-transform: translateY(-50%); -o-transform: translateY(-50%); -ms-transform: translateY(-50%); -webkit-transform: translateY(-50%); transform: translateY(-50%); }
+  .large-squared .content.content-top { top: 0%; } }
+/** div.x-squared>div.content.content-center+img.square **/
 .align-right { text-align: right; }
 
 .align-left { text-align: left; }
