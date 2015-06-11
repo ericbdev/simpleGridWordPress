@@ -105,6 +105,15 @@ function get_meta($id, $field){
 	return get_post_meta(intval($id), $prefix.$field, true);
 }
 
+function get_wysiwyg($id, $field) {
+	global $wp_embed;
+	$content = get_meta($id, $field);
+	$content = $wp_embed->autoembed($content);
+	$content = $wp_embed->run_shortcode($content);
+	$content = apply_filters('the_content', $content);
+	return $content;
+}
+
 if(!function_exists('get_term_name')):
 	/**
 	 * @param int    $term_id
