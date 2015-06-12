@@ -872,6 +872,8 @@ a:hover { color: #970c11; }
 
 .align-center { text-align: center; }
 
+.float-center, .aligncenter { margin: 0 auto; float: none; display: block; }
+
 .alignright, .float-right { float: right; }
 
 .alignleft, .float-left { float: left; }

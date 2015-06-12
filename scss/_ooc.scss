@@ -103,6 +103,12 @@
 	text-align: center;
 }
 
+.float-center,
+.aligncenter{
+	margin: 0 auto;
+	float:  none;
+	display: block;
+}
 .alignright,
 .float-right{
 	float: right;
