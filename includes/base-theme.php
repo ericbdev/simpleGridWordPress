@@ -177,11 +177,13 @@ function get_languages_long($includeActive = false) {
 	endif;
 }
 
-function get_lang_active($validateAgainst = false) {
+function get_lang_active($validateAgainst = false, $shorten = true) {
 	$activeLang = 'en';
 	if(class_exists('SitePress')):
 		global $sitepress;
-		$activeLang = substr($sitepress->get_current_language(),0,2);
+		if($sitepress->get_current_language()):
+			$activeLang = ($shorten ? substr($sitepress->get_current_language(),0,2) : $sitepress->get_current_language()) ;
+		endif;
 	endif;
 
 	if(!$validateAgainst):
@@ -190,6 +192,7 @@ function get_lang_active($validateAgainst = false) {
 		return ($activeLang == $validateAgainst);
 	endif;
 }
+
 function get_lang_code($activeLang = false) {
 	if(class_exists('SitePress')):
 		if(!$activeLang):
