@@ -128,6 +128,18 @@ class form_builder {
 		return $return;
 	}
 
+	public function get_ip(){
+		$return_ip = null;
+		if ($_SERVER['HTTP_X_FORWARDED_FOR'] !== NULL):
+			$return_ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+		elseif($_SERVER['HTTP_X_CLUSTER_CLIENT_IP'] !== NULL):
+			$return_ip = $_SERVER['HTTP_X_CLUSTER_CLIENT_IP'];
+		else:
+			$return_ip = $_SERVER['REMOTE_ADDR'];
+		endif;
+		return $return_ip;
+	}
+
 
 	private function different_day($date) {
 		$lastEntry = array(
