@@ -470,37 +470,6 @@ if (!function_exists('recurse')) {
 		return $array;
 	}
 }
-/**
- * Legacy support
- */
-if (!function_exists('themeDomain')) {
-	/**
-	 * @deprecated use theme_domain();
-	 * @return string
-	 */
-	function themeDomain(){
-		return theme_domain();
-	}
-}
-if (!function_exists('array_replace_recursive')) {
-	function array_replace_recursive($array, $array1) {
-
-
-		// handle the arguments, merge one by one
-		$args  = func_get_args();
-		$array = $args[0];
-		if (!is_array($array)) {
-			return $array;
-		}
-		for ($i = 1; $i < count($args); $i++) {
-			if (is_array($args[$i])) {
-				$array = recurse($array, $args[$i]);
-			}
-		}
-		return $array;
-	}
-}
-
 
 /** Adding in Image Sizes for thumbnails **/
 $imageSizes = array(
