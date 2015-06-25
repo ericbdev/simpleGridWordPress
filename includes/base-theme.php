@@ -383,8 +383,10 @@ function remove_width_attribute( $html ) {
 	$html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
 	return $html;
 }
-function set_html_content_type() {
-	return 'text/html';
+if (!function_exists('set_html_content_type')) {
+	function set_html_content_type() {
+		return 'text/html';
+	}
 }
 function is_login() {
 	return in_array( $GLOBALS['pagenow'], array( 'wp-login.php', 'wp-register.php' ) );
