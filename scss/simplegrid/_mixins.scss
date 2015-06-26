@@ -72,6 +72,9 @@ $base-font-size: 16px !default;
 
 	.#{$size}-padding-all{
 		padding: $padding-gutter;
+		&.triple-space{
+			padding: $padding-gutter*3;
+		}
 		&.double-space{
 			padding: $padding-gutter*2;
 		}
