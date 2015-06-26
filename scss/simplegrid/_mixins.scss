@@ -199,6 +199,7 @@ $base-font-size: 16px !default;
 	box-shadow:         #{$properties} #{$inset};
 }
 
+//TODO: Look into IE support, and the variations. I feel like this doesnt always work
 @mixin linear-gradient($fromColor, $toColor, $directon: vertical, $from1Dist: 0%, $toDist: 100%) {
 	@if $directon == horizontal{
 		background: $fromColor; // Old browsers
@@ -220,7 +221,7 @@ $base-font-size: 16px !default;
 		filter:     progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$fromColor}', endColorstr='#{$toColor}', GradientType=0); // IE6-9
 	}
 }
-
+//TODO: Look into IE support, and the variations. I feel like this doesnt always work
 @mixin radial-gradient($fromColor, $toColor, $from1Dist: 0%, $toDist: 100%) {
 	background: $fromColor; // Old browsers
 	background: -moz-radial-gradient(center, ellipse cover, $fromColor $from1Dist, $toColor $toDist); // FF3.6+
@@ -262,7 +263,7 @@ $base-font-size: 16px !default;
 	-moz-appearance:    $appearance;
 	-webkit-appearance: $appearance;
 }
-
+//TODO: Seriously look into dropping this
 @mixin mediaQuery($size: $screen, $non-default: false) {
 	/* @deprecated -- TO DROP*/
 	@if $non-default{
