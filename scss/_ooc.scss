@@ -154,28 +154,9 @@
 }
 
 /** COLOR OBJECTS **/
-.color-body{
-	color: $color-body;
-	&.light{
-		color: $color-body-lt;
-	}
-}
-
-.bg-white{
-	background: $color-white;
-}
-
-.color-white{
-	color: $color-white;
-}
-
-.bg-black{
-	background: $color-black;
-}
-
-.color-black{
-	color: $color-black;
-}
+@include color-oocs('body', $color-body, $color-body-lt, $color-body-dk);
+@include color-oocs('white', $color-white);
+@include color-oocs('black', $color-black);
 
 .button{
 	display:        inline-block;

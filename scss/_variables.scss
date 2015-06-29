@@ -7,8 +7,9 @@ $color-black: #000;
 //Site Colors
 $color-main: #ed1c24;
 $color-alt: darkenColor($color-main);
-$color-body: #494949;
+$color-body: #444444;
 $color-body-lt: lighten($color-body, 20%);
+$color-body-dk: darken($color-body, 20%);
 
 //Site Heights
 $footerHeight: 100px;

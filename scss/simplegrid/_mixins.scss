@@ -83,6 +83,37 @@ $base-font-size: 16px !default;
 		}
 	}
 }
+
+
+@mixin color-oocs($name, $color, $color-lt: false, $color-dk: false) {
+	.color-#{$name}{
+		color: $color;
+		@if($color-lt){
+			&.light{
+				color:$color-lt;
+			}
+		}
+		@if($color-dk){
+			&.dark{
+				color:$color-dk;
+			}
+		}
+	}
+	.bg-#{$name}{
+		background-color:$color;
+		@if($color-lt){
+			&.light{
+				background-color:$color-lt;
+			}
+		}
+		@if($color-dk){
+			&.dark{
+				background-color:$color-dk;
+			}
+		}
+	}
+}
+
 @mixin squared-content($size){
 	.#{$size}-squared{
 		vertical-align: middle;
