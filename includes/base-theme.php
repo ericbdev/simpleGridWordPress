@@ -353,7 +353,7 @@ function wphidenag() {
 add_action('admin_menu','wphidenag');
 
 function remove_admin_bar() {
-	if(isset($_REQUEST['hide_admin_bar'])):
+	if(!isset($_REQUEST['show_admin_bar']) || !is_test()):
 		//show_admin_bar(false);
 		add_filter('show_admin_bar', '__return_false');
 	endif;
