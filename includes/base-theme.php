@@ -282,6 +282,27 @@ class navWalker extends Walker_Nav_Menu{
 		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args, $id);
 	}
 }
+
+class debug_walker extends Walker_Page{
+	function end_el( &$output, $item, $depth = 0, $args = array() ) {
+		$output .= "";
+	}
+	function start_lvl( &$output, $depth = 0, $args = array() ) {
+		$output .= "";
+	}
+	function end_lvl( &$output, $depth = 0, $args = array() ) {
+		$output .= "";
+	}
+
+	function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
+		global $wp_query;
+		$item_output = "case '".$item->post_name."':\n";
+		$item_output .= '$pageID = get_translated_id('.$item->ID.');'."\n";
+		$item_output .= 'break;'."\n";
+
+		$output .= $item_output;
+	}
+}
 /*************************************************************************************/
 
 function youtube_id_from_url($url) {
