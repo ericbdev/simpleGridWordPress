@@ -84,7 +84,7 @@ $base-font-size: 16px !default;
 	}
 }
 
-
+//TODO: Starting to hit naming confliction potential. Maybe start introducing BEM
 @mixin color-oocs($name, $color, $color-lt: false, $color-dk: false) {
 	.color-#{$name}{
 		color: $color;
