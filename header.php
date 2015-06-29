@@ -28,7 +28,7 @@
 	<div class="show-for-large-up row">
 		<nav class="columns small-12 main-menu">
 			<a href="<?php echo (function_exists('icl_get_home_url') ? icl_get_home_url() :  get_home_url()); ?>" class="logo-header float-left">
-				<img src="<?php echo get_theme_path();?>/images/logo-vuwall-color.png" alt="<?php bloginfo('name'); ?>"/>
+				<img src="<?php echo get_theme_path();?>/images/logo-placeholder.png" alt="<?php bloginfo('name'); ?>"/>
 			</a>
 			<ul class="header-nav">
 				<?php
