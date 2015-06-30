@@ -212,14 +212,16 @@ function get_lang_code($activeLang = false) {
 /**
  * @param        $element_id
  * @param string $element_type
- * @param string $ulanguage_code
+ * @param string $language_code
  * @return int
  */
-function get_translated_id($element_id, $element_type = 'page', $ulanguage_code = 'en') {
+function get_translated_id($element_id, $element_type = 'page', $language_code = 'en') {
 	$returnID = intval($element_id);
 	if(class_exists('SitePress')){
-		if(function_exists('icl_object_id')) {
-			$returnID = wpml_object_id_filter($element_id, $element_type, true, $ulanguage_code);
+		if(function_exists('wpml_object_id_filter')) {
+			$returnID = wpml_object_id_filter($element_id, $element_type, true, $language_code);
+		}elseif(function_exists('icl_object_id')) {
+			$returnID = icl_object_id($element_id, $element_type, true, $language_code);
 		}
 	}
 	return intval($returnID);
