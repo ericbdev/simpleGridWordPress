@@ -196,6 +196,7 @@ function get_lang_active($validateAgainst = false, $shorten = true) {
 	endif;
 }
 
+//TODO: REPLACE WITH wpml_active_languages // ADD BACKWARDS COMPATIBILITY
 function get_lang_code($activeLang = false) {
 	if(class_exists('SitePress')):
 		if(!$activeLang):
