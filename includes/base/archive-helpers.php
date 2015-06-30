@@ -61,6 +61,40 @@ function my_strftime ($format, $timestamp){
 		str_replace (array_keys($mapOrdinals), array_values($mapOrdinals), strftime($format, $timestamp) );
 
 }
+function get_article_date($timePosted){
+	$mapOrdinals = array(
+		"st" => "<sup>er</sup>",
+		"nd" => "<sup>e</sup>",
+		"th" => "<sup>e</sup>"
+	);
+
+	$return = '';
+	if(get_lang_active('fr')):
+		setlocale(LC_ALL, 'fr_FR');
+		$month = date('F',$timePosted);
+		$day = date('j',$timePosted);
+		$dayTH = date('S',$timePosted);
+		$dayTH = str_replace (array_keys($mapOrdinals), array_values($mapOrdinals), $dayTH);
+		$year = date('Y',$timePosted);
+		$return .=  $month.$day."<sup>".$dayTH."</sup>".$year;
+	else:
+		setlocale(LC_ALL, 'en_CA');
+		$month = date('F',$timePosted);
+		$day = date('j',$timePosted);
+		$dayTH = date('S',$timePosted);
+		$year = date('Y',$timePosted);
+		$return .=  $month.$day."<sup>".$dayTH."</sup>".$year;
+	endif;
+	setlocale(LC_ALL, 'en_CA');
+
+	return $return;
+};
+
+function posted_article_date($timePosted){
+	$time = get_article_date($timePosted);
+	$postedOn = _x('Posted on %s', 'Links', theme_domain());
+	return sprintf($postedOn, $time);
+};
 
 function my_search_form( $form ) {
 	$form = '<form role="search" method="get" class="search-form" action="' . esc_url( home_url( '/' ) ) . '">';
