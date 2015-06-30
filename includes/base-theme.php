@@ -210,34 +210,29 @@ function get_lang_code($activeLang = false) {
 }
 
 /**
- * @param        $id
- * @param string $type
+ * @param        $element_id
+ * @param string $element_type
+ * @param string $ulanguage_code
  * @return int
  */
-function get_translated_id($id, $type = 'page') {
-	$returnID = intval($id);
+function get_translated_id($element_id, $element_type = 'page', $ulanguage_code = 'en') {
+	$returnID = intval($element_id);
 	if(class_exists('SitePress')){
 		if(function_exists('icl_object_id')) {
-			$returnID = icl_object_id($id, $type, true);
+			$returnID = wpml_object_id_filter($element_id, $element_type, true, $ulanguage_code);
 		}
 	}
 	return intval($returnID);
 }
 
 /**
- * @param        $id
- * @param string $type
- * @param string $lang
+ * @param        $element_id
+ * @param string $element_type
+ * @param string $ulanguage_code
  * @return int
  */
-function get_default_id($id, $type = 'page', $lang = 'en') {
-	$returnID = intval($id);
-	if(class_exists('SitePress')){
-		if(function_exists('icl_object_id')) {
-			$returnID = icl_object_id($id, $type, true, $lang);
-		}
-	}
-	return intval($returnID);
+function get_default_id($element_id, $element_type = 'page', $ulanguage_code = 'en') {
+	return get_translated_id($element_id,$element_type, 'en');
 }
 
 /*************************************************************************************/
@@ -297,7 +292,7 @@ class debug_walker extends Walker_Page{
 	function start_el(&$output, $item, $depth = 0, $args = array(), $id = 0) {
 		global $wp_query;
 		$item_output = "case '".$item->post_name."':\n";
-		$item_output .= '$pageID = get_translated_id('.$item->ID.');'."\n";
+		$item_output .= '$pageID = '.$item->ID."\n";
 		$item_output .= 'break;'."\n";
 
 		$output .= $item_output;
