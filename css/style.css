@@ -891,6 +891,9 @@ a:hover { color: #970c11; }
   .large-squared .content.content-center { top: 50%; -moz-transform: translateY(-50%); -o-transform: translateY(-50%); -ms-transform: translateY(-50%); -webkit-transform: translateY(-50%); transform: translateY(-50%); }
   .large-squared .content.content-top { top: 0%; } }
 /** div.x-squared>div.content.content-center+img.square **/
+.display.display-block { display: block; }
+.display.display-inline { display: inline-block; }
+
 .align-right { text-align: right; }
 
 .align-left { text-align: left; }

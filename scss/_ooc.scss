@@ -92,6 +92,15 @@
 
 /** div.x-squared>div.content.content-center+img.square **/
 
+.display{
+	&.display-block{
+		display: block;
+	}
+	&.display-inline{
+		display: inline-block;
+	}
+}
+
 .align-right{
 	text-align: right;
 }
