@@ -921,12 +921,12 @@ a:hover { color: #970c11; }
 
 /** COLOR OBJECTS **/
 .color-body { color: #444444; }
-.color-body.light { color: #777777; }
-.color-body.dark { color: #111111; }
+.color-body.color-light { color: #777777; }
+.color-body.color-dark { color: #111111; }
 
 .bg-body { background-color: #444444; }
-.bg-body.light { background-color: #777777; }
-.bg-body.dark { background-color: #111111; }
+.bg-body.bg-light { background-color: #777777; }
+.bg-body.bg-dark { background-color: #111111; }
 
 .color-white { color: white; }
 

@@ -89,12 +89,12 @@ $base-font-size: 16px !default;
 	.color-#{$name}{
 		color: $color;
 		@if($color-lt){
-			&.light{
+			&.color-light{
 				color:$color-lt;
 			}
 		}
 		@if($color-dk){
-			&.dark{
+			&.color-dark{
 				color:$color-dk;
 			}
 		}
@@ -102,12 +102,12 @@ $base-font-size: 16px !default;
 	.bg-#{$name}{
 		background-color:$color;
 		@if($color-lt){
-			&.light{
+			&.bg-light{
 				background-color:$color-lt;
 			}
 		}
 		@if($color-dk){
-			&.dark{
+			&.bg-dark{
 				background-color:$color-dk;
 			}
 		}
