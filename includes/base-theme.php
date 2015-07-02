@@ -548,3 +548,26 @@ function image_sizes_names($sizes){
 }
 add_action('init', 'add_image_sizes');
 add_filter( 'image_size_names_choose', 'image_sizes_names' );
+
+
+/**
+ * @param        $array
+ * @param string $glue
+ * @param string $before_key
+ * @param array  $value_before_after
+ * @return string
+ *
+ * Usage:
+ * Pass it at minimum a key-value array, to be outputted as plain text.
+ * Used for fast adjustment of item attributes
+ *
+ */
+function associative_implode($array, $glue = "=", $before_key = " ", $value_before_after = array()) {
+	if (!isset($value_before_after['before'])) $value_before_after['before'] = '"';
+	if (!isset($value_before_after['after'])) $value_before_after['after'] = '"';
+	$return = '';
+	foreach ($array as $k => $v):
+		$return .= $before_key . $k . $glue . $value_before_after['before'] . $v . $value_before_after['after'];
+	endforeach;
+	return $return;
+}
