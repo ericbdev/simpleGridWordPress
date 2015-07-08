@@ -93,9 +93,9 @@ function get_id($name, $lang = false){
 	$pageID = '';
 	switch($name){
 		case 'home':
-			$pageID = get_translated_id(2);
+			$pageID = 2;
 			break;
 	}
 	$searchLang = ($lang ? $lang : get_lang_active());
-	return get_default_id($pageID, 'page', $searchLang);
+	return get_translated_id($pageID, 'page', $searchLang);
 }
