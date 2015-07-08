@@ -209,14 +209,16 @@ class form_builder {
 		$return = false;
 
 		if ($type == 'email'):
-			/** TODO: FIND A USE FOR THIS? **/
-		endif;
-		/**  TODO: a string of '0' could be valid in a given context**/
-		if (isset($this->request[$field_name])) :
-			if ($this->request[$field_name] !== ''
-				&& $this->request[$field_name] !== 0
-				&& $this->request[$field_name] !== '0'):
-				$return = true;
+			$return = filter_var($this->request[$field_name], FILTER_VALIDATE_EMAIL);
+		else:
+			if (isset($this->request[$field_name])) :
+				/**  TODO: a string of '0' could be valid in a given context**/
+				if ($this->request[$field_name] !== ''
+					&& $this->request[$field_name] !== 0
+					&& $this->request[$field_name] !== '0'
+				):
+					$return = true;
+				endif;
 			endif;
 		endif;
 		return $return;
