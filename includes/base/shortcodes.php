@@ -84,7 +84,7 @@ function emailCode($atts, $content = null) {
 	if($update_text !== true ):
 		$returnContent .= $outputContent;
 	else:
-		$returnContent .= _x('Please enable JavaScript', 'Titles', theme_domain());
+		$returnContent .= __('Please enable JavaScript', theme_domain());
 	endif;
 	$returnContent .="</a>";
 	return $returnContent;

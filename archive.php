@@ -41,7 +41,7 @@ $prefix = get_the_prefix();
 						?>
 						<nav class="row archive-navigation collapse" role="navigation">
 							<div class="columns small-5 nav-previous">
-								<a href="<?php echo get_blog_archive_url();?>"><?php _ex('Back to articles', 'Titles', theme_domain());?></a>
+								<a href="<?php echo get_blog_archive_url();?>"><?php _e('Back to articles', theme_domain());?></a>
 							</div>
 						</nav>
 					<?php

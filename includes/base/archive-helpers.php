@@ -134,7 +134,7 @@ function get_articles_side_bar($taxonomyUl) {
 			</ul>
 		</div>
 		<div class="recent-articles">
-			<h2><?php _ex('Recent Articles:',  theme_domain()); ?></h2>
+			<h2><?php _e('Recent Articles:',  theme_domain()); ?></h2>
 			<ul>
 				<?php
 				$searchPostType = 'post';
