@@ -36,7 +36,7 @@ $isSingle = (is_single() ? true : false);
 		//echo get_social_share();
 
 		echo "<p>".get_custom_except(200, true)."</p>";
-		echo "<p class='read-more-link'><a href='".get_permalink($post->ID)."'>"._x('View the full article', 'Links', theme_domain())."</a></p>";
+		echo "<p class='read-more-link'><a href='".get_permalink($post->ID)."'>".__('View the full article', theme_domain())."</a></p>";
 
 
 

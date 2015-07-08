@@ -54,7 +54,7 @@ function ds_meta_fields( ) {
 	 */
 	$two_cols = new_cmb2_box( array(
 		'id'            => $prefix . 'two_columns',
-		'title'      => _x( 'Columns', 'Titles', be_domain() ),
+		'title'      => __( 'Columns',  be_domain() ),
 		'object_types'  => array( 'page', ), // Post type
 		'show_on' => array( 'key' => 'page-template', 'value' => array('tpl-two-col.php') ),
 		// 'show_on_cb' => 'yourprefix_show_if_front_page', // function should return a bool value
@@ -65,28 +65,28 @@ function ds_meta_fields( ) {
 		// 'closed'     => true, // true to keep the metabox closed by default
 	) );
 	$two_cols->add_field(array(
-		'name'       => _x( 'Column One', 'Titles', be_domain() ),
+		'name'       => __( 'Column One',  be_domain() ),
 		'id'         => $prefix . 'col_one',
 		'sanitization_cb' => false,
 		'type'       => 'wysiwyg',
 		'options' => $wysiwygOptions
 	));
 	$two_cols->add_field(array(
-		'name'       => _x( 'Column Two', 'Titles', be_domain() ),
+		'name'       => __( 'Column Two',  be_domain() ),
 		'id'         => $prefix . 'col_two',
 		'sanitization_cb' => false,
 		'type'       => 'wysiwyg',
 		'options' => $wysiwygOptions
 	));
 	$two_cols->add_field(array(
-		'name'       => _x( 'First Column Width', 'Titles', be_domain() ),
+		'name'       => __( 'First Column Width',  be_domain() ),
 		'id'         =>   $prefix.'col_width_one',
 		'type'      => 'select',
 		'options'   => $bannerColumnWidth,
 		'default'=> '4'
 	));
 	$two_cols->add_field(array(
-		'name'       => _x( 'Second Column Width', 'Titles', be_domain() ),
+		'name'       => __( 'Second Column Width',  be_domain() ),
 		'id'         =>   $prefix.'col_width_two',
 		'type'      => 'select',
 		'options'   => $bannerColumnWidth,
@@ -118,21 +118,21 @@ function ds_meta_fields( ) {
 		)
 	));
 	$page_banners->add_group_field($banner_group, array(
-		'name'       => _x('Image', 'Titles', be_domain()),
+		'name'       => __('Image',  be_domain()),
 		'id'         => 'image',
 		'show_names' => false,
 		'type'       => 'file',
 		'allow'      => array('attachment') // limit to just attachments with array( 'attachment' )
 	));
 	$page_banners->add_group_field($banner_group, array(
-		'name' => _x('Banner Text', 'Titles', be_domain()),
+		'name' => __('Banner Text',  be_domain()),
 		'id'   => 'text',
 		'type' => 'wysiwyg',
 		'options' => $wysiwygOptions,
 	));
 
 	/*array(
-		'name' => _x( 'Datasheet', 'Titles', be_domain() ),
+		'name' => __( 'Datasheet',  be_domain() ),
 		'id'   => $prefix.'prod_datasheet',
 		'type' => 'file',
 		'allow' => array('attachment' ) // limit to just attachments with array( 'attachment' )

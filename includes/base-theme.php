@@ -438,7 +438,7 @@ add_action( 'admin_menu', 'adjust_the_wp_menu', 999 );
 /** TODO: Improve this to pull the file information, similar to wp_get_theme()->get_page_templates**/
 add_filter( 'manage_edit-page_columns', 'page_columns_headers' ) ;
 function page_columns_headers( $columns ) {
-	$columns['template_name'] = _x( 'Template' ,'Title', theme_domain());
+	$columns['template_name'] = __( 'Template', theme_domain());
 	return $columns;
 }
 
@@ -495,35 +495,35 @@ if (!function_exists('recurse')) {
 /** Adding in Image Sizes for thumbnails **/
 $imageSizes = array(
 	array(
-		'name'   => _x('Full Original', 'Image Sizes', be_domain()),
+		'name'   => __('Full Original',  be_domain()),
 		'slug'   => 'full-original',
 		'width'  => 9999,
 		'height' => 9999,
 		'crop'   => false
 	),
 	array(
-		'name'   => _x('Page Banner', 'Image Sizes', be_domain()),
+		'name'   => __('Page Banner',  be_domain()),
 		'slug'   => 'page-banner',
 		'width'  => 1600,
 		'height' => 500,
 		'crop'   => false
 	),
 	array(
-		'name'   => _x('Square: 450px', 'Image Sizes', be_domain()),
+		'name'   => __('Square: 450px',  be_domain()),
 		'slug'   => 'sqr_450',
 		'width'  => 450,
 		'height' => 450,
 		'crop'   => true
 	),
 	array(
-		'name'   => _x('Square: 300px', 'Image Sizes', be_domain()),
+		'name'   => __('Square: 300px',  be_domain()),
 		'slug'   => 'sqr_300',
 		'width'  => 300,
 		'height' => 300,
 		'crop'   => true
 	),
 	array(
-		'name'   => _x('Square: 200px', 'Image Sizes', be_domain()),
+		'name'   => __('Square: 200px',  be_domain()),
 		'slug'   => 'sqr_200',
 		'width'  => 200,
 		'height' => 200,

@@ -46,28 +46,28 @@ class form_builder {
 
 		$this->errorVals = array(
 			'default' => array(
-				'required' => _x('This field is required', 'Form', theme_domain())
+				'required' => __('This field is required', theme_domain())
 			),
 			'form_full_name'       => array(
-				'required' => _x('Please enter your name', 'Form', theme_domain())
+				'required' => __('Please enter your name', theme_domain())
 			),
 			'form_email'       => array(
-				'required' => _x('Please enter a valid e-mail address', 'Form', theme_domain()),
-				'valid'    => _x('Please enter a valid e-mail address', 'Form', theme_domain()),
+				'required' => __('Please enter a valid e-mail address', theme_domain()),
+				'valid'    => __('Please enter a valid e-mail address', theme_domain()),
 			),
 			'form_telephone'       => array(
-				'required' => _x('Please enter your phone number', 'Form', theme_domain()),
+				'required' => __('Please enter your phone number', theme_domain()),
 			),
 			'form_message'   => array(
-				'required' => _x('Please enter a message', 'Form', theme_domain()),
+				'required' => __('Please enter a message', theme_domain()),
 			),
 		);
 
 		$this->placeholder = array(
-			'form_full_name'     => _x('Name', 'Form', theme_domain()),
-			'form_email'     => _x('Email', 'Form', theme_domain()),
-			'form_telephone'     => _x('Phone', 'Form', theme_domain()),
-			'form_message' => _x('Message', 'Form', theme_domain()),
+			'form_full_name'     => __('Name', theme_domain()),
+			'form_email'     => __('Email', theme_domain()),
+			'form_telephone'     => __('Phone', theme_domain()),
+			'form_message' => __('Message', theme_domain()),
 		);
 
 	}
