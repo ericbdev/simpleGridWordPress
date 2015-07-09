@@ -63,15 +63,19 @@ var functions = {
 	getWindowHeight  : function() {
 		return (document.documentElement.clientHeight == 0 ? $(window).height() : document.documentElement.clientHeight);
 	},
-	device_type : function(_match){
-		var _return = '';
-		if(this.getWindowWidth() <= 568){
-			return 'phone';
-		}else if(this.getWindowWidth() <= 850){
-			return 'tablet';
-		}else{
-			return 'desktop';
+	device_type    : function () {
+		var _args = Array.prototype.slice.call(arguments),
+			_match = (typeof _args[0] === 'undefined' ?  false : _args[0]),
+			_return = '';
+
+		if (this.getWindowWidth() <= 568) {
+			_return = 'phone';
+		} else if (this.getWindowWidth() <= 850) {
+			_return = 'tablet';
+		} else {
+			_return = 'desktop';
 		}
+		return (_match ? (_match == _return) : _return);
 	},
 	vertical_center          : function () {
 		var _center = $(".js-vertical-center");
